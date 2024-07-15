@@ -1,0 +1,282 @@
+# Guest
+(*Payments.Guest*)
+
+### Available Operations
+
+* [Initialize](#initialize) - Initialize a Bolt payment for guest shoppers
+* [Update](#update) - Update an existing guest payment
+* [PerformAction](#performaction) - Perform an irreversible action (e.g. finalize) on a pending guest payment
+
+## Initialize
+
+Initialize a Bolt payment token that will be used to reference this payment to
+Bolt when it is updated or finalized for guest shoppers.
+
+
+### Example Usage
+
+```csharp
+using Boltpay.SDK;
+using Boltpay.SDK.Models.Requests;
+using Boltpay.SDK.Models.Components;
+using System.Collections.Generic;
+
+var sdk = new BoltSDK();
+
+var res = await sdk.Payments.Guest.InitializeAsync(
+    security: new GuestPaymentsInitializeSecurity() {
+        ApiKey = "<YOUR_API_KEY_HERE>",
+    },
+    xPublishableKey: "<value>",
+    xMerchantClientId: "<value>",
+    guestPaymentInitializeRequest: new GuestPaymentInitializeRequest() {
+    Profile = new ProfileCreationData() {
+        CreateAccount = true,
+        FirstName = "Alice",
+        LastName = "Baker",
+        Email = "alice@example.com",
+        Phone = "+14155550199",
+    },
+    Cart = new Cart() {
+        OrderReference = "order_100",
+        OrderDescription = "Order #1234567890",
+        DisplayId = "215614191",
+        Shipments = new List<CartShipment>() {
+            new CartShipment() {
+                Address = AddressReferenceInput.CreateId(
+                        new AddressReferenceId() {
+                            DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
+                            Id = "D4g3h5tBuVYK9",
+                        }
+                ),
+                Cost = new Amount() {
+                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                    Units = 900,
+                },
+                Carrier = "FedEx",
+            },
+        },
+        Discounts = new List<CartDiscount>() {
+            new CartDiscount() {
+                Amount = new Amount() {
+                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                    Units = 900,
+                },
+                Code = "SUMMER10DISCOUNT",
+                DetailsUrl = "https://www.example.com/SUMMER-SALE",
+            },
+        },
+        Items = new List<CartItem>() {
+            new CartItem() {
+                Name = "Bolt Swag Bag",
+                Reference = "item_100",
+                Description = "Large tote with Bolt logo.",
+                TotalAmount = new Amount() {
+                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                    Units = 900,
+                },
+                UnitPrice = 1000,
+                Quantity = 1,
+                ImageUrl = "https://www.example.com/products/123456/images/1.png",
+            },
+        },
+        Total = new Amount() {
+            Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+            Units = 900,
+        },
+        Tax = new Amount() {
+            Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+            Units = 900,
+        },
+    },
+    PaymentMethod = PaymentMethodInput.CreateAffirm(
+            new PaymentMethodAffirm() {
+                DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
+                ReturnUrl = "www.example.com/handle_affirm_success",
+            }
+    ),
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                                           | Type                                                                                                                                                                                                                | Required                                                                                                                                                                                                            | Description                                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `security`                                                                                                                                                                                                          | [Boltpay.SDK.Models.Requests.GuestPaymentsInitializeSecurity](../../Models/Requests/GuestPaymentsInitializeSecurity.md)                                                                                             | :heavy_check_mark:                                                                                                                                                                                                  | The security requirements to use for the request.                                                                                                                                                                   |
+| `XPublishableKey`                                                                                                                                                                                                   | *string*                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                  | The publicly viewable identifier used to identify a merchant division.                                                                                                                                              |
+| `XMerchantClientId`                                                                                                                                                                                                 | *string*                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                  | A unique identifier for a shopper's device, generated by Bolt. This header is required for proper attribution of this operation to your analytics reports. Omitting this header may result in incorrect statistics. |
+| `GuestPaymentInitializeRequest`                                                                                                                                                                                     | [GuestPaymentInitializeRequest](../../Models/Components/GuestPaymentInitializeRequest.md)                                                                                                                           | :heavy_check_mark:                                                                                                                                                                                                  | N/A                                                                                                                                                                                                                 |
+
+
+### Response
+
+**[GuestPaymentsInitializeResponse](../../Models/Requests/GuestPaymentsInitializeResponse.md)**
+### Errors
+
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Boltpay.SDK.Models.Errors.ResponsePaymentError | 4XX                                            | application/json                               |
+| Boltpay.SDK.Models.Errors.SDKException         | 4xx-5xx                                        | */*                                            |
+
+## Update
+
+Update a pending guest payment
+
+
+### Example Usage
+
+```csharp
+using Boltpay.SDK;
+using Boltpay.SDK.Models.Requests;
+using Boltpay.SDK.Models.Components;
+using System.Collections.Generic;
+
+var sdk = new BoltSDK();
+
+var res = await sdk.Payments.Guest.UpdateAsync(
+    security: new GuestPaymentsUpdateSecurity() {
+        ApiKey = "<YOUR_API_KEY_HERE>",
+    },
+    xPublishableKey: "<value>",
+    xMerchantClientId: "<value>",
+    id: "iKv7t5bgt1gg",
+    paymentUpdateRequest: new PaymentUpdateRequest() {
+    Cart = new Cart() {
+        OrderReference = "order_100",
+        OrderDescription = "Order #1234567890",
+        DisplayId = "215614191",
+        Shipments = new List<CartShipment>() {
+            new CartShipment() {
+                Address = AddressReferenceInput.CreateExplicit(
+                        new AddressReferenceExplicitInput() {
+                            DotTag = Boltpay.SDK.Models.Components.AddressReferenceExplicitTag.Explicit,
+                            FirstName = "Alice",
+                            LastName = "Baker",
+                            Company = "ACME Corporation",
+                            StreetAddress1 = "535 Mission St, Ste 1401",
+                            StreetAddress2 = "c/o Shipping Department",
+                            Locality = "San Francisco",
+                            PostalCode = "94105",
+                            Region = "CA",
+                            CountryCode = Boltpay.SDK.Models.Components.CountryCode.Us,
+                            Email = "alice@example.com",
+                            Phone = "+14155550199",
+                        }
+                ),
+                Cost = new Amount() {
+                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                    Units = 900,
+                },
+                Carrier = "FedEx",
+            },
+        },
+        Discounts = new List<CartDiscount>() {
+            new CartDiscount() {
+                Amount = new Amount() {
+                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                    Units = 900,
+                },
+                Code = "SUMMER10DISCOUNT",
+                DetailsUrl = "https://www.example.com/SUMMER-SALE",
+            },
+        },
+        Items = new List<CartItem>() {
+            new CartItem() {
+                Name = "Bolt Swag Bag",
+                Reference = "item_100",
+                Description = "Large tote with Bolt logo.",
+                TotalAmount = new Amount() {
+                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                    Units = 900,
+                },
+                UnitPrice = 1000,
+                Quantity = 1,
+                ImageUrl = "https://www.example.com/products/123456/images/1.png",
+            },
+        },
+        Total = new Amount() {
+            Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+            Units = 900,
+        },
+        Tax = new Amount() {
+            Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+            Units = 900,
+        },
+    },
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                                           | Type                                                                                                                                                                                                                | Required                                                                                                                                                                                                            | Description                                                                                                                                                                                                         | Example                                                                                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `security`                                                                                                                                                                                                          | [Boltpay.SDK.Models.Requests.GuestPaymentsUpdateSecurity](../../Models/Requests/GuestPaymentsUpdateSecurity.md)                                                                                                     | :heavy_check_mark:                                                                                                                                                                                                  | The security requirements to use for the request.                                                                                                                                                                   |                                                                                                                                                                                                                     |
+| `XPublishableKey`                                                                                                                                                                                                   | *string*                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                  | The publicly viewable identifier used to identify a merchant division.                                                                                                                                              |                                                                                                                                                                                                                     |
+| `XMerchantClientId`                                                                                                                                                                                                 | *string*                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                  | A unique identifier for a shopper's device, generated by Bolt. This header is required for proper attribution of this operation to your analytics reports. Omitting this header may result in incorrect statistics. |                                                                                                                                                                                                                     |
+| `Id`                                                                                                                                                                                                                | *string*                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                  | The ID of the guest payment to update                                                                                                                                                                               | iKv7t5bgt1gg                                                                                                                                                                                                        |
+| `PaymentUpdateRequest`                                                                                                                                                                                              | [PaymentUpdateRequest](../../Models/Components/PaymentUpdateRequest.md)                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                  | N/A                                                                                                                                                                                                                 |                                                                                                                                                                                                                     |
+
+
+### Response
+
+**[GuestPaymentsUpdateResponse](../../Models/Requests/GuestPaymentsUpdateResponse.md)**
+### Errors
+
+| Error Object                           | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Boltpay.SDK.Models.Errors.Response4xx  | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
+
+## PerformAction
+
+Perform an irreversible action on a pending guest payment, such as finalizing it.
+
+
+### Example Usage
+
+```csharp
+using Boltpay.SDK;
+using Boltpay.SDK.Models.Requests;
+using Boltpay.SDK.Models.Components;
+
+var sdk = new BoltSDK();
+
+var res = await sdk.Payments.Guest.PerformActionAsync(
+    security: new GuestPaymentsActionSecurity() {
+        ApiKey = "<YOUR_API_KEY_HERE>",
+    },
+    xPublishableKey: "<value>",
+    xMerchantClientId: "<value>",
+    id: "iKv7t5bgt1gg",
+    paymentActionRequest: new PaymentActionRequest() {
+    DotTag = Boltpay.SDK.Models.Components.PaymentActionRequestTag.Finalize,
+    RedirectResult = "eyJ0cmFuc",
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                                           | Type                                                                                                                                                                                                                | Required                                                                                                                                                                                                            | Description                                                                                                                                                                                                         | Example                                                                                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `security`                                                                                                                                                                                                          | [Boltpay.SDK.Models.Requests.GuestPaymentsActionSecurity](../../Models/Requests/GuestPaymentsActionSecurity.md)                                                                                                     | :heavy_check_mark:                                                                                                                                                                                                  | The security requirements to use for the request.                                                                                                                                                                   |                                                                                                                                                                                                                     |
+| `XPublishableKey`                                                                                                                                                                                                   | *string*                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                  | The publicly viewable identifier used to identify a merchant division.                                                                                                                                              |                                                                                                                                                                                                                     |
+| `XMerchantClientId`                                                                                                                                                                                                 | *string*                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                  | A unique identifier for a shopper's device, generated by Bolt. This header is required for proper attribution of this operation to your analytics reports. Omitting this header may result in incorrect statistics. |                                                                                                                                                                                                                     |
+| `Id`                                                                                                                                                                                                                | *string*                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                  | The ID of the guest payment to operate on                                                                                                                                                                           | iKv7t5bgt1gg                                                                                                                                                                                                        |
+| `PaymentActionRequest`                                                                                                                                                                                              | [PaymentActionRequest](../../Models/Components/PaymentActionRequest.md)                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                  | N/A                                                                                                                                                                                                                 |                                                                                                                                                                                                                     |
+
+
+### Response
+
+**[GuestPaymentsActionResponse](../../Models/Requests/GuestPaymentsActionResponse.md)**
+### Errors
+
+| Error Object                           | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Boltpay.SDK.Models.Errors.Response4xx  | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |

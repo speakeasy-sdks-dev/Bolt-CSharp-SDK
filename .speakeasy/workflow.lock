@@ -1,0 +1,27 @@
+speakeasyVersion: 1.334.0
+sources:
+    bolt-csharp-api:
+        sourceNamespace: bolt-csharp-api
+        sourceRevisionDigest: sha256:99f1955c1b3f37c0792f477e2f4066c7d12ebfe3ce87c93d869ebe80334cfffe
+        sourceBlobDigest: sha256:a7b58dd8005e18e907948b5858529ffbbf173e4401241fba79a6038566cdfd9b
+        tags:
+            - latest
+targets:
+    bolt-sdk:
+        source: bolt-csharp-api
+        sourceNamespace: bolt-csharp-api
+        sourceRevisionDigest: sha256:99f1955c1b3f37c0792f477e2f4066c7d12ebfe3ce87c93d869ebe80334cfffe
+        sourceBlobDigest: sha256:a7b58dd8005e18e907948b5858529ffbbf173e4401241fba79a6038566cdfd9b
+        outLocation: /Users/winonaschroeer-smith/Code/tmp/bolt-sdk-csharp
+workflow:
+    workflowVersion: 1.0.0
+    sources:
+        bolt-csharp-api:
+            inputs:
+                - location: https://api-docs.bolt.com/api.bundle.yaml
+            registry:
+                location: registry.speakeasyapi.dev/bolt/boltpublicapi/bolt-csharp-api
+    targets:
+        bolt-sdk:
+            target: csharp
+            source: bolt-csharp-api

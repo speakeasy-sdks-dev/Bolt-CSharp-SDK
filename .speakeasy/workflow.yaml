@@ -1,0 +1,11 @@
+workflowVersion: 1.0.0
+sources:
+    bolt-csharp-api:
+        inputs:
+            - location: https://api-docs.bolt.com/api.bundle.yaml
+        registry:
+            location: registry.speakeasyapi.dev/bolt/boltpublicapi/bolt-csharp-api
+targets:
+    bolt-sdk:
+        target: csharp
+        source: bolt-csharp-api

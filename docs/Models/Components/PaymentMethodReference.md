@@ -1,0 +1,9 @@
+# PaymentMethodReference
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       | Example                                                                           |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `DotTag`                                                                          | [PaymentMethodReferenceTag](../../Models/Components/PaymentMethodReferenceTag.md) | :heavy_check_mark:                                                                | N/A                                                                               | id                                                                                |
+| `Id`                                                                              | *string*                                                                          | :heavy_check_mark:                                                                | Payment ID of the saved Bolt Payment method.                                      | X5h6j8uLpVGK                                                                      |
