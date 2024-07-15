@@ -7,15 +7,6 @@
     </a>
 </div>
 
-
-## 🏗 **Welcome to your new SDK!** 🏗
-
-It has been generated successfully based on your OpenAPI spec. However, it is not yet ready for production use. Here are some next steps:
-- [ ] 🛠 Make your SDK feel handcrafted by [customizing it](https://www.speakeasyapi.dev/docs/customize-sdks)
-- [ ] ♻️ Refine your SDK quickly by iterating locally with the [Speakeasy CLI](https://github.com/speakeasy-api/speakeasy)
-- [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasyapi.dev/docs/advanced-setup/publish-sdks)
-- [ ] ✨ When ready to productionize, delete this section from the README
-
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
@@ -285,6 +276,5 @@ looking for the latest version.
 ## Contributions
 
 While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
-We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release. 
 
 ### SDK Created by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)
