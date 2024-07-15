@@ -3,10 +3,11 @@ id: 6be0ff6b-aa40-4b34-a3eb-72d091b3c545
 management:
   docChecksum: 8134778d948a05652350ab91383aff9c
   docVersion: 3.1.0
-  speakeasyVersion: 1.334.0
-  generationVersion: 2.369.0
-  releaseVersion: 0.0.1
-  configChecksum: 29bd5ae940695957b2530cf77671c6ca
+  speakeasyVersion: 1.335.0
+  generationVersion: 2.370.2
+  releaseVersion: 0.0.2
+  configChecksum: 7fa01a5316d19830c903cb5c190cf28b
+  repoURL: https://github.com/BoltApp/Bolt-CSharp-SDK.git
 features:
   csharp:
     additionalDependencies: 0.1.0

@@ -24,10 +24,10 @@ namespace Boltpay.SDK
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.1";
-        private const string _sdkGenVersion = "2.369.0";
+        private const string _sdkVersion = "0.0.2";
+        private const string _sdkGenVersion = "2.370.2";
         private const string _openapiDocVersion = "3.1.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.0.1 2.369.0 3.1.0 Boltpay.SDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.0.2 2.370.2 3.1.0 Boltpay.SDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Security>? _securitySource;
