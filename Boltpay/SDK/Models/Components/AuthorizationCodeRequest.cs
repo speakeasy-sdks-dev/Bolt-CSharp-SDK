@@ -29,33 +29,19 @@ namespace Boltpay.SDK.Models.Components
         public string Code { get; set; } = default!;
 
         /// <summary>
-        /// The OAuth client ID, which corresponds to the merchant publishable key, which can be retrieved<br/>
-        /// 
-        /// <remarks>
-        /// in the Merchant Dashboard.<br/>
-        /// 
-        /// </remarks>
+        /// The OAuth client ID, which corresponds to the merchant publishable key, which can be retrieved in your Merchant Dashboard.
         /// </summary>
         [SpeakeasyMetadata("form:name=client_id")]
         public string ClientId { get; set; } = default!;
 
         /// <summary>
-        /// The OAuth client secret, which corresponds the merchant API key, which can be retrieved in the<br/>
-        /// 
-        /// <remarks>
-        /// Merchant Dashboard.<br/>
-        /// 
-        /// </remarks>
+        /// The OAuth client secret, which corresponds the merchant API key, which can be retrieved in your Merchant Dashboard.
         /// </summary>
         [SpeakeasyMetadata("form:name=client_secret")]
         public string ClientSecret { get; set; } = default!;
 
         /// <summary>
-        /// The requested scopes. If the request is successful, the OAuth client will be able to perform operations requiring these scopes.<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
+        /// The requested scopes. If the request is successful, the OAuth client will be able to perform operations requiring these scopes.
         /// 
         /// <see>https://help.bolt.com/developers/references/bolt-oauth/#scopes} - OAuth Developer Reference</see>
         /// </summary>
@@ -63,12 +49,7 @@ namespace Boltpay.SDK.Models.Components
         public List<Scope> Scope { get; set; } = default!;
 
         /// <summary>
-        /// A randomly generated string sent along with an authorization code. This must be included, if provided,<br/>
-        /// 
-        /// <remarks>
-        /// in order to prevent CSRF attacks. used to prevent CSRF attacks.<br/>
-        /// 
-        /// </remarks>
+        /// A randomly generated string sent along with an authorization code. This must be included if provided. It is used to prevent cross-site request forgery (CSRF) attacks.
         /// </summary>
         [SpeakeasyMetadata("form:name=state")]
         public string? State { get; set; }

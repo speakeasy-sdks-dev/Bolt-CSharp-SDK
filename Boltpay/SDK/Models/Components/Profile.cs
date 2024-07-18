@@ -12,6 +12,9 @@ namespace Boltpay.SDK.Models.Components
     using Boltpay.SDK.Utils;
     using Newtonsoft.Json;
     
+    /// <summary>
+    /// An account&apos;s identifying information.
+    /// </summary>
     public class Profile
     {
 

@@ -23,12 +23,7 @@ namespace Boltpay.SDK
     using System;
 
     /// <summary>
-    /// Use this endpoint to retrieve an OAuth token. Use the token to allow your ecommerce server to make calls to the Account<br/>
-    /// 
-    /// <remarks>
-    /// endpoint and create a one-click checkout experience for shoppers.<br/>
-    /// 
-    /// </remarks>
+    /// Use the OAuth API to enable your ecommerce server to make API calls on behalf of a Bolt logged-in shopper.
     /// 
     /// <see>https://help.bolt.com/products/accounts/direct-api/oauth-guide/}</see>
     /// </summary>
@@ -46,12 +41,7 @@ namespace Boltpay.SDK
     }
 
     /// <summary>
-    /// Use this endpoint to retrieve an OAuth token. Use the token to allow your ecommerce server to make calls to the Account<br/>
-    /// 
-    /// <remarks>
-    /// endpoint and create a one-click checkout experience for shoppers.<br/>
-    /// 
-    /// </remarks>
+    /// Use the OAuth API to enable your ecommerce server to make API calls on behalf of a Bolt logged-in shopper.
     /// 
     /// <see>https://help.bolt.com/products/accounts/direct-api/oauth-guide/}</see>
     /// </summary>
@@ -59,10 +49,10 @@ namespace Boltpay.SDK
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.3";
-        private const string _sdkGenVersion = "2.370.2";
-        private const string _openapiDocVersion = "3.1.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.0.3 2.370.2 3.1.0 Boltpay.SDK";
+        private const string _sdkVersion = "0.1.0";
+        private const string _sdkGenVersion = "2.376.0";
+        private const string _openapiDocVersion = "3.2.0";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.1.0 2.376.0 3.2.0 Boltpay.SDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Security>? _securitySource;

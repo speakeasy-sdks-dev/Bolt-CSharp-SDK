@@ -23,12 +23,7 @@ namespace Boltpay.SDK
     using System;
 
     /// <summary>
-    /// Account endpoints allow you to view and manage shoppers&apos; accounts. For example,<br/>
-    /// 
-    /// <remarks>
-    /// you can add or remove addresses and payment information.<br/>
-    /// 
-    /// </remarks>
+    /// Use the Accounts API to access shoppers&apos; accounts to empower your checkout and facilitate shoppers&apos; choices.
     /// </summary>
     public interface IAccount
     {
@@ -55,10 +50,7 @@ namespace Boltpay.SDK
         /// Edit an existing address
         /// 
         /// <remarks>
-        /// Edit an existing address on the shopper&apos;s account. This does not edit addresses<br/>
-        /// that are already associated with other resources, such as transactions or<br/>
-        /// shipments.<br/>
-        /// 
+        /// Edit an existing address on the shopper&apos;s account. This does not edit addresses that are already associated with other resources, such as transactions or shipments.
         /// </remarks>
         /// </summary>
         Task<AccountAddressEditResponse> UpdateAddressAsync(string xPublishableKey, string xMerchantClientId, string id, AddressListingInput addressListing);
@@ -67,22 +59,16 @@ namespace Boltpay.SDK
         /// Delete an existing address
         /// 
         /// <remarks>
-        /// Delete an existing address. Deleting an address does not invalidate transactions or<br/>
-        /// shipments that are associated with it.<br/>
-        /// 
+        /// Delete an existing address. Deleting an address does not invalidate or remove the address from transactions or shipments that are associated with it.
         /// </remarks>
         /// </summary>
         Task<AccountAddressDeleteResponse> DeleteAddressAsync(string xPublishableKey, string xMerchantClientId, string id);
 
         /// <summary>
-        /// Add a payment method to a shopper&apos;s Bolt account Wallet.
+        /// Add a payment method
         /// 
         /// <remarks>
-        /// Add a payment method to a shopper&apos;s Bolt account Wallet. For security purposes, this request must come from<br/>
-        /// your backend because authentication requires the use of your private key.&lt;br /&gt;<br/>
-        /// **Note**: Before using this API, the credit card details must be tokenized using Bolt&apos;s JavaScript library function,<br/>
-        /// which is documented in <a href="https://help.bolt.com/developers/references/bolt-tokenizer">Install the Bolt Tokenizer</a>.<br/>
-        /// 
+        /// Add a payment method to a shopper&apos;s Bolt Account Wallet. For security purposes, this request must come from your backend. &lt;br/&gt; **Note**: Before using this API, the credit card details must be tokenized by Bolt&apos;s credit card tokenization service. Please review our <a href="https://help.bolt.com/products/ignite/api-implementation/#enhance-payments">Bolt Payment Field Component</a> or <a href="https://help.bolt.com/developers/references/bolt-tokenizer">Install the Bolt Tokenizer</a> documentation.
         /// </remarks>
         /// </summary>
         Task<AccountAddPaymentMethodResponse> AddPaymentMethodAsync(string xPublishableKey, string xMerchantClientId, PaymentMethodInput paymentMethod);
@@ -91,30 +77,23 @@ namespace Boltpay.SDK
         /// Delete an existing payment method
         /// 
         /// <remarks>
-        /// Delete an existing payment method. Deleting a payment method does not invalidate transactions or<br/>
-        /// orders that are associated with it.<br/>
-        /// 
+        /// Delete an existing payment method. Deleting a payment method does not invalidate or remove it from transactions or orders that are associated with it.
         /// </remarks>
         /// </summary>
         Task<AccountPaymentMethodDeleteResponse> DeletePaymentMethodAsync(string xPublishableKey, string xMerchantClientId, string id);
     }
 
     /// <summary>
-    /// Account endpoints allow you to view and manage shoppers&apos; accounts. For example,<br/>
-    /// 
-    /// <remarks>
-    /// you can add or remove addresses and payment information.<br/>
-    /// 
-    /// </remarks>
+    /// Use the Accounts API to access shoppers&apos; accounts to empower your checkout and facilitate shoppers&apos; choices.
     /// </summary>
     public class Account: IAccount
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.3";
-        private const string _sdkGenVersion = "2.370.2";
-        private const string _openapiDocVersion = "3.1.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.0.3 2.370.2 3.1.0 Boltpay.SDK";
+        private const string _sdkVersion = "0.1.0";
+        private const string _sdkGenVersion = "2.376.0";
+        private const string _openapiDocVersion = "3.2.0";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.1.0 2.376.0 3.2.0 Boltpay.SDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Security>? _securitySource;

@@ -19,3 +19,13 @@ Based on:
 - [csharp v0.0.3] .
 ### Releases
 - [NuGet v0.0.3] https://www.nuget.org/packages/Boltpay.SDK/0.0.3 - .
+
+## 2024-07-18 18:09:43
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.343.0 (2.376.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [csharp v0.1.0] .
+### Releases
+- [NuGet v0.1.0] https://www.nuget.org/packages/Boltpay.SDK/0.1.0 - .

@@ -24,12 +24,7 @@ namespace Boltpay.SDK.Models.Errors
         public CreditCardErrorTag DotTag { get; set; } = default!;
 
         /// <summary>
-        /// A human-readable error message, which might include information specific to<br/>
-        /// 
-        /// <remarks>
-        /// the request that was made.<br/>
-        /// 
-        /// </remarks>
+        /// A human-readable error message, which might include information specific to the request that was made.
         /// </summary>
         [JsonProperty("message")]
         private string? _message { get; set; }

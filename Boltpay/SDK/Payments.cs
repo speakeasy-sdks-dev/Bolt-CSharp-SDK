@@ -16,23 +16,23 @@ namespace Boltpay.SDK
 
     public interface IPayments
     {
-        public IGuest Guest { get; }
         public ILoggedIn LoggedIn { get; }
+        public IGuest Guest { get; }
     }
 
     public class Payments: IPayments
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.3";
-        private const string _sdkGenVersion = "2.370.2";
-        private const string _openapiDocVersion = "3.1.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.0.3 2.370.2 3.1.0 Boltpay.SDK";
+        private const string _sdkVersion = "0.1.0";
+        private const string _sdkGenVersion = "2.376.0";
+        private const string _openapiDocVersion = "3.2.0";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.1.0 2.376.0 3.2.0 Boltpay.SDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Security>? _securitySource;
-        public IGuest Guest { get; private set; }
         public ILoggedIn LoggedIn { get; private set; }
+        public IGuest Guest { get; private set; }
 
         public Payments(ISpeakeasyHttpClient client, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
@@ -40,8 +40,8 @@ namespace Boltpay.SDK
             _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
-            Guest = new Guest(_client, _securitySource, _serverUrl, SDKConfiguration);
             LoggedIn = new LoggedIn(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Guest = new Guest(_client, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }

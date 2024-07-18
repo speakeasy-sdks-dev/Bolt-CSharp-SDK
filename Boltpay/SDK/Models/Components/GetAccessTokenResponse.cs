@@ -16,13 +16,13 @@ namespace Boltpay.SDK.Models.Components
     {
 
         /// <summary>
-        /// A JWT token issued when the request includes the scope open_id.
+        /// A JSON Web Token (JWT) issued when the request includes the scope open_id.
         /// </summary>
         [JsonProperty("id_token")]
         public string? IdToken { get; set; }
 
         /// <summary>
-        /// An access token you can use to make requests on behalf of a Bolt Account.
+        /// An access token you can use to make requests on behalf of a Bolt shopper.
         /// </summary>
         [JsonProperty("access_token")]
         public string? AccessToken { get; set; }
@@ -46,12 +46,7 @@ namespace Boltpay.SDK.Models.Components
         public string? RefreshTokenScope { get; set; }
 
         /// <summary>
-        /// The scope granted to access token, depending on the scope granted to the authorization code as well as the scope parameter.<br/>
-        /// 
-        /// <remarks>
-        /// Options include `bolt.account.manage`, `bolt.account.view`, `openid`. Multiple values can be returned as space-separated strings.<br/>
-        /// 
-        /// </remarks>
+        /// The scope granted to access token, depending on the scope granted to the authorization code as well as the scope parameter. Options include `bolt.account.manage`, `bolt.account.view`, `openid`. Multiple values can be returned as space-separated strings.
         /// </summary>
         [JsonProperty("scope")]
         public string? Scope { get; set; }

@@ -46,35 +46,33 @@ var res = await sdk.Account.GetDetailsAsync(
 * [AddAddress](docs/sdks/account/README.md#addaddress) - Add an address
 * [UpdateAddress](docs/sdks/account/README.md#updateaddress) - Edit an existing address
 * [DeleteAddress](docs/sdks/account/README.md#deleteaddress) - Delete an existing address
-* [AddPaymentMethod](docs/sdks/account/README.md#addpaymentmethod) - Add a payment method to a shopper's Bolt account Wallet.
+* [AddPaymentMethod](docs/sdks/account/README.md#addpaymentmethod) - Add a payment method
 * [DeletePaymentMethod](docs/sdks/account/README.md#deletepaymentmethod) - Delete an existing payment method
 
-
-### [Payments.Guest](docs/sdks/guest/README.md)
-
-* [Initialize](docs/sdks/guest/README.md#initialize) - Initialize a Bolt payment for guest shoppers
-* [Update](docs/sdks/guest/README.md#update) - Update an existing guest payment
-* [PerformAction](docs/sdks/guest/README.md#performaction) - Perform an irreversible action (e.g. finalize) on a pending guest payment
 
 ### [Payments.LoggedIn](docs/sdks/loggedin/README.md)
 
 * [Initialize](docs/sdks/loggedin/README.md#initialize) - Initialize a Bolt payment for logged in shoppers
-* [Update](docs/sdks/loggedin/README.md#update) - Update an existing payment
-* [PerformAction](docs/sdks/loggedin/README.md#performaction) - Perform an irreversible action (e.g. finalize) on a pending payment
+* [PerformAction](docs/sdks/loggedin/README.md#performaction) - Finalize a pending payment
+
+### [Payments.Guest](docs/sdks/guest/README.md)
+
+* [Initialize](docs/sdks/guest/README.md#initialize) - Initialize a Bolt payment for guest shoppers
+* [PerformAction](docs/sdks/guest/README.md#performaction) - Finalize a pending guest payment
+
+### [Orders](docs/sdks/orders/README.md)
+
+* [OrdersCreate](docs/sdks/orders/README.md#orderscreate) - Create an order that was prepared outside the Bolt ecosystem.
 
 ### [OAuth](docs/sdks/oauth/README.md)
 
 * [GetToken](docs/sdks/oauth/README.md#gettoken) - Get OAuth token
 
-### [Orders](docs/sdks/orders/README.md)
-
-* [OrdersCreate](docs/sdks/orders/README.md#orderscreate) - Create an order that was placed outside the Bolt ecosystem.
-
 ### [Testing](docs/sdks/testing/README.md)
 
 * [CreateAccount](docs/sdks/testing/README.md#createaccount) - Create a test account
 * [TestingAccountPhoneGet](docs/sdks/testing/README.md#testingaccountphoneget) - Get a random phone number
-* [GetCreditCard](docs/sdks/testing/README.md#getcreditcard) - Retrieve a test credit card, including its token
+* [GetCreditCard](docs/sdks/testing/README.md#getcreditcard) - Retrieve a tokenized test credit card
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->

@@ -23,12 +23,7 @@ namespace Boltpay.SDK
     using System;
 
     /// <summary>
-    /// Endpoints that allow you to generate and retrieve test data to verify certain<br/>
-    /// 
-    /// <remarks>
-    /// flows in non-production environments.<br/>
-    /// 
-    /// </remarks>
+    /// Use the Testing API to generate and retrieve test data to verify a subset of flows in non-production environments.
     /// </summary>
     public interface ITesting
     {
@@ -37,8 +32,7 @@ namespace Boltpay.SDK
         /// Create a test account
         /// 
         /// <remarks>
-        /// Create a Bolt shopper account for testing purposes.<br/>
-        /// 
+        /// Create a Bolt shopper account for testing purposes.
         /// </remarks>
         /// </summary>
         Task<TestingAccountCreateResponse> CreateAccountAsync(TestingAccountCreateSecurity security, string xPublishableKey, AccountTestCreationData accountTestCreationData);
@@ -47,39 +41,32 @@ namespace Boltpay.SDK
         /// Get a random phone number
         /// 
         /// <remarks>
-        /// Get a random, fictitious phone number that is not assigned to any existing account.<br/>
-        /// 
+        /// Get a random, fictitious phone number that is not assigned to any existing Bolt account.
         /// </remarks>
         /// </summary>
         Task<TestingAccountPhoneGetResponse> TestingAccountPhoneGetAsync(TestingAccountPhoneGetSecurity security, string xPublishableKey);
 
         /// <summary>
-        /// Retrieve a test credit card, including its token
+        /// Retrieve a tokenized test credit card
         /// 
         /// <remarks>
-        /// Retrieve test credit card information. This includes its token, which can be used to process payments.<br/>
-        /// 
+        /// Retrieve a test credit card that can be used to process payments in your Bolt testing environment. The response includes the card&apos;s Bolt credit card token.
         /// </remarks>
         /// </summary>
         Task<TestingCreditCardGetResponse> GetCreditCardAsync(TestingCreditCardGetSecurity security, TestingCreditCardGetRequestBody request);
     }
 
     /// <summary>
-    /// Endpoints that allow you to generate and retrieve test data to verify certain<br/>
-    /// 
-    /// <remarks>
-    /// flows in non-production environments.<br/>
-    /// 
-    /// </remarks>
+    /// Use the Testing API to generate and retrieve test data to verify a subset of flows in non-production environments.
     /// </summary>
     public class Testing: ITesting
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.3";
-        private const string _sdkGenVersion = "2.370.2";
-        private const string _openapiDocVersion = "3.1.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.0.3 2.370.2 3.1.0 Boltpay.SDK";
+        private const string _sdkVersion = "0.1.0";
+        private const string _sdkGenVersion = "2.376.0";
+        private const string _openapiDocVersion = "3.2.0";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.1.0 2.376.0 3.2.0 Boltpay.SDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Security>? _securitySource;

@@ -3,20 +3,17 @@
 
 ## Overview
 
-Endpoints that allow you to generate and retrieve test data to verify certain
-flows in non-production environments.
-
+Use the Testing API to generate and retrieve test data to verify a subset of flows in non-production environments.
 
 ### Available Operations
 
 * [CreateAccount](#createaccount) - Create a test account
 * [TestingAccountPhoneGet](#testingaccountphoneget) - Get a random phone number
-* [GetCreditCard](#getcreditcard) - Retrieve a test credit card, including its token
+* [GetCreditCard](#getcreditcard) - Retrieve a tokenized test credit card
 
 ## CreateAccount
 
 Create a Bolt shopper account for testing purposes.
-
 
 ### Example Usage
 
@@ -48,7 +45,7 @@ var res = await sdk.Testing.CreateAccountAsync(
 | Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `security`                                                                                                        | [Boltpay.SDK.Models.Requests.TestingAccountCreateSecurity](../../Models/Requests/TestingAccountCreateSecurity.md) | :heavy_check_mark:                                                                                                | The security requirements to use for the request.                                                                 |
-| `XPublishableKey`                                                                                                 | *string*                                                                                                          | :heavy_check_mark:                                                                                                | The publicly viewable identifier used to identify a merchant division.                                            |
+| `XPublishableKey`                                                                                                 | *string*                                                                                                          | :heavy_check_mark:                                                                                                | The publicly shareable identifier used to identify your Bolt merchant division.                                   |
 | `AccountTestCreationData`                                                                                         | [AccountTestCreationData](../../Models/Components/AccountTestCreationData.md)                                     | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
 
 
@@ -64,8 +61,7 @@ var res = await sdk.Testing.CreateAccountAsync(
 
 ## TestingAccountPhoneGet
 
-Get a random, fictitious phone number that is not assigned to any existing account.
-
+Get a random, fictitious phone number that is not assigned to any existing Bolt account.
 
 ### Example Usage
 
@@ -89,7 +85,7 @@ var res = await sdk.Testing.TestingAccountPhoneGetAsync(
 | Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `security`                                                                                                            | [Boltpay.SDK.Models.Requests.TestingAccountPhoneGetSecurity](../../Models/Requests/TestingAccountPhoneGetSecurity.md) | :heavy_check_mark:                                                                                                    | The security requirements to use for the request.                                                                     |
-| `XPublishableKey`                                                                                                     | *string*                                                                                                              | :heavy_check_mark:                                                                                                    | The publicly viewable identifier used to identify a merchant division.                                                |
+| `XPublishableKey`                                                                                                     | *string*                                                                                                              | :heavy_check_mark:                                                                                                    | The publicly shareable identifier used to identify your Bolt merchant division.                                       |
 
 
 ### Response
@@ -104,8 +100,7 @@ var res = await sdk.Testing.TestingAccountPhoneGetAsync(
 
 ## GetCreditCard
 
-Retrieve test credit card information. This includes its token, which can be used to process payments.
-
+Retrieve a test credit card that can be used to process payments in your Bolt testing environment. The response includes the card's Bolt credit card token.
 
 ### Example Usage
 

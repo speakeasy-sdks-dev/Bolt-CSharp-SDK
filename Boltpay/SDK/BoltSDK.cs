@@ -63,50 +63,31 @@ namespace Boltpay.SDK
     }
 
     /// <summary>
-    /// Bolt API Reference: A comprehensive Bolt API reference for interacting with Transactions, Orders, Product Catalog, Configuration, Testing, and much more.
+    /// Bolt API Reference: A comprehensive Bolt API reference for interacting with Accounts, Payments, Orders and more.
     /// </summary>
     public interface IBoltSDK
     {
 
         /// <summary>
-        /// Account endpoints allow you to view and manage shoppers&apos; accounts. For example,<br/>
-        /// 
-        /// <remarks>
-        /// you can add or remove addresses and payment information.<br/>
-        /// 
-        /// </remarks>
+        /// Use the Accounts API to access shoppers&apos; accounts to empower your checkout and facilitate shoppers&apos; choices.
         /// </summary>
         public IAccount Account { get; }
         public IPayments Payments { get; }
 
         /// <summary>
-        /// Use this endpoint to retrieve an OAuth token. Use the token to allow your ecommerce server to make calls to the Account<br/>
-        /// 
-        /// <remarks>
-        /// endpoint and create a one-click checkout experience for shoppers.<br/>
-        /// 
-        /// </remarks>
+        /// Use the Orders API to create and manage orders, including orders that have been placed outside the Bolt ecosystem.
+        /// </summary>
+        public IOrders Orders { get; }
+
+        /// <summary>
+        /// Use the OAuth API to enable your ecommerce server to make API calls on behalf of a Bolt logged-in shopper.
         /// 
         /// <see>https://help.bolt.com/products/accounts/direct-api/oauth-guide/}</see>
         /// </summary>
         public IOAuth OAuth { get; }
 
         /// <summary>
-        /// Use the Orders API to create and manage orders, including orders that have been placed outside the Bolt ecosystem.<br/>
-        /// 
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// </summary>
-        public IOrders Orders { get; }
-
-        /// <summary>
-        /// Endpoints that allow you to generate and retrieve test data to verify certain<br/>
-        /// 
-        /// <remarks>
-        /// flows in non-production environments.<br/>
-        /// 
-        /// </remarks>
+        /// Use the Testing API to generate and retrieve test data to verify a subset of flows in non-production environments.
         /// </summary>
         public ITesting Testing { get; }
     }
@@ -148,25 +129,25 @@ namespace Boltpay.SDK
     }
 
     /// <summary>
-    /// Bolt API Reference: A comprehensive Bolt API reference for interacting with Transactions, Orders, Product Catalog, Configuration, Testing, and much more.
+    /// Bolt API Reference: A comprehensive Bolt API reference for interacting with Accounts, Payments, Orders and more.
     /// </summary>
     public class BoltSDK: IBoltSDK
     {
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.3";
-        private const string _sdkGenVersion = "2.370.2";
-        private const string _openapiDocVersion = "3.1.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.0.3 2.370.2 3.1.0 Boltpay.SDK";
+        private const string _sdkVersion = "0.1.0";
+        private const string _sdkGenVersion = "2.376.0";
+        private const string _openapiDocVersion = "3.2.0";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.1.0 2.376.0 3.2.0 Boltpay.SDK";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;
         private Func<Security>? _securitySource;
         public IAccount Account { get; private set; }
         public IPayments Payments { get; private set; }
-        public IOAuth OAuth { get; private set; }
         public IOrders Orders { get; private set; }
+        public IOAuth OAuth { get; private set; }
         public ITesting Testing { get; private set; }
 
         public BoltSDK(Security? security = null, Func<Security>? securitySource = null, int? serverIndex = null, ServerEnvironment? environment = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
@@ -224,10 +205,10 @@ namespace Boltpay.SDK
             Payments = new Payments(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
-            OAuth = new OAuth(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
             Orders = new Orders(_client, _securitySource, _serverUrl, SDKConfiguration);
+
+
+            OAuth = new OAuth(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
             Testing = new Testing(_client, _securitySource, _serverUrl, SDKConfiguration);

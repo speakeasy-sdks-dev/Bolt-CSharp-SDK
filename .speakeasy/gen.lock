@@ -1,17 +1,17 @@
 lockVersion: 2.0.0
 id: 6be0ff6b-aa40-4b34-a3eb-72d091b3c545
 management:
-  docChecksum: 8134778d948a05652350ab91383aff9c
-  docVersion: 3.1.0
-  speakeasyVersion: 1.335.0
-  generationVersion: 2.370.2
-  releaseVersion: 0.0.3
-  configChecksum: d41c4dd5448f6b31d422386248d2a5b0
+  docChecksum: 8c2776c2cbcdc065c8bb4d1442f50ef5
+  docVersion: 3.2.0
+  speakeasyVersion: 1.343.0
+  generationVersion: 2.376.0
+  releaseVersion: 0.1.0
+  configChecksum: 27191b201ea859cbe26f76a3507b6d48
   repoURL: https://github.com/BoltApp/Bolt-CSharp-SDK.git
 features:
   csharp:
     additionalDependencies: 0.1.0
-    core: 3.9.9
+    core: 3.9.10
     errorUnions: 0.1.0
     flattening: 2.81.2
     globalSecurity: 2.83.4
@@ -28,11 +28,11 @@ features:
     unions: 0.1.1
 generatedFiles:
   - Boltpay/SDK/Account.cs
-  - Boltpay/SDK/Guest.cs
   - Boltpay/SDK/LoggedIn.cs
+  - Boltpay/SDK/Guest.cs
   - Boltpay/SDK/Payments.cs
-  - Boltpay/SDK/OAuth.cs
   - Boltpay/SDK/Orders.cs
+  - Boltpay/SDK/OAuth.cs
   - Boltpay/SDK/Testing.cs
   - Boltpay/SDK/BoltSDK.cs
   - global.json
@@ -68,26 +68,21 @@ generatedFiles:
   - Boltpay/SDK/Models/Requests/AccountAddPaymentMethodResponse.cs
   - Boltpay/SDK/Models/Requests/AccountPaymentMethodDeleteRequest.cs
   - Boltpay/SDK/Models/Requests/AccountPaymentMethodDeleteResponse.cs
+  - Boltpay/SDK/Models/Requests/PaymentsInitializeRequest.cs
+  - Boltpay/SDK/Models/Requests/PaymentsInitializeResponse.cs
+  - Boltpay/SDK/Models/Requests/PaymentsActionRequest.cs
+  - Boltpay/SDK/Models/Requests/PaymentsActionResponse.cs
   - Boltpay/SDK/Models/Requests/GuestPaymentsInitializeSecurity.cs
   - Boltpay/SDK/Models/Requests/GuestPaymentsInitializeRequest.cs
   - Boltpay/SDK/Models/Requests/GuestPaymentsInitializeResponse.cs
-  - Boltpay/SDK/Models/Requests/GuestPaymentsUpdateSecurity.cs
-  - Boltpay/SDK/Models/Requests/GuestPaymentsUpdateRequest.cs
-  - Boltpay/SDK/Models/Requests/GuestPaymentsUpdateResponse.cs
   - Boltpay/SDK/Models/Requests/GuestPaymentsActionSecurity.cs
   - Boltpay/SDK/Models/Requests/GuestPaymentsActionRequest.cs
   - Boltpay/SDK/Models/Requests/GuestPaymentsActionResponse.cs
-  - Boltpay/SDK/Models/Requests/PaymentsInitializeRequest.cs
-  - Boltpay/SDK/Models/Requests/PaymentsInitializeResponse.cs
-  - Boltpay/SDK/Models/Requests/PaymentsUpdateRequest.cs
-  - Boltpay/SDK/Models/Requests/PaymentsUpdateResponse.cs
-  - Boltpay/SDK/Models/Requests/PaymentsActionRequest.cs
-  - Boltpay/SDK/Models/Requests/PaymentsActionResponse.cs
-  - Boltpay/SDK/Models/Requests/OauthGetTokenRequest.cs
-  - Boltpay/SDK/Models/Requests/OauthGetTokenResponse.cs
   - Boltpay/SDK/Models/Requests/OrdersCreateSecurity.cs
   - Boltpay/SDK/Models/Requests/OrdersCreateRequest.cs
   - Boltpay/SDK/Models/Requests/OrdersCreateResponse.cs
+  - Boltpay/SDK/Models/Requests/OauthGetTokenRequest.cs
+  - Boltpay/SDK/Models/Requests/OauthGetTokenResponse.cs
   - Boltpay/SDK/Models/Requests/TestingAccountCreateSecurity.cs
   - Boltpay/SDK/Models/Requests/TestingAccountCreateRequest.cs
   - Boltpay/SDK/Models/Requests/TestingAccountCreateResponse.cs
@@ -144,21 +139,22 @@ generatedFiles:
   - Boltpay/SDK/Models/Components/PaymentResponsePendingStatus.cs
   - Boltpay/SDK/Models/Components/Action.cs
   - Boltpay/SDK/Models/Components/PaymentResponsePending.cs
-  - Boltpay/SDK/Models/Components/GuestPaymentInitializeRequest.cs
+  - Boltpay/SDK/Models/Components/PaymentInitializeRequest.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodExtended.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodReferenceTag.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodReference.cs
   - Boltpay/SDK/Models/Components/Cart.cs
   - Boltpay/SDK/Models/Components/Currency.cs
   - Boltpay/SDK/Models/Components/Amount.cs
   - Boltpay/SDK/Models/Components/CartItem.cs
   - Boltpay/SDK/Models/Components/CartDiscount.cs
   - Boltpay/SDK/Models/Components/CartShipment.cs
-  - Boltpay/SDK/Models/Components/ProfileCreationData.cs
-  - Boltpay/SDK/Models/Components/PaymentUpdateRequest.cs
   - Boltpay/SDK/Models/Components/PaymentActionRequestTag.cs
   - Boltpay/SDK/Models/Components/PaymentActionRequest.cs
-  - Boltpay/SDK/Models/Components/PaymentInitializeRequest.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodExtended.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodReferenceTag.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodReference.cs
+  - Boltpay/SDK/Models/Components/GuestPaymentInitializeRequest.cs
+  - Boltpay/SDK/Models/Components/ProfileCreationData.cs
+  - Boltpay/SDK/Models/Components/OrderResponse.cs
+  - Boltpay/SDK/Models/Components/Order.cs
   - Boltpay/SDK/Models/Components/GetAccessTokenResponse.cs
   - Boltpay/SDK/Models/Components/TokenRequest.cs
   - Boltpay/SDK/Models/Components/GrantType.cs
@@ -167,8 +163,6 @@ generatedFiles:
   - Boltpay/SDK/Models/Components/RefreshTokenRequestGrantType.cs
   - Boltpay/SDK/Models/Components/RefreshTokenRequestScope.cs
   - Boltpay/SDK/Models/Components/RefreshTokenRequest.cs
-  - Boltpay/SDK/Models/Components/OrderResponse.cs
-  - Boltpay/SDK/Models/Components/Order.cs
   - Boltpay/SDK/Models/Components/EmailState.cs
   - Boltpay/SDK/Models/Components/PhoneState.cs
   - Boltpay/SDK/Models/Components/AccountTestCreationDataOutput.cs
@@ -200,26 +194,21 @@ generatedFiles:
   - docs/Models/Requests/AccountAddPaymentMethodResponse.md
   - docs/Models/Requests/AccountPaymentMethodDeleteRequest.md
   - docs/Models/Requests/AccountPaymentMethodDeleteResponse.md
+  - docs/Models/Requests/PaymentsInitializeRequest.md
+  - docs/Models/Requests/PaymentsInitializeResponse.md
+  - docs/Models/Requests/PaymentsActionRequest.md
+  - docs/Models/Requests/PaymentsActionResponse.md
   - docs/Models/Requests/GuestPaymentsInitializeSecurity.md
   - docs/Models/Requests/GuestPaymentsInitializeRequest.md
   - docs/Models/Requests/GuestPaymentsInitializeResponse.md
-  - docs/Models/Requests/GuestPaymentsUpdateSecurity.md
-  - docs/Models/Requests/GuestPaymentsUpdateRequest.md
-  - docs/Models/Requests/GuestPaymentsUpdateResponse.md
   - docs/Models/Requests/GuestPaymentsActionSecurity.md
   - docs/Models/Requests/GuestPaymentsActionRequest.md
   - docs/Models/Requests/GuestPaymentsActionResponse.md
-  - docs/Models/Requests/PaymentsInitializeRequest.md
-  - docs/Models/Requests/PaymentsInitializeResponse.md
-  - docs/Models/Requests/PaymentsUpdateRequest.md
-  - docs/Models/Requests/PaymentsUpdateResponse.md
-  - docs/Models/Requests/PaymentsActionRequest.md
-  - docs/Models/Requests/PaymentsActionResponse.md
-  - docs/Models/Requests/OauthGetTokenRequest.md
-  - docs/Models/Requests/OauthGetTokenResponse.md
   - docs/Models/Requests/OrdersCreateSecurity.md
   - docs/Models/Requests/OrdersCreateRequest.md
   - docs/Models/Requests/OrdersCreateResponse.md
+  - docs/Models/Requests/OauthGetTokenRequest.md
+  - docs/Models/Requests/OauthGetTokenResponse.md
   - docs/Models/Requests/TestingAccountCreateSecurity.md
   - docs/Models/Requests/TestingAccountCreateRequest.md
   - docs/Models/Requests/TestingAccountCreateResponse.md
@@ -276,21 +265,22 @@ generatedFiles:
   - docs/Models/Components/PaymentResponsePendingStatus.md
   - docs/Models/Components/Action.md
   - docs/Models/Components/PaymentResponsePending.md
-  - docs/Models/Components/GuestPaymentInitializeRequest.md
+  - docs/Models/Components/PaymentInitializeRequest.md
+  - docs/Models/Components/PaymentMethodExtended.md
+  - docs/Models/Components/PaymentMethodReferenceTag.md
+  - docs/Models/Components/PaymentMethodReference.md
   - docs/Models/Components/Cart.md
   - docs/Models/Components/Currency.md
   - docs/Models/Components/Amount.md
   - docs/Models/Components/CartItem.md
   - docs/Models/Components/CartDiscount.md
   - docs/Models/Components/CartShipment.md
-  - docs/Models/Components/ProfileCreationData.md
-  - docs/Models/Components/PaymentUpdateRequest.md
   - docs/Models/Components/PaymentActionRequestTag.md
   - docs/Models/Components/PaymentActionRequest.md
-  - docs/Models/Components/PaymentInitializeRequest.md
-  - docs/Models/Components/PaymentMethodExtended.md
-  - docs/Models/Components/PaymentMethodReferenceTag.md
-  - docs/Models/Components/PaymentMethodReference.md
+  - docs/Models/Components/GuestPaymentInitializeRequest.md
+  - docs/Models/Components/ProfileCreationData.md
+  - docs/Models/Components/OrderResponse.md
+  - docs/Models/Components/Order.md
   - docs/Models/Components/GetAccessTokenResponse.md
   - docs/Models/Components/TokenRequest.md
   - docs/Models/Components/GrantType.md
@@ -299,8 +289,6 @@ generatedFiles:
   - docs/Models/Components/RefreshTokenRequestGrantType.md
   - docs/Models/Components/RefreshTokenRequestScope.md
   - docs/Models/Components/RefreshTokenRequest.md
-  - docs/Models/Components/OrderResponse.md
-  - docs/Models/Components/Order.md
   - docs/Models/Components/EmailState.md
   - docs/Models/Components/PhoneState.md
   - docs/Models/Components/AccountTestCreationDataOutput.md
@@ -323,12 +311,13 @@ generatedFiles:
   - docs/sdks/boltsdk/README.md
   - docs/sdks/account/README.md
   - docs/sdks/payments/README.md
-  - docs/sdks/guest/README.md
   - docs/sdks/loggedin/README.md
-  - docs/sdks/oauth/README.md
+  - docs/sdks/guest/README.md
   - docs/sdks/orders/README.md
+  - docs/sdks/oauth/README.md
   - docs/sdks/testing/README.md
   - USAGE.md
   - .gitattributes
   - Boltpay/SDK/Hooks/SDKHooks.cs
   - Boltpay/SDK/Hooks/HookTypes.cs
+  - CONTRIBUTING.md

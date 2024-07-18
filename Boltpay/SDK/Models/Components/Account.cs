@@ -29,6 +29,9 @@ namespace Boltpay.SDK.Models.Components
         [JsonProperty("payment_methods")]
         public List<PaymentMethod> PaymentMethods { get; set; } = default!;
 
+        /// <summary>
+        /// An account&apos;s identifying information.
+        /// </summary>
         [JsonProperty("profile")]
         public Profile? Profile { get; set; }
     }

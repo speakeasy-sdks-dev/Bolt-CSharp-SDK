@@ -23,41 +23,32 @@ namespace Boltpay.SDK
     using System;
 
     /// <summary>
-    /// Use the Orders API to create and manage orders, including orders that have been placed outside the Bolt ecosystem.<br/>
-    /// 
-    /// <remarks>
-    /// 
-    /// </remarks>
+    /// Use the Orders API to create and manage orders, including orders that have been placed outside the Bolt ecosystem.
     /// </summary>
     public interface IOrders
     {
 
         /// <summary>
-        /// Create an order that was placed outside the Bolt ecosystem.
+        /// Create an order that was prepared outside the Bolt ecosystem.
         /// 
         /// <remarks>
-        /// Create an order that was placed outside the Bolt ecosystem.<br/>
-        /// 
+        /// Create an order that was prepared outside the Bolt ecosystem. Some Bolt-powered flows automatically manage order creation - in those flows the order ID will be provided separately and not through this API.
         /// </remarks>
         /// </summary>
         Task<OrdersCreateResponse> OrdersCreateAsync(OrdersCreateSecurity security, string xPublishableKey, string xMerchantClientId, Order order);
     }
 
     /// <summary>
-    /// Use the Orders API to create and manage orders, including orders that have been placed outside the Bolt ecosystem.<br/>
-    /// 
-    /// <remarks>
-    /// 
-    /// </remarks>
+    /// Use the Orders API to create and manage orders, including orders that have been placed outside the Bolt ecosystem.
     /// </summary>
     public class Orders: IOrders
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.3";
-        private const string _sdkGenVersion = "2.370.2";
-        private const string _openapiDocVersion = "3.1.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.0.3 2.370.2 3.1.0 Boltpay.SDK";
+        private const string _sdkVersion = "0.1.0";
+        private const string _sdkGenVersion = "2.376.0";
+        private const string _openapiDocVersion = "3.2.0";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.1.0 2.376.0 3.2.0 Boltpay.SDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Security>? _securitySource;

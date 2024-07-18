@@ -16,6 +16,9 @@ namespace Boltpay.SDK.Models.Components
     public class Order
     {
 
+        /// <summary>
+        /// An account&apos;s identifying information.
+        /// </summary>
         [JsonProperty("profile")]
         public Profile Profile { get; set; } = default!;
 

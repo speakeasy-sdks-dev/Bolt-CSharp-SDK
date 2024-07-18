@@ -15,7 +15,7 @@ namespace Boltpay.SDK.Models.Requests
     {
 
         /// <summary>
-        /// The publicly viewable identifier used to identify a merchant division.
+        /// The publicly shareable identifier used to identify your Bolt merchant division.
         /// </summary>
         [SpeakeasyMetadata("header:style=simple,explode=false,name=X-Publishable-Key")]
         public string XPublishableKey { get; set; } = default!;
