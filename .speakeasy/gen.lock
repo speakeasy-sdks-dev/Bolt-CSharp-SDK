@@ -3,18 +3,18 @@ id: 6be0ff6b-aa40-4b34-a3eb-72d091b3c545
 management:
   docChecksum: 8c2776c2cbcdc065c8bb4d1442f50ef5
   docVersion: 3.2.0
-  speakeasyVersion: 1.343.0
-  generationVersion: 2.376.0
-  releaseVersion: 0.1.0
-  configChecksum: 27191b201ea859cbe26f76a3507b6d48
+  speakeasyVersion: 1.357.1
+  generationVersion: 2.390.0
+  releaseVersion: 0.2.0
+  configChecksum: 2284b4e17ce83208fa0f4b8a9943df69
   repoURL: https://github.com/BoltApp/Bolt-CSharp-SDK.git
 features:
   csharp:
     additionalDependencies: 0.1.0
-    core: 3.9.10
+    core: 3.9.13
     errorUnions: 0.1.0
     flattening: 2.81.2
-    globalSecurity: 2.83.4
+    globalSecurity: 2.83.6
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.3
     groups: 2.81.2
@@ -25,7 +25,7 @@ features:
     nameOverrides: 2.81.2
     responseFormat: 0.0.4
     sdkHooks: 0.1.0
-    unions: 0.1.1
+    unions: 0.2.0
 generatedFiles:
   - Boltpay/SDK/Account.cs
   - Boltpay/SDK/LoggedIn.cs

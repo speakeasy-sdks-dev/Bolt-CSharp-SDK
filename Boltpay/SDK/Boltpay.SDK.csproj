@@ -1,22 +1,35 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Boltpay.SDK</PackageId>
-    <Version>0.1.0</Version>
-    <Authors>Speakeasy</Authors>
+    <Version>0.2.0</Version>
     <TargetFramework>net8.0</TargetFramework>
+    <Authors>Speakeasy</Authors>
+    <Copyright>Copyright (c) Speakeasy 2024</Copyright>
+    <RepositoryUrl>https://github.com/BoltApp/Bolt-CSharp-SDK.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Bolt API Reference: A comprehensive Bolt API reference for interacting with Accounts, Payments, Orders and more.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <Nullable>enable</Nullable>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>1591</NoWarn>
-    <RepositoryUrl>https://github.com/BoltApp/Bolt-CSharp-SDK</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
     <None Include="..\..\docs\**\*" Pack="true" PackagePath="\docs"  CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
 
+  <ItemGroup>
     <PackageReference Include="newtonsoft.json" Version="13.0.3" />
     <PackageReference Include="nodatime" Version="3.1.9" />
   </ItemGroup>
+
 </Project>

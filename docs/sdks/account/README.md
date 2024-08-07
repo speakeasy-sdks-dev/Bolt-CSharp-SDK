@@ -27,6 +27,7 @@ using Boltpay.SDK.Models.Components;
 
 var sdk = new BoltSDK(security: new Security() {
         Oauth = "<YOUR_OAUTH_HERE>",
+        ApiKey = "<YOUR_API_KEY_HERE>",
     });
 
 var res = await sdk.Account.GetDetailsAsync(
@@ -67,6 +68,7 @@ using Boltpay.SDK.Models.Components;
 
 var sdk = new BoltSDK(security: new Security() {
         Oauth = "<YOUR_OAUTH_HERE>",
+        ApiKey = "<YOUR_API_KEY_HERE>",
     });
 
 var res = await sdk.Account.AddAddressAsync(
@@ -121,6 +123,7 @@ using Boltpay.SDK.Models.Components;
 
 var sdk = new BoltSDK(security: new Security() {
         Oauth = "<YOUR_OAUTH_HERE>",
+        ApiKey = "<YOUR_API_KEY_HERE>",
     });
 
 var res = await sdk.Account.UpdateAddressAsync(
@@ -177,6 +180,7 @@ using Boltpay.SDK.Models.Components;
 
 var sdk = new BoltSDK(security: new Security() {
         Oauth = "<YOUR_OAUTH_HERE>",
+        ApiKey = "<YOUR_API_KEY_HERE>",
     });
 
 var res = await sdk.Account.DeleteAddressAsync(
@@ -219,6 +223,7 @@ using Boltpay.SDK.Models.Components;
 
 var sdk = new BoltSDK(security: new Security() {
         Oauth = "<YOUR_OAUTH_HERE>",
+        ApiKey = "<YOUR_API_KEY_HERE>",
     });
 
 var res = await sdk.Account.AddPaymentMethodAsync(
@@ -266,6 +271,7 @@ using Boltpay.SDK.Models.Components;
 
 var sdk = new BoltSDK(security: new Security() {
         Oauth = "<YOUR_OAUTH_HERE>",
+        ApiKey = "<YOUR_API_KEY_HERE>",
     });
 
 var res = await sdk.Account.DeletePaymentMethodAsync(

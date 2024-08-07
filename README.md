@@ -27,6 +27,7 @@ using Boltpay.SDK.Models.Components;
 
 var sdk = new BoltSDK(security: new Security() {
         Oauth = "<YOUR_OAUTH_HERE>",
+        ApiKey = "<YOUR_API_KEY_HERE>",
     });
 
 var res = await sdk.Account.GetDetailsAsync(
@@ -96,6 +97,7 @@ using Boltpay.SDK.Models.Errors;
 
 var sdk = new BoltSDK(security: new Security() {
         Oauth = "<YOUR_OAUTH_HERE>",
+        ApiKey = "<YOUR_API_KEY_HERE>",
     });
 
 try
@@ -163,6 +165,7 @@ using Boltpay.SDK.Models.Components;
 
 var sdk = new BoltSDK(security: new Security() {
         Oauth = "<YOUR_OAUTH_HERE>",
+        ApiKey = "<YOUR_API_KEY_HERE>",
     });
 
 var res = await sdk.Account.GetDetailsAsync(
