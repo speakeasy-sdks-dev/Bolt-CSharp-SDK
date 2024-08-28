@@ -1,17 +1,17 @@
 lockVersion: 2.0.0
 id: 6be0ff6b-aa40-4b34-a3eb-72d091b3c545
 management:
-  docChecksum: 8c2776c2cbcdc065c8bb4d1442f50ef5
+  docChecksum: beac9c0940102e94280a709511774c46
   docVersion: 3.2.0
-  speakeasyVersion: 1.357.1
-  generationVersion: 2.390.0
+  speakeasyVersion: internal
+  generationVersion: 2.404.10
   releaseVersion: 0.2.0
   configChecksum: 2284b4e17ce83208fa0f4b8a9943df69
   repoURL: https://github.com/BoltApp/Bolt-CSharp-SDK.git
 features:
   csharp:
     additionalDependencies: 0.1.0
-    core: 3.9.13
+    core: 3.9.16
     errorUnions: 0.1.0
     flattening: 2.81.2
     globalSecurity: 2.83.6
@@ -25,7 +25,7 @@ features:
     nameOverrides: 2.81.2
     responseFormat: 0.0.4
     sdkHooks: 0.1.0
-    unions: 0.2.0
+    unions: 0.2.1
 generatedFiles:
   - Boltpay/SDK/Account.cs
   - Boltpay/SDK/LoggedIn.cs
@@ -245,17 +245,6 @@ generatedFiles:
   - docs/Models/Components/PaymentMethodKlarnaPaynowOutput.md
   - docs/Models/Components/AddressListing.md
   - docs/Models/Components/HTTPMetadata.md
-  - docs/Models/Components/AddressListingInput.md
-  - docs/Models/Components/PaymentMethodInput.md
-  - docs/Models/Components/PaymentMethodCreditCardInput.md
-  - docs/Models/Components/AddressReferenceInput.md
-  - docs/Models/Components/AddressReferenceExplicitInput.md
-  - docs/Models/Components/PaymentMethodPaypal.md
-  - docs/Models/Components/PaymentMethodAffirm.md
-  - docs/Models/Components/PaymentMethodAfterpay.md
-  - docs/Models/Components/PaymentMethodKlarna.md
-  - docs/Models/Components/PaymentMethodKlarnaAccount.md
-  - docs/Models/Components/PaymentMethodKlarnaPaynow.md
   - docs/Models/Components/PaymentResponse.md
   - docs/Models/Components/PaymentResponseFinalizedTag.md
   - docs/Models/Components/Status.md
@@ -292,7 +281,6 @@ generatedFiles:
   - docs/Models/Components/EmailState.md
   - docs/Models/Components/PhoneState.md
   - docs/Models/Components/AccountTestCreationDataOutput.md
-  - docs/Models/Components/AccountTestCreationData.md
   - docs/Models/Components/AccountTestPhoneData.md
   - docs/Models/Components/TestCreditCard.md
   - docs/Models/Components/Security.md
