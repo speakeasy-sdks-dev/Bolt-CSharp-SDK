@@ -1,9 +1,9 @@
-speakeasyVersion: 1.357.1
+speakeasyVersion: 1.390.7
 sources:
     bolt-csharp-api:
         sourceNamespace: bolt-csharp-api
-        sourceRevisionDigest: sha256:089191ece4615c6cdfcd96595c89708045e7b49bb220202fca89eebe914f94af
-        sourceBlobDigest: sha256:edef54369746b4047687d76d7f92f2adf18f1b45329e3325de4cdd4417f9997c
+        sourceRevisionDigest: sha256:7cf2f95e80bcf55bcfda06d7c45988074ae88241aa57404a3bd6ee6a8ce11525
+        sourceBlobDigest: sha256:27d07c65383b445e0fd3a098783adeabae528de8fda49d2e814fb07322139a63
         tags:
             - latest
             - master
@@ -11,8 +11,8 @@ targets:
     bolt-sdk:
         source: bolt-csharp-api
         sourceNamespace: bolt-csharp-api
-        sourceRevisionDigest: sha256:089191ece4615c6cdfcd96595c89708045e7b49bb220202fca89eebe914f94af
-        sourceBlobDigest: sha256:edef54369746b4047687d76d7f92f2adf18f1b45329e3325de4cdd4417f9997c
+        sourceRevisionDigest: sha256:7cf2f95e80bcf55bcfda06d7c45988074ae88241aa57404a3bd6ee6a8ce11525
+        sourceBlobDigest: sha256:27d07c65383b445e0fd3a098783adeabae528de8fda49d2e814fb07322139a63
         outLocation: /github/workspace/repo
 workflow:
     workflowVersion: 1.0.0

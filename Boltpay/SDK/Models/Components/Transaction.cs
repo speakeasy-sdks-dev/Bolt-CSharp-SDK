@@ -9,13 +9,21 @@
 #nullable enable
 namespace Boltpay.SDK.Models.Components
 {
+    using Boltpay.SDK.Models.Components;
     using Boltpay.SDK.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     
     public class Transaction
     {
 
         [JsonProperty("reference")]
         public string? Reference { get; set; }
+
+        /// <summary>
+        /// Payment authorization events attached to a transaction
+        /// </summary>
+        [JsonProperty("authorizations")]
+        public List<TransactionAuthorization>? Authorizations { get; set; }
     }
 }

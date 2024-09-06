@@ -1,6 +1,8 @@
 # Guest
 (*Payments.Guest*)
 
+## Overview
+
 ### Available Operations
 
 * [Initialize](#initialize) - Initialize a Bolt payment for guest shoppers
@@ -27,72 +29,73 @@ var res = await sdk.Payments.Guest.InitializeAsync(
     xPublishableKey: "<value>",
     xMerchantClientId: "<value>",
     guestPaymentInitializeRequest: new GuestPaymentInitializeRequest() {
-    Profile = new ProfileCreationData() {
-        CreateAccount = true,
-        FirstName = "Alice",
-        LastName = "Baker",
-        Email = "alice@example.com",
-        Phone = "+14155550199",
-    },
-    Cart = new Cart() {
-        OrderReference = "order_100",
-        OrderDescription = "Order #1234567890",
-        DisplayId = "215614191",
-        Shipments = new List<CartShipment>() {
-            new CartShipment() {
-                Address = AddressReferenceInput.CreateId(
-                        new AddressReferenceId() {
-                            DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
-                            Id = "D4g3h5tBuVYK9",
-                        }
-                ),
-                Cost = new Amount() {
-                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
-                    Units = 900,
+        Profile = new ProfileCreationData() {
+            CreateAccount = true,
+            FirstName = "Alice",
+            LastName = "Baker",
+            Email = "alice@example.com",
+            Phone = "+14155550199",
+        },
+        Cart = new Cart() {
+            OrderReference = "order_100",
+            OrderDescription = "Order #1234567890",
+            DisplayId = "215614191",
+            Shipments = new List<CartShipment>() {
+                new CartShipment() {
+                    Address = AddressReferenceInput.CreateAddressReferenceId(
+                            new AddressReferenceId() {
+                                DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
+                                Id = "D4g3h5tBuVYK9",
+                            }
+                    ),
+                    Cost = new Amount() {
+                        Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                        Units = 900,
+                    },
+                    Carrier = "FedEx",
                 },
-                Carrier = "FedEx",
+            },
+            Discounts = new List<CartDiscount>() {
+                new CartDiscount() {
+                    Amount = new Amount() {
+                        Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                        Units = 900,
+                    },
+                    Code = "SUMMER10DISCOUNT",
+                    DetailsUrl = "https://www.example.com/SUMMER-SALE",
+                },
+            },
+            Items = new List<CartItem>() {
+                new CartItem() {
+                    Name = "Bolt Swag Bag",
+                    Reference = "item_100",
+                    Description = "Large tote with Bolt logo.",
+                    TotalAmount = new Amount() {
+                        Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                        Units = 900,
+                    },
+                    UnitPrice = 1000,
+                    Quantity = 1,
+                    ImageUrl = "https://www.example.com/products/123456/images/1.png",
+                },
+            },
+            Total = new Amount() {
+                Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                Units = 900,
+            },
+            Tax = new Amount() {
+                Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                Units = 900,
             },
         },
-        Discounts = new List<CartDiscount>() {
-            new CartDiscount() {
-                Amount = new Amount() {
-                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
-                    Units = 900,
-                },
-                Code = "SUMMER10DISCOUNT",
-                DetailsUrl = "https://www.example.com/SUMMER-SALE",
-            },
-        },
-        Items = new List<CartItem>() {
-            new CartItem() {
-                Name = "Bolt Swag Bag",
-                Reference = "item_100",
-                Description = "Large tote with Bolt logo.",
-                TotalAmount = new Amount() {
-                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
-                    Units = 900,
-                },
-                UnitPrice = 1000,
-                Quantity = 1,
-                ImageUrl = "https://www.example.com/products/123456/images/1.png",
-            },
-        },
-        Total = new Amount() {
-            Currency = Boltpay.SDK.Models.Components.Currency.Usd,
-            Units = 900,
-        },
-        Tax = new Amount() {
-            Currency = Boltpay.SDK.Models.Components.Currency.Usd,
-            Units = 900,
-        },
-    },
-    PaymentMethod = PaymentMethodInput.CreateAffirm(
-            new PaymentMethodAffirm() {
-                DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
-                ReturnUrl = "www.example.com/handle_affirm_success",
-            }
-    ),
-});
+        PaymentMethod = PaymentMethodInput.CreatePaymentMethodAffirm(
+                new PaymentMethodAffirm() {
+                    DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
+                    ReturnUrl = "www.example.com/handle_affirm_success",
+                }
+        ),
+    }
+);
 
 // handle response
 ```
@@ -106,16 +109,20 @@ var res = await sdk.Payments.Guest.InitializeAsync(
 | `XMerchantClientId`                                                                                                                                                                                                 | *string*                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                  | A unique identifier for a shopper's device, generated by Bolt. This header is required for proper attribution of this operation to your analytics reports. Omitting this header may result in incorrect statistics. |
 | `GuestPaymentInitializeRequest`                                                                                                                                                                                     | [GuestPaymentInitializeRequest](../../Models/Components/GuestPaymentInitializeRequest.md)                                                                                                                           | :heavy_check_mark:                                                                                                                                                                                                  | N/A                                                                                                                                                                                                                 |
 
-
 ### Response
 
 **[GuestPaymentsInitializeResponse](../../Models/Requests/GuestPaymentsInitializeResponse.md)**
+
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
-| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Boltpay.SDK.Models.Errors.ResponsePaymentError | 4XX                                            | application/json                               |
-| Boltpay.SDK.Models.Errors.SDKException         | 4xx-5xx                                        | */*                                            |
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Boltpay.SDK.Models.Errors.Error           | 4XX                                       | application/json                          |
+| Boltpay.SDK.Models.Errors.FieldError      | 4XX                                       | application/json                          |
+| Boltpay.SDK.Models.Errors.CartError       | 4XX                                       | application/json                          |
+| Boltpay.SDK.Models.Errors.CreditCardError | 4XX                                       | application/json                          |
+| Boltpay.SDK.Models.Errors.SDKException    | 4xx-5xx                                   | */*                                       |
+
 
 ## PerformAction
 
@@ -138,9 +145,10 @@ var res = await sdk.Payments.Guest.PerformActionAsync(
     xMerchantClientId: "<value>",
     id: "iKv7t5bgt1gg",
     paymentActionRequest: new PaymentActionRequest() {
-    DotTag = Boltpay.SDK.Models.Components.PaymentActionRequestTag.Finalize,
-    RedirectResult = "eyJ0cmFuc",
-});
+        DotTag = Boltpay.SDK.Models.Components.PaymentActionRequestTag.Finalize,
+        RedirectResult = "eyJ0cmFuc",
+    }
+);
 
 // handle response
 ```
@@ -155,13 +163,14 @@ var res = await sdk.Payments.Guest.PerformActionAsync(
 | `Id`                                                                                                                                                                                                                | *string*                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                  | The ID of the guest payment to operate on                                                                                                                                                                           | iKv7t5bgt1gg                                                                                                                                                                                                        |
 | `PaymentActionRequest`                                                                                                                                                                                              | [PaymentActionRequest](../../Models/Components/PaymentActionRequest.md)                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                  | N/A                                                                                                                                                                                                                 |                                                                                                                                                                                                                     |
 
-
 ### Response
 
 **[GuestPaymentsActionResponse](../../Models/Requests/GuestPaymentsActionResponse.md)**
+
 ### Errors
 
 | Error Object                           | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Boltpay.SDK.Models.Errors.Response4xx  | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |

@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 6be0ff6b-aa40-4b34-a3eb-72d091b3c545
 management:
-  docChecksum: 8c2776c2cbcdc065c8bb4d1442f50ef5
-  docVersion: 3.2.0
-  speakeasyVersion: 1.357.1
-  generationVersion: 2.390.0
-  releaseVersion: 0.2.0
-  configChecksum: 2284b4e17ce83208fa0f4b8a9943df69
+  docChecksum: 854d678d5e30ebc1211187f4d0e7b3ba
+  docVersion: 3.2.1
+  speakeasyVersion: 1.390.7
+  generationVersion: 2.409.8
+  releaseVersion: 0.2.1
+  configChecksum: bb5ed84f6b764d6bc29bcee70a16f0ac
   repoURL: https://github.com/BoltApp/Bolt-CSharp-SDK.git
 features:
   csharp:
     additionalDependencies: 0.1.0
-    core: 3.9.13
-    errorUnions: 0.1.0
+    core: 3.9.16
+    errorUnions: 0.1.1
     flattening: 2.81.2
     globalSecurity: 2.83.6
     globalSecurityCallbacks: 0.1.0
@@ -25,7 +25,7 @@ features:
     nameOverrides: 2.81.2
     responseFormat: 0.0.4
     sdkHooks: 0.1.0
-    unions: 0.2.0
+    unions: 0.2.1
 generatedFiles:
   - Boltpay/SDK/Account.cs
   - Boltpay/SDK/LoggedIn.cs
@@ -135,6 +135,7 @@ generatedFiles:
   - Boltpay/SDK/Models/Components/Status.cs
   - Boltpay/SDK/Models/Components/PaymentResponseFinalized.cs
   - Boltpay/SDK/Models/Components/Transaction.cs
+  - Boltpay/SDK/Models/Components/TransactionAuthorization.cs
   - Boltpay/SDK/Models/Components/PaymentResponsePendingTag.cs
   - Boltpay/SDK/Models/Components/PaymentResponsePendingStatus.cs
   - Boltpay/SDK/Models/Components/Action.cs
@@ -245,22 +246,12 @@ generatedFiles:
   - docs/Models/Components/PaymentMethodKlarnaPaynowOutput.md
   - docs/Models/Components/AddressListing.md
   - docs/Models/Components/HTTPMetadata.md
-  - docs/Models/Components/AddressListingInput.md
-  - docs/Models/Components/PaymentMethodInput.md
-  - docs/Models/Components/PaymentMethodCreditCardInput.md
-  - docs/Models/Components/AddressReferenceInput.md
-  - docs/Models/Components/AddressReferenceExplicitInput.md
-  - docs/Models/Components/PaymentMethodPaypal.md
-  - docs/Models/Components/PaymentMethodAffirm.md
-  - docs/Models/Components/PaymentMethodAfterpay.md
-  - docs/Models/Components/PaymentMethodKlarna.md
-  - docs/Models/Components/PaymentMethodKlarnaAccount.md
-  - docs/Models/Components/PaymentMethodKlarnaPaynow.md
   - docs/Models/Components/PaymentResponse.md
   - docs/Models/Components/PaymentResponseFinalizedTag.md
   - docs/Models/Components/Status.md
   - docs/Models/Components/PaymentResponseFinalized.md
   - docs/Models/Components/Transaction.md
+  - docs/Models/Components/TransactionAuthorization.md
   - docs/Models/Components/PaymentResponsePendingTag.md
   - docs/Models/Components/PaymentResponsePendingStatus.md
   - docs/Models/Components/Action.md
@@ -292,7 +283,6 @@ generatedFiles:
   - docs/Models/Components/EmailState.md
   - docs/Models/Components/PhoneState.md
   - docs/Models/Components/AccountTestCreationDataOutput.md
-  - docs/Models/Components/AccountTestCreationData.md
   - docs/Models/Components/AccountTestPhoneData.md
   - docs/Models/Components/TestCreditCard.md
   - docs/Models/Components/Security.md

@@ -7,19 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace Boltpay.SDK.Models.Requests
+namespace Boltpay.SDK.Models.Components
 {
-    using Boltpay.SDK.Models.Requests;
     using Boltpay.SDK.Utils;
     using Newtonsoft.Json;
     
-    public class TestingCreditCardGetRequestBody
+    public class TransactionAuthorization
     {
 
-        /// <summary>
-        /// The expected authorization result when using the generated token for a payment.
-        /// </summary>
-        [JsonProperty("type")]
-        public Models.Requests.Type Type { get; set; } = default!;
+        [JsonProperty("processor_reference")]
+        public string? ProcessorReference { get; set; }
     }
 }

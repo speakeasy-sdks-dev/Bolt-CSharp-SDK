@@ -30,12 +30,13 @@ var res = await sdk.Testing.CreateAccountAsync(
     },
     xPublishableKey: "<value>",
     accountTestCreationData: new AccountTestCreationData() {
-    EmailState = Boltpay.SDK.Models.Components.EmailState.Unverified,
-    PhoneState = Boltpay.SDK.Models.Components.PhoneState.Verified,
-    IsMigrated = true,
-    HasAddress = true,
-    HasCreditCard = true,
-});
+        EmailState = Boltpay.SDK.Models.Components.EmailState.Unverified,
+        PhoneState = Boltpay.SDK.Models.Components.PhoneState.Verified,
+        IsMigrated = true,
+        HasAddress = true,
+        HasCreditCard = true,
+    }
+);
 
 // handle response
 ```
@@ -48,16 +49,18 @@ var res = await sdk.Testing.CreateAccountAsync(
 | `XPublishableKey`                                                                                                 | *string*                                                                                                          | :heavy_check_mark:                                                                                                | The publicly shareable identifier used to identify your Bolt merchant division.                                   |
 | `AccountTestCreationData`                                                                                         | [AccountTestCreationData](../../Models/Components/AccountTestCreationData.md)                                     | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
 
-
 ### Response
 
 **[TestingAccountCreateResponse](../../Models/Requests/TestingAccountCreateResponse.md)**
+
 ### Errors
 
 | Error Object                           | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Boltpay.SDK.Models.Errors.Response4xx  | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
+
 
 ## TestingAccountPhoneGet
 
@@ -75,7 +78,8 @@ var res = await sdk.Testing.TestingAccountPhoneGetAsync(
     security: new TestingAccountPhoneGetSecurity() {
         ApiKey = "<YOUR_API_KEY_HERE>",
     },
-    xPublishableKey: "<value>");
+    xPublishableKey: "<value>"
+);
 
 // handle response
 ```
@@ -87,16 +91,18 @@ var res = await sdk.Testing.TestingAccountPhoneGetAsync(
 | `security`                                                                                                            | [Boltpay.SDK.Models.Requests.TestingAccountPhoneGetSecurity](../../Models/Requests/TestingAccountPhoneGetSecurity.md) | :heavy_check_mark:                                                                                                    | The security requirements to use for the request.                                                                     |
 | `XPublishableKey`                                                                                                     | *string*                                                                                                              | :heavy_check_mark:                                                                                                    | The publicly shareable identifier used to identify your Bolt merchant division.                                       |
 
-
 ### Response
 
 **[TestingAccountPhoneGetResponse](../../Models/Requests/TestingAccountPhoneGetResponse.md)**
+
 ### Errors
 
 | Error Object                           | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Boltpay.SDK.Models.Errors.Response4xx  | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
+
 
 ## GetCreditCard
 
@@ -130,13 +136,14 @@ var res = await sdk.Testing.GetCreditCardAsync(
 | `request`                                                                                                         | [TestingCreditCardGetRequestBody](../../Models/Requests/TestingCreditCardGetRequestBody.md)                       | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 | `security`                                                                                                        | [Boltpay.SDK.Models.Requests.TestingCreditCardGetSecurity](../../Models/Requests/TestingCreditCardGetSecurity.md) | :heavy_check_mark:                                                                                                | The security requirements to use for the request.                                                                 |
 
-
 ### Response
 
 **[TestingCreditCardGetResponse](../../Models/Requests/TestingCreditCardGetResponse.md)**
+
 ### Errors
 
 | Error Object                           | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Boltpay.SDK.Models.Errors.Response4xx  | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
