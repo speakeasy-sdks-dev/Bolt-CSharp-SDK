@@ -1,9 +1,0 @@
-# PaymentMethodKlarnaPaynow
-
-
-## Fields
-
-| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             | Example                                                                                 |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `DotTag`                                                                                | [PaymentMethodKlarnaPaynowTag](../../Models/Components/PaymentMethodKlarnaPaynowTag.md) | :heavy_check_mark:                                                                      | N/A                                                                                     | klarna_paynow                                                                           |
-| `ReturnUrl`                                                                             | *string*                                                                                | :heavy_check_mark:                                                                      | Return URL to return to after payment completion in Klarna.                             | www.example.com/handle_klarna_paynow_success                                            |

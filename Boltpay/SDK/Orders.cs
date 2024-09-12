@@ -46,9 +46,9 @@ namespace Boltpay.SDK
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
         private const string _sdkVersion = "0.2.0";
-        private const string _sdkGenVersion = "2.390.0";
+        private const string _sdkGenVersion = "2.415.4";
         private const string _openapiDocVersion = "3.2.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.2.0 2.390.0 3.2.0 Boltpay.SDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.2.0 2.415.4 3.2.0 Boltpay.SDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Boltpay.SDK.Models.Components.Security>? _securitySource;
@@ -83,9 +83,14 @@ namespace Boltpay.SDK
                 httpRequest.Content = serializedBody;
             }
 
-            httpRequest = new SecurityMetadata(() => security).Apply(httpRequest);
+            Func<OrdersCreateSecurity>? securitySource = null;
+            if (security != null)
+            {
+                httpRequest = new SecurityMetadata(() => security).Apply(httpRequest);
+                securitySource = () => security;
+            }
 
-            var hookCtx = new HookContext("ordersCreate", null, () => security);
+            var hookCtx = new HookContext("ordersCreate", null, securitySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 

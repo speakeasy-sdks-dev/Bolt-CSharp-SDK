@@ -7,11 +7,29 @@
     </a>
 </div>
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Bolt API Reference: A comprehensive Bolt API reference for interacting with Accounts, Payments, Orders and more.
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Authentication](#authentication)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
+To add a reference to a local instance of the SDK in a .NET project:
 ```bash
-dotnet add reference path/to/Boltpay/SDK.csproj
+dotnet add reference Boltpay/SDK/Boltpay.SDK.csproj
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -26,13 +44,14 @@ using Boltpay.SDK.Models.Requests;
 using Boltpay.SDK.Models.Components;
 
 var sdk = new BoltSDK(security: new Security() {
-        Oauth = "<YOUR_OAUTH_HERE>",
-        ApiKey = "<YOUR_API_KEY_HERE>",
-    });
+    Oauth = "<YOUR_OAUTH_HERE>",
+    ApiKey = "<YOUR_API_KEY_HERE>",
+});
 
 var res = await sdk.Account.GetDetailsAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>");
+    xMerchantClientId: "<value>"
+);
 
 // handle response
 ```
@@ -40,6 +59,9 @@ var res = await sdk.Account.GetDetailsAsync(
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
+
+<details open>
+<summary>Available methods</summary>
 
 ### [Account](docs/sdks/account/README.md)
 
@@ -51,29 +73,34 @@ var res = await sdk.Account.GetDetailsAsync(
 * [DeletePaymentMethod](docs/sdks/account/README.md#deletepaymentmethod) - Delete an existing payment method
 
 
-### [Payments.LoggedIn](docs/sdks/loggedin/README.md)
+### [OAuth](docs/sdks/oauth/README.md)
 
-* [Initialize](docs/sdks/loggedin/README.md#initialize) - Initialize a Bolt payment for logged in shoppers
-* [PerformAction](docs/sdks/loggedin/README.md#performaction) - Finalize a pending payment
-
-### [Payments.Guest](docs/sdks/guest/README.md)
-
-* [Initialize](docs/sdks/guest/README.md#initialize) - Initialize a Bolt payment for guest shoppers
-* [PerformAction](docs/sdks/guest/README.md#performaction) - Finalize a pending guest payment
+* [GetToken](docs/sdks/oauth/README.md#gettoken) - Get OAuth token
 
 ### [Orders](docs/sdks/orders/README.md)
 
 * [OrdersCreate](docs/sdks/orders/README.md#orderscreate) - Create an order that was prepared outside the Bolt ecosystem.
 
-### [OAuth](docs/sdks/oauth/README.md)
+### [Payments](docs/sdks/payments/README.md)
 
-* [GetToken](docs/sdks/oauth/README.md#gettoken) - Get OAuth token
+
+#### [Payments.Guest](docs/sdks/guest/README.md)
+
+* [Initialize](docs/sdks/guest/README.md#initialize) - Initialize a Bolt payment for guest shoppers
+* [PerformAction](docs/sdks/guest/README.md#performaction) - Finalize a pending guest payment
+
+#### [Payments.LoggedIn](docs/sdks/loggedin/README.md)
+
+* [Initialize](docs/sdks/loggedin/README.md#initialize) - Initialize a Bolt payment for logged in shoppers
+* [PerformAction](docs/sdks/loggedin/README.md#performaction) - Finalize a pending payment
 
 ### [Testing](docs/sdks/testing/README.md)
 
 * [CreateAccount](docs/sdks/testing/README.md#createaccount) - Create a test account
 * [TestingAccountPhoneGet](docs/sdks/testing/README.md#testingaccountphoneget) - Get a random phone number
 * [GetCreditCard](docs/sdks/testing/README.md#getcreditcard) - Retrieve a tokenized test credit card
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
@@ -83,7 +110,8 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 | Error Object                           | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Boltpay.SDK.Models.Errors.Response4xx  | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
+| Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
 
 ### Example
@@ -96,20 +124,26 @@ using System;
 using Boltpay.SDK.Models.Errors;
 
 var sdk = new BoltSDK(security: new Security() {
-        Oauth = "<YOUR_OAUTH_HERE>",
-        ApiKey = "<YOUR_API_KEY_HERE>",
-    });
+    Oauth = "<YOUR_OAUTH_HERE>",
+    ApiKey = "<YOUR_API_KEY_HERE>",
+});
 
 try
 {
     var res = await sdk.Account.GetDetailsAsync(
-    xPublishableKey: "<value>",
-    xMerchantClientId: "<value>");
+        xPublishableKey: "<value>",
+        xMerchantClientId: "<value>"
+    );
+
     // handle response
 }
 catch (Exception ex)
 {
-    if (ex is Response4xx)
+    if (ex is Error)
+    {
+        // handle exception
+    }
+    else if (ex is FieldError)
     {
         // handle exception
     }
@@ -118,7 +152,6 @@ catch (Exception ex)
         // handle exception
     }
 }
-
 ```
 <!-- End Error Handling [errors] -->
 
@@ -164,13 +197,14 @@ using Boltpay.SDK.Models.Requests;
 using Boltpay.SDK.Models.Components;
 
 var sdk = new BoltSDK(security: new Security() {
-        Oauth = "<YOUR_OAUTH_HERE>",
-        ApiKey = "<YOUR_API_KEY_HERE>",
-    });
+    Oauth = "<YOUR_OAUTH_HERE>",
+    ApiKey = "<YOUR_API_KEY_HERE>",
+});
 
 var res = await sdk.Account.GetDetailsAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>");
+    xMerchantClientId: "<value>"
+);
 
 // handle response
 ```
@@ -193,72 +227,73 @@ var res = await sdk.Payments.Guest.InitializeAsync(
     xPublishableKey: "<value>",
     xMerchantClientId: "<value>",
     guestPaymentInitializeRequest: new GuestPaymentInitializeRequest() {
-    Profile = new ProfileCreationData() {
-        CreateAccount = true,
-        FirstName = "Alice",
-        LastName = "Baker",
-        Email = "alice@example.com",
-        Phone = "+14155550199",
-    },
-    Cart = new Cart() {
-        OrderReference = "order_100",
-        OrderDescription = "Order #1234567890",
-        DisplayId = "215614191",
-        Shipments = new List<CartShipment>() {
-            new CartShipment() {
-                Address = AddressReferenceInput.CreateId(
-                        new AddressReferenceId() {
-                            DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
-                            Id = "D4g3h5tBuVYK9",
-                        }
-                ),
-                Cost = new Amount() {
-                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
-                    Units = 900,
+        Profile = new ProfileCreationData() {
+            CreateAccount = true,
+            FirstName = "Alice",
+            LastName = "Baker",
+            Email = "alice@example.com",
+            Phone = "+14155550199",
+        },
+        Cart = new Cart() {
+            OrderReference = "order_100",
+            OrderDescription = "Order #1234567890",
+            DisplayId = "215614191",
+            Shipments = new List<CartShipment>() {
+                new CartShipment() {
+                    Address = AddressReferenceInput.CreateAddressReferenceId(
+                            new AddressReferenceId() {
+                                DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
+                                Id = "D4g3h5tBuVYK9",
+                            }
+                    ),
+                    Cost = new Amount() {
+                        Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                        Units = 900,
+                    },
+                    Carrier = "FedEx",
                 },
-                Carrier = "FedEx",
+            },
+            Discounts = new List<CartDiscount>() {
+                new CartDiscount() {
+                    Amount = new Amount() {
+                        Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                        Units = 900,
+                    },
+                    Code = "SUMMER10DISCOUNT",
+                    DetailsUrl = "https://www.example.com/SUMMER-SALE",
+                },
+            },
+            Items = new List<CartItem>() {
+                new CartItem() {
+                    Name = "Bolt Swag Bag",
+                    Reference = "item_100",
+                    Description = "Large tote with Bolt logo.",
+                    TotalAmount = new Amount() {
+                        Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                        Units = 900,
+                    },
+                    UnitPrice = 1000,
+                    Quantity = 1,
+                    ImageUrl = "https://www.example.com/products/123456/images/1.png",
+                },
+            },
+            Total = new Amount() {
+                Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                Units = 900,
+            },
+            Tax = new Amount() {
+                Currency = Boltpay.SDK.Models.Components.Currency.Usd,
+                Units = 900,
             },
         },
-        Discounts = new List<CartDiscount>() {
-            new CartDiscount() {
-                Amount = new Amount() {
-                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
-                    Units = 900,
-                },
-                Code = "SUMMER10DISCOUNT",
-                DetailsUrl = "https://www.example.com/SUMMER-SALE",
-            },
-        },
-        Items = new List<CartItem>() {
-            new CartItem() {
-                Name = "Bolt Swag Bag",
-                Reference = "item_100",
-                Description = "Large tote with Bolt logo.",
-                TotalAmount = new Amount() {
-                    Currency = Boltpay.SDK.Models.Components.Currency.Usd,
-                    Units = 900,
-                },
-                UnitPrice = 1000,
-                Quantity = 1,
-                ImageUrl = "https://www.example.com/products/123456/images/1.png",
-            },
-        },
-        Total = new Amount() {
-            Currency = Boltpay.SDK.Models.Components.Currency.Usd,
-            Units = 900,
-        },
-        Tax = new Amount() {
-            Currency = Boltpay.SDK.Models.Components.Currency.Usd,
-            Units = 900,
-        },
-    },
-    PaymentMethod = PaymentMethodInput.CreateAffirm(
-            new PaymentMethodAffirm() {
-                DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
-                ReturnUrl = "www.example.com/handle_affirm_success",
-            }
-    ),
-});
+        PaymentMethod = PaymentMethodInput.CreatePaymentMethodAffirm(
+                new PaymentMethodAffirm() {
+                    DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
+                    ReturnUrl = "www.example.com/handle_affirm_success",
+                }
+        ),
+    }
+);
 
 // handle response
 ```

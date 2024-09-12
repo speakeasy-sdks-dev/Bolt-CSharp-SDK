@@ -20,6 +20,6 @@ namespace Boltpay.SDK.Models.Requests
         /// The expected authorization result when using the generated token for a payment.
         /// </summary>
         [JsonProperty("type")]
-        public Type Type { get; set; } = default!;
+        public Models.Requests.Type Type { get; set; } = default!;
     }
 }

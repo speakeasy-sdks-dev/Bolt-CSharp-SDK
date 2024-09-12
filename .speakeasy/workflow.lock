@@ -1,4 +1,4 @@
-speakeasyVersion: 1.357.1
+speakeasyVersion: internal
 sources:
     bolt-csharp-api:
         sourceNamespace: bolt-csharp-api
@@ -13,7 +13,7 @@ targets:
         sourceNamespace: bolt-csharp-api
         sourceRevisionDigest: sha256:089191ece4615c6cdfcd96595c89708045e7b49bb220202fca89eebe914f94af
         sourceBlobDigest: sha256:edef54369746b4047687d76d7f92f2adf18f1b45329e3325de4cdd4417f9997c
-        outLocation: /github/workspace/repo
+        outLocation: /tmp/snapshot-test/dead969a258efe9e
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
