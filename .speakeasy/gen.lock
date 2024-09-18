@@ -488,7 +488,7 @@ examples:
         "200":
           application/json: {".tag": "klarna"}
         4XX:
-          application/json: {".tag": "declined_invalid_cvv", "message": "The payment was declined because the CVV is not valid"}
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
     credit-card-address-reference-explicit:
       parameters:
         header:
@@ -500,7 +500,7 @@ examples:
         "200":
           application/json: {".tag": "credit_card", "id": "X5h6j8uLpVGK", "billing_address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "network": "visa", "last4": "1004", "expiration": "2029-03"}
         4XX:
-          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+          application/json: {".tag": "declined_invalid_cvv", "message": "The payment was declined because the CVV is not valid"}
     missing-input:
       parameters:
         header:
@@ -510,7 +510,7 @@ examples:
         application/json: {".tag": "affirm", "return_url": "www.example.com/handle_affirm_success"}
       responses:
         4XX:
-          application/json: {".tag": "declined_invalid_cvv", "message": "The payment was declined because the CVV is not valid"}
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
     invalid-input:
       parameters:
         header:
@@ -520,7 +520,7 @@ examples:
         application/json: {".tag": "klarna_paynow", "return_url": "www.example.com/handle_klarna_paynow_success"}
       responses:
         4XX:
-          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
     invalid-credit-card:
       parameters:
         header:
@@ -530,7 +530,7 @@ examples:
         application/json: {".tag": "credit_card", "billing_address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "network": "visa", "bin": "411111", "last4": "1004", "expiration": "2029-03", "token": "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0"}
       responses:
         4XX:
-          application/json: {".tag": "declined_invalid_cvv", "message": "The payment was declined because the CVV is not valid"}
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
   accountPaymentMethodDelete:
     speakeasy-default-account-payment-method-delete:
       parameters:
@@ -566,7 +566,7 @@ examples:
         "200":
           application/json: {".tag": "pending", "id": "iKv7t5bgt1gg", "status": "awaiting_user_confirmation", "action": "redirect", "url": "www.example.com/payments/finalize"}
         4XX:
-          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
     paypal:
       parameters:
         header:
@@ -608,7 +608,7 @@ examples:
         application/json: {"cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [], "discounts": [], "items": [], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "affirm", "return_url": "www.example.com/handle_affirm_success"}}
       responses:
         4XX:
-          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
     invalid-cart:
       parameters:
         header:
@@ -618,7 +618,7 @@ examples:
         application/json: {"cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [], "discounts": [], "items": [], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "paypal", "success_url": "https://www.example.com/paypal-callback/success", "cancel_url": "https://www.example.com/paypal-callback/cancel"}}
       responses:
         4XX:
-          application/json: {".tag": "payment_already_exists", "message": "A payment for this order already exists"}
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
     invalid-credit-card:
       parameters:
         header:
@@ -628,7 +628,7 @@ examples:
         application/json: {"cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [], "discounts": [], "items": [], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "id", "id": "X5h6j8uLpVGK"}}
       responses:
         4XX:
-          application/json: {".tag": "declined_invalid_cvv", "message": "The payment was declined because the CVV is not valid"}
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
   paymentsAction:
     finalized:
       parameters:
@@ -666,7 +666,7 @@ examples:
         "200":
           application/json: {".tag": "finalized", "id": "iKv7t5bgt1gg", "status": "success", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": []}}
         4XX:
-          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
     finalized:
       parameters:
         header:
@@ -706,7 +706,7 @@ examples:
         application/json: {"profile": {"create_account": true, "first_name": "Alice", "last_name": "Baker", "email": "alice@example.com", "phone": "+14155550199"}, "cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [], "discounts": [], "items": [], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "affirm", "return_url": "www.example.com/handle_affirm_success"}}
       responses:
         4XX:
-          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
     invalid-credit-card:
       parameters:
         header:
@@ -716,7 +716,7 @@ examples:
         application/json: {"profile": {"create_account": true, "first_name": "Alice", "last_name": "Baker", "email": "alice@example.com", "phone": "+14155550199"}, "cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [], "discounts": [], "items": [], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "credit_card", "billing_address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "network": "visa", "bin": "411111", "last4": "1004", "expiration": "2029-03", "token": "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0"}}
       responses:
         4XX:
-          application/json: {".tag": "payment_already_exists", "message": "A payment for this order already exists"}
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
   guestPaymentsAction:
     speakeasy-default-guest-payments-action:
       parameters:
@@ -731,7 +731,7 @@ examples:
         "200":
           application/json: {".tag": "finalized", "id": "iKv7t5bgt1gg", "status": "success", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": []}}
         4XX:
-          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
   ordersCreate:
     reference:
       parameters:
