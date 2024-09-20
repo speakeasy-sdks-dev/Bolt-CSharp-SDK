@@ -60,6 +60,9 @@ var res = await sdk.Account.GetDetailsAsync(
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
 ### [Account](docs/sdks/account/README.md)
 
 * [GetDetails](docs/sdks/account/README.md#getdetails) - Retrieve account details
@@ -70,29 +73,34 @@ var res = await sdk.Account.GetDetailsAsync(
 * [DeletePaymentMethod](docs/sdks/account/README.md#deletepaymentmethod) - Delete an existing payment method
 
 
-### [Payments.LoggedIn](docs/sdks/loggedin/README.md)
+### [OAuth](docs/sdks/oauth/README.md)
 
-* [Initialize](docs/sdks/loggedin/README.md#initialize) - Initialize a Bolt payment for logged in shoppers
-* [PerformAction](docs/sdks/loggedin/README.md#performaction) - Finalize a pending payment
-
-### [Payments.Guest](docs/sdks/guest/README.md)
-
-* [Initialize](docs/sdks/guest/README.md#initialize) - Initialize a Bolt payment for guest shoppers
-* [PerformAction](docs/sdks/guest/README.md#performaction) - Finalize a pending guest payment
+* [GetToken](docs/sdks/oauth/README.md#gettoken) - Get OAuth token
 
 ### [Orders](docs/sdks/orders/README.md)
 
 * [OrdersCreate](docs/sdks/orders/README.md#orderscreate) - Create an order that was prepared outside the Bolt ecosystem.
 
-### [OAuth](docs/sdks/oauth/README.md)
+### [Payments](docs/sdks/payments/README.md)
 
-* [GetToken](docs/sdks/oauth/README.md#gettoken) - Get OAuth token
+
+#### [Payments.Guest](docs/sdks/guest/README.md)
+
+* [Initialize](docs/sdks/guest/README.md#initialize) - Initialize a Bolt payment for guest shoppers
+* [PerformAction](docs/sdks/guest/README.md#performaction) - Finalize a pending guest payment
+
+#### [Payments.LoggedIn](docs/sdks/loggedin/README.md)
+
+* [Initialize](docs/sdks/loggedin/README.md#initialize) - Initialize a Bolt payment for logged in shoppers
+* [PerformAction](docs/sdks/loggedin/README.md#performaction) - Finalize a pending payment
 
 ### [Testing](docs/sdks/testing/README.md)
 
 * [CreateAccount](docs/sdks/testing/README.md#createaccount) - Create a test account
 * [TestingAccountPhoneGet](docs/sdks/testing/README.md#testingaccountphoneget) - Get a random phone number
 * [GetCreditCard](docs/sdks/testing/README.md#getcreditcard) - Retrieve a tokenized test credit card
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
@@ -133,15 +141,18 @@ catch (Exception ex)
 {
     if (ex is Error)
     {
-        // handle exception
+        // Handle exception data
+        throw;
     }
-    else if (ex is FieldError)
+    if (ex is FieldError)
     {
-        // handle exception
+        // Handle exception data
+        throw;
     }
-    else if (ex is Boltpay.SDK.Models.Errors.SDKException)
+    else if (ex is Models.Errors.SDKException)
     {
-        // handle exception
+        // Handle default exception
+        throw;
     }
 }
 ```
@@ -233,10 +244,10 @@ var res = await sdk.Payments.Guest.InitializeAsync(
             Shipments = new List<CartShipment>() {
                 new CartShipment() {
                     Address = AddressReferenceInput.CreateAddressReferenceId(
-                            new AddressReferenceId() {
-                                DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
-                                Id = "D4g3h5tBuVYK9",
-                            }
+                        new AddressReferenceId() {
+                            DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
+                            Id = "D4g3h5tBuVYK9",
+                        }
                     ),
                     Cost = new Amount() {
                         Currency = Boltpay.SDK.Models.Components.Currency.Usd,
@@ -279,10 +290,10 @@ var res = await sdk.Payments.Guest.InitializeAsync(
             },
         },
         PaymentMethod = PaymentMethodInput.CreatePaymentMethodAffirm(
-                new PaymentMethodAffirm() {
-                    DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
-                    ReturnUrl = "www.example.com/handle_affirm_success",
-                }
+            new PaymentMethodAffirm() {
+                DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
+                ReturnUrl = "www.example.com/handle_affirm_success",
+            }
         ),
     }
 );
