@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6be0ff6b-aa40-4b34-a3eb-72d091b3c545
 management:
-  docChecksum: 854d678d5e30ebc1211187f4d0e7b3ba
+  docChecksum: 3d058b56d0f6d864256abeb081f99c28
   docVersion: 3.2.1
-  speakeasyVersion: 1.390.7
-  generationVersion: 2.409.8
+  speakeasyVersion: internal
+  generationVersion: 2.421.1
   releaseVersion: 0.2.1
-  configChecksum: bb5ed84f6b764d6bc29bcee70a16f0ac
+  configChecksum: 03865038b056bcf144eb5b1dd7c2dc97
   repoURL: https://github.com/BoltApp/Bolt-CSharp-SDK.git
 features:
   csharp:
     additionalDependencies: 0.1.0
-    core: 3.9.16
+    core: 3.10.0
     errorUnions: 0.1.1
-    flattening: 2.81.2
+    flattening: 2.81.3
     globalSecurity: 2.83.6
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.3
@@ -27,16 +27,147 @@ features:
     sdkHooks: 0.1.0
     unions: 0.2.1
 generatedFiles:
-  - Boltpay/SDK/Account.cs
-  - Boltpay/SDK/LoggedIn.cs
-  - Boltpay/SDK/Guest.cs
-  - Boltpay/SDK/Payments.cs
-  - Boltpay/SDK/Orders.cs
-  - Boltpay/SDK/OAuth.cs
-  - Boltpay/SDK/Testing.cs
-  - Boltpay/SDK/BoltSDK.cs
-  - global.json
+  - .gitattributes
   - Boltpay.SDK.sln
+  - Boltpay/SDK/Account.cs
+  - Boltpay/SDK/BoltSDK.cs
+  - Boltpay/SDK/Boltpay.SDK.csproj
+  - Boltpay/SDK/Guest.cs
+  - Boltpay/SDK/Hooks/HookTypes.cs
+  - Boltpay/SDK/Hooks/SDKHooks.cs
+  - Boltpay/SDK/LoggedIn.cs
+  - Boltpay/SDK/Models/Components/Account.cs
+  - Boltpay/SDK/Models/Components/AccountTestCreationData.cs
+  - Boltpay/SDK/Models/Components/AccountTestCreationDataOutput.cs
+  - Boltpay/SDK/Models/Components/AccountTestPhoneData.cs
+  - Boltpay/SDK/Models/Components/Action.cs
+  - Boltpay/SDK/Models/Components/AddressListing.cs
+  - Boltpay/SDK/Models/Components/AddressListingInput.cs
+  - Boltpay/SDK/Models/Components/AddressReference.cs
+  - Boltpay/SDK/Models/Components/AddressReferenceExplicit.cs
+  - Boltpay/SDK/Models/Components/AddressReferenceExplicitInput.cs
+  - Boltpay/SDK/Models/Components/AddressReferenceExplicitTag.cs
+  - Boltpay/SDK/Models/Components/AddressReferenceId.cs
+  - Boltpay/SDK/Models/Components/AddressReferenceIdTag.cs
+  - Boltpay/SDK/Models/Components/AddressReferenceInput.cs
+  - Boltpay/SDK/Models/Components/Amount.cs
+  - Boltpay/SDK/Models/Components/AuthorizationCodeRequest.cs
+  - Boltpay/SDK/Models/Components/Cart.cs
+  - Boltpay/SDK/Models/Components/CartDiscount.cs
+  - Boltpay/SDK/Models/Components/CartItem.cs
+  - Boltpay/SDK/Models/Components/CartShipment.cs
+  - Boltpay/SDK/Models/Components/CountryCode.cs
+  - Boltpay/SDK/Models/Components/CreditCardNetwork.cs
+  - Boltpay/SDK/Models/Components/Currency.cs
+  - Boltpay/SDK/Models/Components/DotTag.cs
+  - Boltpay/SDK/Models/Components/EmailState.cs
+  - Boltpay/SDK/Models/Components/GetAccessTokenResponse.cs
+  - Boltpay/SDK/Models/Components/GrantType.cs
+  - Boltpay/SDK/Models/Components/GuestPaymentInitializeRequest.cs
+  - Boltpay/SDK/Models/Components/HTTPMetadata.cs
+  - Boltpay/SDK/Models/Components/Order.cs
+  - Boltpay/SDK/Models/Components/OrderResponse.cs
+  - Boltpay/SDK/Models/Components/PaymentActionRequest.cs
+  - Boltpay/SDK/Models/Components/PaymentActionRequestTag.cs
+  - Boltpay/SDK/Models/Components/PaymentInitializeRequest.cs
+  - Boltpay/SDK/Models/Components/PaymentMethod.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodAffirm.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodAffirmOutput.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodAffirmTag.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodAfterpay.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodAfterpayOutput.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodAfterpayTag.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodCreditCard.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodCreditCardInput.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodExtended.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodInput.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodKlarna.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaAccount.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaAccountOutput.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaAccountTag.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaOutput.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaPaynow.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaPaynowOutput.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaPaynowTag.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaTag.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodPaypal.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodPaypalOutput.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodPaypalTag.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodReference.cs
+  - Boltpay/SDK/Models/Components/PaymentMethodReferenceTag.cs
+  - Boltpay/SDK/Models/Components/PaymentResponse.cs
+  - Boltpay/SDK/Models/Components/PaymentResponseFinalized.cs
+  - Boltpay/SDK/Models/Components/PaymentResponseFinalizedTag.cs
+  - Boltpay/SDK/Models/Components/PaymentResponsePending.cs
+  - Boltpay/SDK/Models/Components/PaymentResponsePendingStatus.cs
+  - Boltpay/SDK/Models/Components/PaymentResponsePendingTag.cs
+  - Boltpay/SDK/Models/Components/PhoneState.cs
+  - Boltpay/SDK/Models/Components/Profile.cs
+  - Boltpay/SDK/Models/Components/ProfileCreationData.cs
+  - Boltpay/SDK/Models/Components/RefreshTokenRequest.cs
+  - Boltpay/SDK/Models/Components/RefreshTokenRequestGrantType.cs
+  - Boltpay/SDK/Models/Components/RefreshTokenRequestScope.cs
+  - Boltpay/SDK/Models/Components/Scope.cs
+  - Boltpay/SDK/Models/Components/Security.cs
+  - Boltpay/SDK/Models/Components/Status.cs
+  - Boltpay/SDK/Models/Components/TestCreditCard.cs
+  - Boltpay/SDK/Models/Components/TokenRequest.cs
+  - Boltpay/SDK/Models/Components/Transaction.cs
+  - Boltpay/SDK/Models/Components/TransactionAuthorization.cs
+  - Boltpay/SDK/Models/Errors/CartError.cs
+  - Boltpay/SDK/Models/Errors/CartErrorTag.cs
+  - Boltpay/SDK/Models/Errors/CreditCardError.cs
+  - Boltpay/SDK/Models/Errors/CreditCardErrorTag.cs
+  - Boltpay/SDK/Models/Errors/DotTag.cs
+  - Boltpay/SDK/Models/Errors/Error.cs
+  - Boltpay/SDK/Models/Errors/FieldError.cs
+  - Boltpay/SDK/Models/Errors/FieldErrorTag.cs
+  - Boltpay/SDK/Models/Errors/Response4xx.cs
+  - Boltpay/SDK/Models/Errors/ResponseAddressError.cs
+  - Boltpay/SDK/Models/Errors/ResponsePaymentError.cs
+  - Boltpay/SDK/Models/Errors/ResponsePaymentMethodError.cs
+  - Boltpay/SDK/Models/Errors/SDKException.cs
+  - Boltpay/SDK/Models/Requests/AccountAddPaymentMethodRequest.cs
+  - Boltpay/SDK/Models/Requests/AccountAddPaymentMethodResponse.cs
+  - Boltpay/SDK/Models/Requests/AccountAddressCreateRequest.cs
+  - Boltpay/SDK/Models/Requests/AccountAddressCreateResponse.cs
+  - Boltpay/SDK/Models/Requests/AccountAddressDeleteRequest.cs
+  - Boltpay/SDK/Models/Requests/AccountAddressDeleteResponse.cs
+  - Boltpay/SDK/Models/Requests/AccountAddressEditRequest.cs
+  - Boltpay/SDK/Models/Requests/AccountAddressEditResponse.cs
+  - Boltpay/SDK/Models/Requests/AccountGetRequest.cs
+  - Boltpay/SDK/Models/Requests/AccountGetResponse.cs
+  - Boltpay/SDK/Models/Requests/AccountPaymentMethodDeleteRequest.cs
+  - Boltpay/SDK/Models/Requests/AccountPaymentMethodDeleteResponse.cs
+  - Boltpay/SDK/Models/Requests/GuestPaymentsActionRequest.cs
+  - Boltpay/SDK/Models/Requests/GuestPaymentsActionResponse.cs
+  - Boltpay/SDK/Models/Requests/GuestPaymentsActionSecurity.cs
+  - Boltpay/SDK/Models/Requests/GuestPaymentsInitializeRequest.cs
+  - Boltpay/SDK/Models/Requests/GuestPaymentsInitializeResponse.cs
+  - Boltpay/SDK/Models/Requests/GuestPaymentsInitializeSecurity.cs
+  - Boltpay/SDK/Models/Requests/OauthGetTokenRequest.cs
+  - Boltpay/SDK/Models/Requests/OauthGetTokenResponse.cs
+  - Boltpay/SDK/Models/Requests/OrdersCreateRequest.cs
+  - Boltpay/SDK/Models/Requests/OrdersCreateResponse.cs
+  - Boltpay/SDK/Models/Requests/OrdersCreateSecurity.cs
+  - Boltpay/SDK/Models/Requests/PaymentsActionRequest.cs
+  - Boltpay/SDK/Models/Requests/PaymentsActionResponse.cs
+  - Boltpay/SDK/Models/Requests/PaymentsInitializeRequest.cs
+  - Boltpay/SDK/Models/Requests/PaymentsInitializeResponse.cs
+  - Boltpay/SDK/Models/Requests/TestingAccountCreateRequest.cs
+  - Boltpay/SDK/Models/Requests/TestingAccountCreateResponse.cs
+  - Boltpay/SDK/Models/Requests/TestingAccountCreateSecurity.cs
+  - Boltpay/SDK/Models/Requests/TestingAccountPhoneGetRequest.cs
+  - Boltpay/SDK/Models/Requests/TestingAccountPhoneGetResponse.cs
+  - Boltpay/SDK/Models/Requests/TestingAccountPhoneGetSecurity.cs
+  - Boltpay/SDK/Models/Requests/TestingCreditCardGetRequestBody.cs
+  - Boltpay/SDK/Models/Requests/TestingCreditCardGetResponse.cs
+  - Boltpay/SDK/Models/Requests/TestingCreditCardGetSecurity.cs
+  - Boltpay/SDK/Models/Requests/Type.cs
+  - Boltpay/SDK/OAuth.cs
+  - Boltpay/SDK/Orders.cs
+  - Boltpay/SDK/Payments.cs
+  - Boltpay/SDK/Testing.cs
   - Boltpay/SDK/Utils/AnyDeserializer.cs
   - Boltpay/SDK/Utils/BigIntStrConverter.cs
   - Boltpay/SDK/Utils/DecimalStrConverter.cs
@@ -54,260 +185,627 @@ generatedFiles:
   - Boltpay/SDK/Utils/SpeakeasyMetadata.cs
   - Boltpay/SDK/Utils/URLBuilder.cs
   - Boltpay/SDK/Utils/Utilities.cs
-  - Boltpay/SDK/Boltpay.SDK.csproj
-  - Boltpay/SDK/Models/Errors/SDKException.cs
-  - Boltpay/SDK/Models/Requests/AccountGetRequest.cs
-  - Boltpay/SDK/Models/Requests/AccountGetResponse.cs
-  - Boltpay/SDK/Models/Requests/AccountAddressCreateRequest.cs
-  - Boltpay/SDK/Models/Requests/AccountAddressCreateResponse.cs
-  - Boltpay/SDK/Models/Requests/AccountAddressEditRequest.cs
-  - Boltpay/SDK/Models/Requests/AccountAddressEditResponse.cs
-  - Boltpay/SDK/Models/Requests/AccountAddressDeleteRequest.cs
-  - Boltpay/SDK/Models/Requests/AccountAddressDeleteResponse.cs
-  - Boltpay/SDK/Models/Requests/AccountAddPaymentMethodRequest.cs
-  - Boltpay/SDK/Models/Requests/AccountAddPaymentMethodResponse.cs
-  - Boltpay/SDK/Models/Requests/AccountPaymentMethodDeleteRequest.cs
-  - Boltpay/SDK/Models/Requests/AccountPaymentMethodDeleteResponse.cs
-  - Boltpay/SDK/Models/Requests/PaymentsInitializeRequest.cs
-  - Boltpay/SDK/Models/Requests/PaymentsInitializeResponse.cs
-  - Boltpay/SDK/Models/Requests/PaymentsActionRequest.cs
-  - Boltpay/SDK/Models/Requests/PaymentsActionResponse.cs
-  - Boltpay/SDK/Models/Requests/GuestPaymentsInitializeSecurity.cs
-  - Boltpay/SDK/Models/Requests/GuestPaymentsInitializeRequest.cs
-  - Boltpay/SDK/Models/Requests/GuestPaymentsInitializeResponse.cs
-  - Boltpay/SDK/Models/Requests/GuestPaymentsActionSecurity.cs
-  - Boltpay/SDK/Models/Requests/GuestPaymentsActionRequest.cs
-  - Boltpay/SDK/Models/Requests/GuestPaymentsActionResponse.cs
-  - Boltpay/SDK/Models/Requests/OrdersCreateSecurity.cs
-  - Boltpay/SDK/Models/Requests/OrdersCreateRequest.cs
-  - Boltpay/SDK/Models/Requests/OrdersCreateResponse.cs
-  - Boltpay/SDK/Models/Requests/OauthGetTokenRequest.cs
-  - Boltpay/SDK/Models/Requests/OauthGetTokenResponse.cs
-  - Boltpay/SDK/Models/Requests/TestingAccountCreateSecurity.cs
-  - Boltpay/SDK/Models/Requests/TestingAccountCreateRequest.cs
-  - Boltpay/SDK/Models/Requests/TestingAccountCreateResponse.cs
-  - Boltpay/SDK/Models/Requests/TestingAccountPhoneGetSecurity.cs
-  - Boltpay/SDK/Models/Requests/TestingAccountPhoneGetRequest.cs
-  - Boltpay/SDK/Models/Requests/TestingAccountPhoneGetResponse.cs
-  - Boltpay/SDK/Models/Requests/TestingCreditCardGetSecurity.cs
-  - Boltpay/SDK/Models/Requests/Type.cs
-  - Boltpay/SDK/Models/Requests/TestingCreditCardGetRequestBody.cs
-  - Boltpay/SDK/Models/Requests/TestingCreditCardGetResponse.cs
-  - Boltpay/SDK/Models/Components/Account.cs
-  - Boltpay/SDK/Models/Components/Profile.cs
-  - Boltpay/SDK/Models/Components/PaymentMethod.cs
-  - Boltpay/SDK/Models/Components/DotTag.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodCreditCard.cs
-  - Boltpay/SDK/Models/Components/CreditCardNetwork.cs
-  - Boltpay/SDK/Models/Components/AddressReference.cs
-  - Boltpay/SDK/Models/Components/AddressReferenceIdTag.cs
-  - Boltpay/SDK/Models/Components/AddressReferenceId.cs
-  - Boltpay/SDK/Models/Components/AddressReferenceExplicitTag.cs
-  - Boltpay/SDK/Models/Components/AddressReferenceExplicit.cs
-  - Boltpay/SDK/Models/Components/CountryCode.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodPaypalTag.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodPaypalOutput.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodAffirmTag.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodAffirmOutput.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodAfterpayTag.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodAfterpayOutput.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaTag.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaOutput.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaAccountTag.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaAccountOutput.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaPaynowTag.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaPaynowOutput.cs
-  - Boltpay/SDK/Models/Components/AddressListing.cs
-  - Boltpay/SDK/Models/Components/HTTPMetadata.cs
-  - Boltpay/SDK/Models/Components/AddressListingInput.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodInput.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodCreditCardInput.cs
-  - Boltpay/SDK/Models/Components/AddressReferenceInput.cs
-  - Boltpay/SDK/Models/Components/AddressReferenceExplicitInput.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodPaypal.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodAffirm.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodAfterpay.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodKlarna.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaAccount.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodKlarnaPaynow.cs
-  - Boltpay/SDK/Models/Components/PaymentResponse.cs
-  - Boltpay/SDK/Models/Components/PaymentResponseFinalizedTag.cs
-  - Boltpay/SDK/Models/Components/Status.cs
-  - Boltpay/SDK/Models/Components/PaymentResponseFinalized.cs
-  - Boltpay/SDK/Models/Components/Transaction.cs
-  - Boltpay/SDK/Models/Components/TransactionAuthorization.cs
-  - Boltpay/SDK/Models/Components/PaymentResponsePendingTag.cs
-  - Boltpay/SDK/Models/Components/PaymentResponsePendingStatus.cs
-  - Boltpay/SDK/Models/Components/Action.cs
-  - Boltpay/SDK/Models/Components/PaymentResponsePending.cs
-  - Boltpay/SDK/Models/Components/PaymentInitializeRequest.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodExtended.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodReferenceTag.cs
-  - Boltpay/SDK/Models/Components/PaymentMethodReference.cs
-  - Boltpay/SDK/Models/Components/Cart.cs
-  - Boltpay/SDK/Models/Components/Currency.cs
-  - Boltpay/SDK/Models/Components/Amount.cs
-  - Boltpay/SDK/Models/Components/CartItem.cs
-  - Boltpay/SDK/Models/Components/CartDiscount.cs
-  - Boltpay/SDK/Models/Components/CartShipment.cs
-  - Boltpay/SDK/Models/Components/PaymentActionRequestTag.cs
-  - Boltpay/SDK/Models/Components/PaymentActionRequest.cs
-  - Boltpay/SDK/Models/Components/GuestPaymentInitializeRequest.cs
-  - Boltpay/SDK/Models/Components/ProfileCreationData.cs
-  - Boltpay/SDK/Models/Components/OrderResponse.cs
-  - Boltpay/SDK/Models/Components/Order.cs
-  - Boltpay/SDK/Models/Components/GetAccessTokenResponse.cs
-  - Boltpay/SDK/Models/Components/TokenRequest.cs
-  - Boltpay/SDK/Models/Components/GrantType.cs
-  - Boltpay/SDK/Models/Components/Scope.cs
-  - Boltpay/SDK/Models/Components/AuthorizationCodeRequest.cs
-  - Boltpay/SDK/Models/Components/RefreshTokenRequestGrantType.cs
-  - Boltpay/SDK/Models/Components/RefreshTokenRequestScope.cs
-  - Boltpay/SDK/Models/Components/RefreshTokenRequest.cs
-  - Boltpay/SDK/Models/Components/EmailState.cs
-  - Boltpay/SDK/Models/Components/PhoneState.cs
-  - Boltpay/SDK/Models/Components/AccountTestCreationDataOutput.cs
-  - Boltpay/SDK/Models/Components/AccountTestCreationData.cs
-  - Boltpay/SDK/Models/Components/AccountTestPhoneData.cs
-  - Boltpay/SDK/Models/Components/TestCreditCard.cs
-  - Boltpay/SDK/Models/Components/Security.cs
-  - Boltpay/SDK/Models/Errors/Response4xx.cs
-  - Boltpay/SDK/Models/Errors/DotTag.cs
-  - Boltpay/SDK/Models/Errors/Error.cs
-  - Boltpay/SDK/Models/Errors/FieldErrorTag.cs
-  - Boltpay/SDK/Models/Errors/FieldError.cs
-  - Boltpay/SDK/Models/Errors/ResponseAddressError.cs
-  - Boltpay/SDK/Models/Errors/ResponsePaymentMethodError.cs
-  - Boltpay/SDK/Models/Errors/CreditCardErrorTag.cs
-  - Boltpay/SDK/Models/Errors/CreditCardError.cs
-  - Boltpay/SDK/Models/Errors/ResponsePaymentError.cs
-  - Boltpay/SDK/Models/Errors/CartErrorTag.cs
-  - Boltpay/SDK/Models/Errors/CartError.cs
-  - docs/Models/Requests/AccountGetRequest.md
-  - docs/Models/Requests/AccountGetResponse.md
-  - docs/Models/Requests/AccountAddressCreateRequest.md
-  - docs/Models/Requests/AccountAddressCreateResponse.md
-  - docs/Models/Requests/AccountAddressEditRequest.md
-  - docs/Models/Requests/AccountAddressEditResponse.md
-  - docs/Models/Requests/AccountAddressDeleteRequest.md
-  - docs/Models/Requests/AccountAddressDeleteResponse.md
-  - docs/Models/Requests/AccountAddPaymentMethodRequest.md
-  - docs/Models/Requests/AccountAddPaymentMethodResponse.md
-  - docs/Models/Requests/AccountPaymentMethodDeleteRequest.md
-  - docs/Models/Requests/AccountPaymentMethodDeleteResponse.md
-  - docs/Models/Requests/PaymentsInitializeRequest.md
-  - docs/Models/Requests/PaymentsInitializeResponse.md
-  - docs/Models/Requests/PaymentsActionRequest.md
-  - docs/Models/Requests/PaymentsActionResponse.md
-  - docs/Models/Requests/GuestPaymentsInitializeSecurity.md
-  - docs/Models/Requests/GuestPaymentsInitializeRequest.md
-  - docs/Models/Requests/GuestPaymentsInitializeResponse.md
-  - docs/Models/Requests/GuestPaymentsActionSecurity.md
-  - docs/Models/Requests/GuestPaymentsActionRequest.md
-  - docs/Models/Requests/GuestPaymentsActionResponse.md
-  - docs/Models/Requests/OrdersCreateSecurity.md
-  - docs/Models/Requests/OrdersCreateRequest.md
-  - docs/Models/Requests/OrdersCreateResponse.md
-  - docs/Models/Requests/OauthGetTokenRequest.md
-  - docs/Models/Requests/OauthGetTokenResponse.md
-  - docs/Models/Requests/TestingAccountCreateSecurity.md
-  - docs/Models/Requests/TestingAccountCreateRequest.md
-  - docs/Models/Requests/TestingAccountCreateResponse.md
-  - docs/Models/Requests/TestingAccountPhoneGetSecurity.md
-  - docs/Models/Requests/TestingAccountPhoneGetRequest.md
-  - docs/Models/Requests/TestingAccountPhoneGetResponse.md
-  - docs/Models/Requests/TestingCreditCardGetSecurity.md
-  - docs/Models/Requests/Type.md
-  - docs/Models/Requests/TestingCreditCardGetRequestBody.md
-  - docs/Models/Requests/TestingCreditCardGetResponse.md
+  - CONTRIBUTING.md
+  - USAGE.md
   - docs/Models/Components/Account.md
-  - docs/Models/Components/Profile.md
-  - docs/Models/Components/PaymentMethod.md
-  - docs/Models/Components/DotTag.md
-  - docs/Models/Components/PaymentMethodCreditCard.md
-  - docs/Models/Components/CreditCardNetwork.md
-  - docs/Models/Components/AddressReference.md
-  - docs/Models/Components/AddressReferenceIdTag.md
-  - docs/Models/Components/AddressReferenceId.md
-  - docs/Models/Components/AddressReferenceExplicitTag.md
-  - docs/Models/Components/AddressReferenceExplicit.md
-  - docs/Models/Components/CountryCode.md
-  - docs/Models/Components/PaymentMethodPaypalTag.md
-  - docs/Models/Components/PaymentMethodPaypalOutput.md
-  - docs/Models/Components/PaymentMethodAffirmTag.md
-  - docs/Models/Components/PaymentMethodAffirmOutput.md
-  - docs/Models/Components/PaymentMethodAfterpayTag.md
-  - docs/Models/Components/PaymentMethodAfterpayOutput.md
-  - docs/Models/Components/PaymentMethodKlarnaTag.md
-  - docs/Models/Components/PaymentMethodKlarnaOutput.md
-  - docs/Models/Components/PaymentMethodKlarnaAccountTag.md
-  - docs/Models/Components/PaymentMethodKlarnaAccountOutput.md
-  - docs/Models/Components/PaymentMethodKlarnaPaynowTag.md
-  - docs/Models/Components/PaymentMethodKlarnaPaynowOutput.md
-  - docs/Models/Components/AddressListing.md
-  - docs/Models/Components/HTTPMetadata.md
-  - docs/Models/Components/PaymentResponse.md
-  - docs/Models/Components/PaymentResponseFinalizedTag.md
-  - docs/Models/Components/Status.md
-  - docs/Models/Components/PaymentResponseFinalized.md
-  - docs/Models/Components/Transaction.md
-  - docs/Models/Components/TransactionAuthorization.md
-  - docs/Models/Components/PaymentResponsePendingTag.md
-  - docs/Models/Components/PaymentResponsePendingStatus.md
-  - docs/Models/Components/Action.md
-  - docs/Models/Components/PaymentResponsePending.md
-  - docs/Models/Components/PaymentInitializeRequest.md
-  - docs/Models/Components/PaymentMethodExtended.md
-  - docs/Models/Components/PaymentMethodReferenceTag.md
-  - docs/Models/Components/PaymentMethodReference.md
-  - docs/Models/Components/Cart.md
-  - docs/Models/Components/Currency.md
-  - docs/Models/Components/Amount.md
-  - docs/Models/Components/CartItem.md
-  - docs/Models/Components/CartDiscount.md
-  - docs/Models/Components/CartShipment.md
-  - docs/Models/Components/PaymentActionRequestTag.md
-  - docs/Models/Components/PaymentActionRequest.md
-  - docs/Models/Components/GuestPaymentInitializeRequest.md
-  - docs/Models/Components/ProfileCreationData.md
-  - docs/Models/Components/OrderResponse.md
-  - docs/Models/Components/Order.md
-  - docs/Models/Components/GetAccessTokenResponse.md
-  - docs/Models/Components/TokenRequest.md
-  - docs/Models/Components/GrantType.md
-  - docs/Models/Components/Scope.md
-  - docs/Models/Components/AuthorizationCodeRequest.md
-  - docs/Models/Components/RefreshTokenRequestGrantType.md
-  - docs/Models/Components/RefreshTokenRequestScope.md
-  - docs/Models/Components/RefreshTokenRequest.md
-  - docs/Models/Components/EmailState.md
-  - docs/Models/Components/PhoneState.md
   - docs/Models/Components/AccountTestCreationDataOutput.md
   - docs/Models/Components/AccountTestPhoneData.md
-  - docs/Models/Components/TestCreditCard.md
+  - docs/Models/Components/Action.md
+  - docs/Models/Components/AddressListing.md
+  - docs/Models/Components/AddressReference.md
+  - docs/Models/Components/AddressReferenceExplicit.md
+  - docs/Models/Components/AddressReferenceExplicitTag.md
+  - docs/Models/Components/AddressReferenceId.md
+  - docs/Models/Components/AddressReferenceIdTag.md
+  - docs/Models/Components/Amount.md
+  - docs/Models/Components/AuthorizationCodeRequest.md
+  - docs/Models/Components/Cart.md
+  - docs/Models/Components/CartDiscount.md
+  - docs/Models/Components/CartItem.md
+  - docs/Models/Components/CartShipment.md
+  - docs/Models/Components/CountryCode.md
+  - docs/Models/Components/CreditCardNetwork.md
+  - docs/Models/Components/Currency.md
+  - docs/Models/Components/DotTag.md
+  - docs/Models/Components/EmailState.md
+  - docs/Models/Components/GetAccessTokenResponse.md
+  - docs/Models/Components/GrantType.md
+  - docs/Models/Components/GuestPaymentInitializeRequest.md
+  - docs/Models/Components/HTTPMetadata.md
+  - docs/Models/Components/Order.md
+  - docs/Models/Components/OrderResponse.md
+  - docs/Models/Components/PaymentActionRequest.md
+  - docs/Models/Components/PaymentActionRequestTag.md
+  - docs/Models/Components/PaymentInitializeRequest.md
+  - docs/Models/Components/PaymentMethod.md
+  - docs/Models/Components/PaymentMethodAffirmOutput.md
+  - docs/Models/Components/PaymentMethodAffirmTag.md
+  - docs/Models/Components/PaymentMethodAfterpayOutput.md
+  - docs/Models/Components/PaymentMethodAfterpayTag.md
+  - docs/Models/Components/PaymentMethodCreditCard.md
+  - docs/Models/Components/PaymentMethodExtended.md
+  - docs/Models/Components/PaymentMethodKlarnaAccountOutput.md
+  - docs/Models/Components/PaymentMethodKlarnaAccountTag.md
+  - docs/Models/Components/PaymentMethodKlarnaOutput.md
+  - docs/Models/Components/PaymentMethodKlarnaPaynowOutput.md
+  - docs/Models/Components/PaymentMethodKlarnaPaynowTag.md
+  - docs/Models/Components/PaymentMethodKlarnaTag.md
+  - docs/Models/Components/PaymentMethodPaypalOutput.md
+  - docs/Models/Components/PaymentMethodPaypalTag.md
+  - docs/Models/Components/PaymentMethodReference.md
+  - docs/Models/Components/PaymentMethodReferenceTag.md
+  - docs/Models/Components/PaymentResponse.md
+  - docs/Models/Components/PaymentResponseFinalized.md
+  - docs/Models/Components/PaymentResponseFinalizedTag.md
+  - docs/Models/Components/PaymentResponsePending.md
+  - docs/Models/Components/PaymentResponsePendingStatus.md
+  - docs/Models/Components/PaymentResponsePendingTag.md
+  - docs/Models/Components/PhoneState.md
+  - docs/Models/Components/Profile.md
+  - docs/Models/Components/ProfileCreationData.md
+  - docs/Models/Components/RefreshTokenRequest.md
+  - docs/Models/Components/RefreshTokenRequestGrantType.md
+  - docs/Models/Components/RefreshTokenRequestScope.md
+  - docs/Models/Components/Scope.md
   - docs/Models/Components/Security.md
-  - docs/Models/Errors/Response4xx.md
+  - docs/Models/Components/Status.md
+  - docs/Models/Components/TestCreditCard.md
+  - docs/Models/Components/TokenRequest.md
+  - docs/Models/Components/Transaction.md
+  - docs/Models/Components/TransactionAuthorization.md
+  - docs/Models/Errors/CartError.md
+  - docs/Models/Errors/CartErrorTag.md
+  - docs/Models/Errors/CreditCardError.md
+  - docs/Models/Errors/CreditCardErrorTag.md
   - docs/Models/Errors/DotTag.md
   - docs/Models/Errors/Error.md
-  - docs/Models/Errors/FieldErrorTag.md
   - docs/Models/Errors/FieldError.md
+  - docs/Models/Errors/FieldErrorTag.md
+  - docs/Models/Errors/Response4xx.md
   - docs/Models/Errors/ResponseAddressError.md
-  - docs/Models/Errors/ResponsePaymentMethodError.md
-  - docs/Models/Errors/CreditCardErrorTag.md
-  - docs/Models/Errors/CreditCardError.md
   - docs/Models/Errors/ResponsePaymentError.md
-  - docs/Models/Errors/CartErrorTag.md
-  - docs/Models/Errors/CartError.md
-  - docs/sdks/boltsdk/README.md
+  - docs/Models/Errors/ResponsePaymentMethodError.md
+  - docs/Models/Requests/AccountAddPaymentMethodRequest.md
+  - docs/Models/Requests/AccountAddPaymentMethodResponse.md
+  - docs/Models/Requests/AccountAddressCreateRequest.md
+  - docs/Models/Requests/AccountAddressCreateResponse.md
+  - docs/Models/Requests/AccountAddressDeleteRequest.md
+  - docs/Models/Requests/AccountAddressDeleteResponse.md
+  - docs/Models/Requests/AccountAddressEditRequest.md
+  - docs/Models/Requests/AccountAddressEditResponse.md
+  - docs/Models/Requests/AccountGetRequest.md
+  - docs/Models/Requests/AccountGetResponse.md
+  - docs/Models/Requests/AccountPaymentMethodDeleteRequest.md
+  - docs/Models/Requests/AccountPaymentMethodDeleteResponse.md
+  - docs/Models/Requests/GuestPaymentsActionRequest.md
+  - docs/Models/Requests/GuestPaymentsActionResponse.md
+  - docs/Models/Requests/GuestPaymentsActionSecurity.md
+  - docs/Models/Requests/GuestPaymentsInitializeRequest.md
+  - docs/Models/Requests/GuestPaymentsInitializeResponse.md
+  - docs/Models/Requests/GuestPaymentsInitializeSecurity.md
+  - docs/Models/Requests/OauthGetTokenRequest.md
+  - docs/Models/Requests/OauthGetTokenResponse.md
+  - docs/Models/Requests/OrdersCreateRequest.md
+  - docs/Models/Requests/OrdersCreateResponse.md
+  - docs/Models/Requests/OrdersCreateSecurity.md
+  - docs/Models/Requests/PaymentsActionRequest.md
+  - docs/Models/Requests/PaymentsActionResponse.md
+  - docs/Models/Requests/PaymentsInitializeRequest.md
+  - docs/Models/Requests/PaymentsInitializeResponse.md
+  - docs/Models/Requests/TestingAccountCreateRequest.md
+  - docs/Models/Requests/TestingAccountCreateResponse.md
+  - docs/Models/Requests/TestingAccountCreateSecurity.md
+  - docs/Models/Requests/TestingAccountPhoneGetRequest.md
+  - docs/Models/Requests/TestingAccountPhoneGetResponse.md
+  - docs/Models/Requests/TestingAccountPhoneGetSecurity.md
+  - docs/Models/Requests/TestingCreditCardGetRequestBody.md
+  - docs/Models/Requests/TestingCreditCardGetResponse.md
+  - docs/Models/Requests/TestingCreditCardGetSecurity.md
+  - docs/Models/Requests/Type.md
   - docs/sdks/account/README.md
-  - docs/sdks/payments/README.md
-  - docs/sdks/loggedin/README.md
+  - docs/sdks/boltsdk/README.md
   - docs/sdks/guest/README.md
-  - docs/sdks/orders/README.md
+  - docs/sdks/loggedin/README.md
   - docs/sdks/oauth/README.md
+  - docs/sdks/orders/README.md
+  - docs/sdks/payments/README.md
   - docs/sdks/testing/README.md
-  - USAGE.md
-  - .gitattributes
-  - Boltpay/SDK/Hooks/SDKHooks.cs
-  - Boltpay/SDK/Hooks/HookTypes.cs
-  - CONTRIBUTING.md
+  - global.json
+examples:
+  accountGet:
+    speakeasy-default-account-get:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      responses:
+        "200":
+          application/json: {"addresses": [{"id": "D4g3h5tBuVYK9", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199", "is_default": true}, {"id": "D4g3h5tBuVYK9", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199", "is_default": true}, {"id": "D4g3h5tBuVYK9", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199", "is_default": true}], "payment_methods": [], "profile": {"first_name": "Alice", "last_name": "Baker", "email": "alice@example.com", "phone": "+14155550199"}}
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+  accountAddressCreate:
+    address-all-fields:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        "200":
+          application/json: {"id": "D4g3h5tBuVYK9", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199", "is_default": true}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    address-some-fields:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Jean", "last_name": "Blanc", "company": "ACME Corporation", "street_address1": "77 Rue Frédéric Chopin", "street_address2": "c/o Shipping Department", "locality": "Versailles", "postal_code": "78000", "region": "CA", "country_code": "FR", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        "200":
+          application/json: {"id": "D4g3h5tBuVYK9", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199", "is_default": true}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    missing-input:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+    invalid-input:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    invalid-postal-code:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+    invalid-region:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+  accountAddressEdit:
+    address-all-fields:
+      parameters:
+        path:
+          id: "D4g3h5tBuVYK9"
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        "200":
+          application/json: {"id": "D4g3h5tBuVYK9", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199", "is_default": true}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    address-some-fields:
+      parameters:
+        path:
+          id: "D4g3h5tBuVYK9"
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Jean", "last_name": "Blanc", "company": "ACME Corporation", "street_address1": "77 Rue Frédéric Chopin", "street_address2": "c/o Shipping Department", "locality": "Versailles", "postal_code": "78000", "region": "CA", "country_code": "FR", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        "200":
+          application/json: {"id": "D4g3h5tBuVYK9", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199", "is_default": true}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    missing-input:
+      parameters:
+        path:
+          id: "D4g3h5tBuVYK9"
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+    invalid-input:
+      parameters:
+        path:
+          id: "D4g3h5tBuVYK9"
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+    invalid-postal-code:
+      parameters:
+        path:
+          id: "D4g3h5tBuVYK9"
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    invalid-region:
+      parameters:
+        path:
+          id: "D4g3h5tBuVYK9"
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}
+      responses:
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+  accountAddressDelete:
+    speakeasy-default-account-address-delete:
+      parameters:
+        path:
+          id: "D4g3h5tBuVYK9"
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      responses:
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+  accountAddPaymentMethod:
+    credit-card-address-reference-id:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {".tag": "credit_card", "billing_address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "network": "visa", "bin": "411111", "last4": "1004", "expiration": "2025-03", "token": "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0"}
+      responses:
+        "200":
+          application/json: {".tag": "affirm"}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    credit-card-address-reference-explicit:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {".tag": "credit_card", "billing_address": {".tag": "explicit", "first_name": "Charlie", "last_name": "Dunn", "company": "ACME Corporation", "street_address1": "535 Mission St", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "network": "visa", "bin": "411111", "last4": "1004", "expiration": "2025-03", "token": "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0"}
+      responses:
+        "200":
+          application/json: {".tag": "klarna"}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    missing-input:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {".tag": "affirm", "return_url": "www.example.com/handle_affirm_success"}
+      responses:
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    invalid-input:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {".tag": "affirm", "return_url": "www.example.com/handle_affirm_success"}
+      responses:
+        4XX:
+          application/json: {".tag": "declined_invalid_cvv", "message": "The payment was declined because the CVV is not valid"}
+    invalid-credit-card:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {".tag": "klarna", "return_url": "www.example.com/handle_klarna_success"}
+      responses:
+        4XX:
+          application/json: {".tag": "declined_invalid_cvv", "message": "The payment was declined because the CVV is not valid"}
+  accountPaymentMethodDelete:
+    speakeasy-default-account-payment-method-delete:
+      parameters:
+        path:
+          id: "D4g3h5tBuVYK9"
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      responses:
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+  paymentsInitialize:
+    reference:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "cost": {"currency": "USD", "units": 10000}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 10000}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 9000}, "unit_price": 1000, "quantity": 9, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 9000}, "tax": {"currency": "USD", "units": 100}}, "payment_method": {".tag": "id", "id": "X5h6j8uLpVGK"}}
+      responses:
+        "200":
+          application/json: {".tag": "finalized", "id": "iKv7t5bgt1gg", "status": "success", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": []}}
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+    credit_card:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 10000}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 10000}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 9000}, "unit_price": 1000, "quantity": 9, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 9000}, "tax": {"currency": "USD", "units": 100}}, "payment_method": {".tag": "credit_card", "billing_address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "network": "visa", "bin": "411111", "last4": "1004", "expiration": "2025-03", "token": "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0"}}
+      responses:
+        "200":
+          application/json: {".tag": "finalized", "id": "iKv7t5bgt1gg", "status": "success", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": []}}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    paypal:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 10000}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 10000}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 9000}, "unit_price": 1000, "quantity": 9, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 9000}, "tax": {"currency": "USD", "units": 100}}, "payment_method": {".tag": "paypal", "success_url": "https://www.example.com/paypal-callback/success", "cancel_url": "https://www.example.com/paypal-callback/cancel"}}
+      responses:
+        "200":
+          application/json: {".tag": "finalized", "id": "iKv7t5bgt1gg", "status": "success", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": [{"processor_reference": "123456789XYZ"}, {"processor_reference": "123456789XYZ"}, {"processor_reference": "123456789XYZ"}]}}
+        4XX:
+          application/json: {".tag": "declined_invalid_cvv", "message": "The payment was declined because the CVV is not valid"}
+    finalized:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [], "discounts": [{"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}, {"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}, {"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "klarna_paynow", "return_url": "www.example.com/handle_klarna_paynow_success"}}
+      responses:
+        "200":
+          application/json: {".tag": "finalized", "id": "iKv7t5bgt1gg", "status": "success", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": [{"processor_reference": "123456789XYZ"}]}}
+    pending:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}, {"address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}, {"address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}], "discounts": [], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}, {"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "affirm", "return_url": "www.example.com/handle_affirm_success"}}
+      responses:
+        "200":
+          application/json: {".tag": "pending", "id": "iKv7t5bgt1gg", "status": "awaiting_user_confirmation", "action": "redirect", "url": "https://www.paypal.com/checkout/redirect"}
+    missing-input:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [], "discounts": [{"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "klarna_paynow", "return_url": "www.example.com/handle_klarna_paynow_success"}}
+      responses:
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+    invalid-cart:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}, {"address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "paypal", "success_url": "https://www.example.com/paypal-callback/success", "cancel_url": "https://www.example.com/paypal-callback/cancel"}}
+      responses:
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    invalid-credit-card:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}, {"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "id", "id": "X5h6j8uLpVGK"}}
+      responses:
+        4XX:
+          application/json: {".tag": "declined_invalid_cvv", "message": "The payment was declined because the CVV is not valid"}
+  paymentsAction:
+    finalized:
+      parameters:
+        path:
+          id: "iKv7t5bgt1gg"
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {".tag": "finalize", "redirect_result": "eyJ0cmFuc"}
+      responses:
+        "200":
+          application/json: {".tag": "finalized", "id": "iKv7t5bgt1gg", "status": "success", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": [{"processor_reference": "123456789XYZ"}]}}
+  guestPaymentsInitialize:
+    credit_card:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"profile": {"create_account": true, "first_name": "Alice", "last_name": "Baker", "email": "alice@example.com", "phone": "+14155550199"}, "cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 10000}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 10000}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 9000}, "unit_price": 1000, "quantity": 9, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 9000}, "tax": {"currency": "USD", "units": 100}}, "payment_method": {".tag": "credit_card", "billing_address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "network": "visa", "bin": "411111", "last4": "1004", "expiration": "2025-03", "token": "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0"}}
+      responses:
+        "200":
+          application/json: {".tag": "finalized", "id": "iKv7t5bgt1gg", "status": "success", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": []}}
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+    paypal:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"profile": {"create_account": true, "first_name": "Alice", "last_name": "Baker", "email": "alice@example.com", "phone": "+14155550199"}, "cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 10000}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 10000}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 9000}, "unit_price": 1000, "quantity": 9, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 9000}, "tax": {"currency": "USD", "units": 100}}, "payment_method": {".tag": "paypal", "success_url": "https://www.example.com/paypal-callback/success", "cancel_url": "https://www.example.com/paypal-callback/cancel"}}
+      responses:
+        "200":
+          application/json: {".tag": "finalized", "id": "iKv7t5bgt1gg", "status": "success", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": []}}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    finalized:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"profile": {"create_account": true, "first_name": "Alice", "last_name": "Baker", "email": "alice@example.com", "phone": "+14155550199"}, "cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [], "discounts": [{"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}, {"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}, {"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "credit_card", "billing_address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "network": "visa", "bin": "411111", "last4": "1004", "expiration": "2029-03", "token": "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0"}}
+      responses:
+        "200":
+          application/json: {".tag": "finalized", "id": "iKv7t5bgt1gg", "status": "success", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": [{"processor_reference": "123456789XYZ"}]}}
+    pending:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"profile": {"create_account": true, "first_name": "Alice", "last_name": "Baker", "email": "alice@example.com", "phone": "+14155550199"}, "cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}, {"address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}, {"address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}], "discounts": [], "items": [], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "paypal", "success_url": "https://www.example.com/paypal-callback/success", "cancel_url": "https://www.example.com/paypal-callback/cancel"}}
+      responses:
+        "200":
+          application/json: {".tag": "pending", "id": "iKv7t5bgt1gg", "status": "awaiting_user_confirmation", "action": "redirect", "url": "https://www.paypal.com/checkout/redirect"}
+    missing-input:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"profile": {"create_account": true, "first_name": "Alice", "last_name": "Baker", "email": "alice@example.com", "phone": "+14155550199"}, "cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}, {"address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "klarna_paynow", "return_url": "www.example.com/handle_klarna_paynow_success"}}
+      responses:
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+    invalid-cart:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"profile": {"create_account": true, "first_name": "Alice", "last_name": "Baker", "email": "alice@example.com", "phone": "+14155550199"}, "cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}, {"address": {".tag": "id", "id": "D4g3h5tBuVYK9"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "affirm", "return_url": "www.example.com/handle_affirm_success"}}
+      responses:
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    invalid-credit-card:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"profile": {"create_account": true, "first_name": "Alice", "last_name": "Baker", "email": "alice@example.com", "phone": "+14155550199"}, "cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}, {"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}, "payment_method": {".tag": "credit_card", "billing_address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "network": "visa", "bin": "411111", "last4": "1004", "expiration": "2029-03", "token": "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0"}}
+      responses:
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+  guestPaymentsAction:
+    speakeasy-default-guest-payments-action:
+      parameters:
+        path:
+          id: "iKv7t5bgt1gg"
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {".tag": "finalize", "redirect_result": "eyJ0cmFuc"}
+      responses:
+        "200":
+          application/json: {".tag": "finalized", "id": "iKv7t5bgt1gg", "status": "success", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": [{"processor_reference": "123456789XYZ"}, {"processor_reference": "123456789XYZ"}, {"processor_reference": "123456789XYZ"}]}}
+        4XX:
+          application/json: {".tag": "invalid_input_parameter", "message": "We were unable to process your request.", "field": "address.phone"}
+  ordersCreate:
+    reference:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"profile": {"first_name": "Charlie", "last_name": "Dunn", "email": "charlie@example.com", "phone": "+14085551111"}, "cart": {"order_reference": "instore_20240116-878", "order_description": "Order #878", "display_id": "20240116-878", "shipments": [{"address": {".tag": "explicit", "first_name": "Charlie", "last_name": "Dunn", "company": "ACME Corporation", "street_address1": "535 Mission St", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 10000}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Red Fidget Spinner", "reference": "sku-984", "description": "Single-packed fidget spinner, red", "total_amount": {"currency": "USD", "units": 1000}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/984/image.png"}], "total": {"currency": "USD", "units": 1000}, "tax": {"currency": "USD", "units": 100}}}
+      responses:
+        "200":
+          application/json: {"id": "iKv7t5bgt1gg", "transaction": {"reference": "OBYG-X1PX-FN55", "authorizations": [{"processor_reference": "123456789XYZ"}]}}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    finalized:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/json: {"profile": {"first_name": "Alice", "last_name": "Baker", "email": "alice@example.com", "phone": "+14155550199"}, "cart": {"order_reference": "order_100", "order_description": "Order #1234567890", "display_id": "215614191", "shipments": [{"address": {".tag": "explicit", "first_name": "Alice", "last_name": "Baker", "company": "ACME Corporation", "street_address1": "535 Mission St, Ste 1401", "street_address2": "c/o Shipping Department", "locality": "San Francisco", "postal_code": "94105", "region": "CA", "country_code": "US", "email": "alice@example.com", "phone": "+14155550199"}, "cost": {"currency": "USD", "units": 900}, "carrier": "FedEx"}], "discounts": [{"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}, {"amount": {"currency": "USD", "units": 900}, "code": "SUMMER10DISCOUNT", "details_url": "https://www.example.com/SUMMER-SALE"}], "items": [{"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}, {"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}, {"name": "Bolt Swag Bag", "reference": "item_100", "description": "Large tote with Bolt logo.", "total_amount": {"currency": "USD", "units": 900}, "unit_price": 1000, "quantity": 1, "image_url": "https://www.example.com/products/123456/images/1.png"}], "total": {"currency": "USD", "units": 900}, "tax": {"currency": "USD", "units": 900}}}
+      responses:
+        "200":
+          application/json: {"id": "3Cxr2keCtxju", "transaction": {"reference": "2ZF2-WZ3J-WD2Y", "authorizations": [{"processor_reference": "123456789XYZ"}, {"processor_reference": "123456789XYZ"}]}}
+  oauthGetToken:
+    authorization-code:
+      parameters:
+        header:
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/x-www-form-urlencoded: {"grant_type": "authorization_code", "code": "7GSjMRSHs6Ak7C_zvVW6P2IhZOHxMK7HZKW1fMX85ms", "client_id": "8fd9diIy59sj.IraJdeIgmdsO.fd233434fg2c616cgo932aa6e1e4fc627a9385045gr395222a127gi93c595rg4", "client_secret": "23ee7ec7301779eaff451d7c6f6cba322499e3c0ec752f800c72a8f99217e3a8", "scope": ["bolt.account.manage", "bolt.account.view", "openid"], "state": "xyzABC123"}
+      responses:
+        "200":
+          application/json: {"id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImV4cCI6MTcwNTY1MTczMSwiZmlyc3RfbmFtZSI6IkFsaWNlIiwiaXNzIjoiaHR0cDovL2FwaS5ib2x0LmNvbSIsImxhc3RfbmFtZSI6IkJha2VyIiwicGhvbmVfbnVtYmVyIjoiKzE0MTU1NTUwMTk5IiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjp0cnVlLCJpYXQiOjE3MDU2NDg0MjF9.Ir0aKx40zfNCZol1DnqchFx9ciHlyZY9y10mndEjOBHhpHif8-7aZl2UoJVs_0Hj-5ArEouUD6n-y1SJD0Wns-gDMoA0Etoc5dT_0zt0Kw5T8FvJWbyKyyGSDEwPFVADIRxDPMpVoHx0C0nwr_GudnIX7YG6p2HCsoGm2C04ZxKpifSixB3-xNB6k9u1ESWh0KjMCYzBQ2x9wbQ_S6kFtio075PFYcZ3iRQz8oD15NsZDd2czzZkRnGTGlpG0sAvScLXMvDDOWBIu-4wvOEOT7avunJQ_rOCYUlyJe7JGh0QllpeJNau8kx-4YGMeFTkeGM_hPIKsRF1e6o_rWp5CMJnmJDPme-zlJxWodyaHNed5XW-4DR7blv_PFOJNrRvymRoTOd74LIpS21GRCNYrphj7N6-TsSfO9hMQ9ehxrgNAryWbVtTM_3VvWyzX-SRa7BcRkS97sokxc04s3cbXra3x6brE3uL1yoOWNf8GDZNkv1uUAnrOZcTuLacrPjkQgOPb-chMiWS1L0Zd1wX3rqpeCyEswsGKxRRkpgwoBaVVQmLB9m51B6SXEvURTcy2Hx8KzgfXQ_-uC-KrniQxWzYms8A1lypKXkEcyMD2E4Q7EB4UeD2qZAk4tZo611uHegaHaEM7EQyFN3nxvibaqFpXzdxVmOCX0_wQr1nDNA", "access_token": "KCqordmSK6_lpkaXaXfGD8LwnKMGGOYy4Ju2IaBXpJI.CzOF7QOmGGQEgIzBjxOEh1FbRdDpzf9zbm9eHrCZ6zw", "expires_in": 3600, "refresh_token": "4hJYNO4GHvALZoocXoLenfNeFy1RR5ZT6G5JYrFbvkI.Q_PqV0lIszCNoN-85EwD-2nYZOVEepVgJSolx-Jbzrs", "refresh_token_scope": "bolt.account.view", "scope": "bolt.account.manage openid", "token_type": "bearer"}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+    refresh-token:
+      parameters:
+        header:
+          X-Merchant-Client-Id: "<value>"
+      requestBody:
+        application/x-www-form-urlencoded: {"grant_type": "refresh_token", "refresh_token": "4hJYNO4GHvALZoocXoLenfNeFy1RR5ZT6G5JYrFbvkI.Q_PqV0lIszCNoN-85EwD-2nYZOVEepVgJSolx-Jbzrs", "client_id": "8fd9diIy59sj.IraJdeIgmdsO.fd233434fg2c616cgo932aa6e1e4fc627a9385045gr395222a127gi93c595rg4", "client_secret": "23ee7ec7301779eaff451d7c6f6cba322499e3c0ec752f800c72a8f99217e3a8", "scope": ["bolt.account.view"], "state": "xyzABC123"}
+      responses:
+        "200":
+          application/json: {"id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImV4cCI6MTcwNTY1MTczMSwiZmlyc3RfbmFtZSI6IkFsaWNlIiwiaXNzIjoiaHR0cDovL2FwaS5ib2x0LmNvbSIsImxhc3RfbmFtZSI6IkJha2VyIiwicGhvbmVfbnVtYmVyIjoiKzE0MTU1NTUwMTk5IiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjp0cnVlLCJpYXQiOjE3MDU2NDg0MjF9.Ir0aKx40zfNCZol1DnqchFx9ciHlyZY9y10mndEjOBHhpHif8-7aZl2UoJVs_0Hj-5ArEouUD6n-y1SJD0Wns-gDMoA0Etoc5dT_0zt0Kw5T8FvJWbyKyyGSDEwPFVADIRxDPMpVoHx0C0nwr_GudnIX7YG6p2HCsoGm2C04ZxKpifSixB3-xNB6k9u1ESWh0KjMCYzBQ2x9wbQ_S6kFtio075PFYcZ3iRQz8oD15NsZDd2czzZkRnGTGlpG0sAvScLXMvDDOWBIu-4wvOEOT7avunJQ_rOCYUlyJe7JGh0QllpeJNau8kx-4YGMeFTkeGM_hPIKsRF1e6o_rWp5CMJnmJDPme-zlJxWodyaHNed5XW-4DR7blv_PFOJNrRvymRoTOd74LIpS21GRCNYrphj7N6-TsSfO9hMQ9ehxrgNAryWbVtTM_3VvWyzX-SRa7BcRkS97sokxc04s3cbXra3x6brE3uL1yoOWNf8GDZNkv1uUAnrOZcTuLacrPjkQgOPb-chMiWS1L0Zd1wX3rqpeCyEswsGKxRRkpgwoBaVVQmLB9m51B6SXEvURTcy2Hx8KzgfXQ_-uC-KrniQxWzYms8A1lypKXkEcyMD2E4Q7EB4UeD2qZAk4tZo611uHegaHaEM7EQyFN3nxvibaqFpXzdxVmOCX0_wQr1nDNA", "access_token": "KCqordmSK6_lpkaXaXfGD8LwnKMGGOYy4Ju2IaBXpJI.CzOF7QOmGGQEgIzBjxOEh1FbRdDpzf9zbm9eHrCZ6zw", "expires_in": 3600, "refresh_token": "4hJYNO4GHvALZoocXoLenfNeFy1RR5ZT6G5JYrFbvkI.Q_PqV0lIszCNoN-85EwD-2nYZOVEepVgJSolx-Jbzrs", "refresh_token_scope": "bolt.account.view", "scope": "bolt.account.manage openid", "token_type": "bearer"}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+  testingAccountCreate:
+    speakeasy-default-testing-account-create:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+      requestBody:
+        application/json: {"email_state": "unverified", "phone_state": "verified", "is_migrated": true, "has_address": true, "has_credit_card": true}
+      responses:
+        "200":
+          application/json: {"email": "alice@example.com", "email_state": "unverified", "phone": "+14155550199", "phone_state": "verified", "otp_code": "123456", "oauth_code": "7GSjMRSHs6Ak7C_zvVW6P2IhZOHxMK7HZKW1fMX85ms"}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+  testingAccountPhoneGet:
+    speakeasy-default-testing-account-phone-get:
+      parameters:
+        header:
+          X-Publishable-Key: "<value>"
+      responses:
+        "200":
+          application/json: {"phone": "+14155550199"}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
+  testingCreditCardGet:
+    speakeasy-default-testing-credit-card-get:
+      requestBody:
+        application/json: {"type": "approve"}
+      responses:
+        "200":
+          application/json: {"network": "visa", "bin": "411111", "last4": "1004", "expiration": "2023-10-31:T06:00:00Z", "token": "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0"}
+        4XX:
+          application/json: {".tag": "unprocessable_request", "message": "We were unable to process your request."}
