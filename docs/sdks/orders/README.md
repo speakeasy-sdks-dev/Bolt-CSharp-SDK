@@ -43,20 +43,20 @@ var res = await sdk.Orders.OrdersCreateAsync(
             Shipments = new List<CartShipment>() {
                 new CartShipment() {
                     Address = AddressReferenceInput.CreateAddressReferenceExplicitInput(
-                            new AddressReferenceExplicitInput() {
-                                DotTag = Boltpay.SDK.Models.Components.AddressReferenceExplicitTag.Explicit,
-                                FirstName = "Alice",
-                                LastName = "Baker",
-                                Company = "ACME Corporation",
-                                StreetAddress1 = "535 Mission St, Ste 1401",
-                                StreetAddress2 = "c/o Shipping Department",
-                                Locality = "San Francisco",
-                                PostalCode = "94105",
-                                Region = "CA",
-                                CountryCode = Boltpay.SDK.Models.Components.CountryCode.Us,
-                                Email = "alice@example.com",
-                                Phone = "+14155550199",
-                            }
+                        new AddressReferenceExplicitInput() {
+                            DotTag = Boltpay.SDK.Models.Components.AddressReferenceExplicitTag.Explicit,
+                            FirstName = "Alice",
+                            LastName = "Baker",
+                            Company = "ACME Corporation",
+                            StreetAddress1 = "535 Mission St, Ste 1401",
+                            StreetAddress2 = "c/o Shipping Department",
+                            Locality = "San Francisco",
+                            PostalCode = "94105",
+                            Region = "CA",
+                            CountryCode = Boltpay.SDK.Models.Components.CountryCode.Us,
+                            Email = "alice@example.com",
+                            Phone = "+14155550199",
+                        }
                     ),
                     Cost = new Amount() {
                         Currency = Boltpay.SDK.Models.Components.Currency.Usd,
