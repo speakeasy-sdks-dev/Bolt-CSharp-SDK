@@ -70,64 +70,104 @@ namespace Boltpay.SDK
             var request = new OauthGetTokenRequest()
             {
                 XMerchantClientId = xMerchantClientId,
-                TokenRequest = tokenRequest,
+                TokenRequest = tokenRequest
             };
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
 
-            var urlString = baseUrl + "/oauth/token";
-
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            HeaderSerializer.PopulateHeaders(ref httpRequest, request);
-
-            var serializedBody = RequestBodySerializer.Serialize(request, "TokenRequest", "form", false, false);
-            if (serializedBody != null)
+            async Task<OauthGetTokenResponse> getTokenAsync(OauthGetTokenRequest request)
             {
-                httpRequest.Content = serializedBody;
-            }
+                string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
 
-            var hookCtx = new HookContext("oauthGetToken", null, null);
+                var urlString = baseUrl + "/oauth/token";
 
-            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+                var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+                httpRequest.Headers.Add("user-agent", _userAgent);
+                HeaderSerializer.PopulateHeaders(ref httpRequest, request);
 
-            HttpResponseMessage httpResponse;
-            try
-            {
-                httpResponse = await _client.SendAsync(httpRequest);
-                int _statusCode = (int)httpResponse.StatusCode;
-
-                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                var serializedBody = RequestBodySerializer.Serialize(request, "TokenRequest", "form", false, false);
+                if (serializedBody != null)
                 {
-                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    httpRequest.Content = serializedBody;
+                }
+
+                var hookCtx = new HookContext("oauthGetToken", null, null);
+
+                httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+
+                HttpResponseMessage httpResponse;
+                try
+                {
+                    httpResponse = await _client.SendAsync(httpRequest);
+                    int _statusCode = (int)httpResponse.StatusCode;
+
+                    if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                    {
+                        var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                        if (_httpResponse != null)
+                        {
+                            httpResponse = _httpResponse;
+                        }
+                    }
+                }
+                catch (Exception error)
+                {
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
                     if (_httpResponse != null)
                     {
                         httpResponse = _httpResponse;
                     }
+                    else
+                    {
+                        throw;
+                    }
                 }
-            }
-            catch (Exception error)
-            {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
-                if (_httpResponse != null)
+
+                httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+                var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+                int responseStatusCode = (int)httpResponse.StatusCode;
+                if(responseStatusCode == 200)
                 {
-                    httpResponse = _httpResponse;
+                    if(Utilities.IsContentTypeMatch("application/json", contentType))
+                    {
+                        var obj = ResponseBodyDeserializer.Deserialize<GetAccessTokenResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                        var response = new OauthGetTokenResponse()
+                        {
+                            HttpMeta = new Models.Components.HTTPMetadata()
+                            {
+                                Response = httpResponse,
+                                Request = httpRequest
+                            }
+                        };
+                        response.GetAccessTokenResponse = obj;
+                        return response;
+                    }
+
+                    throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
+                }
+                else if(responseStatusCode >= 400 && responseStatusCode < 500)
+                {
+                    if(Utilities.IsContentTypeMatch("application/json", contentType))
+                    {
+                        var obj = ResponseBodyDeserializer.Deserialize<Response4xx>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                        switch (obj!.Type.ToString()) {
+                            case "error":
+                                  throw obj!.Error!;
+                            case "field-error":
+                                  throw obj!.FieldError!;
+                            default:
+                                throw new InvalidOperationException("Unknown error type.");
+                        };
+                    }
+
+                    throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
+                }
+                else if(responseStatusCode >= 500 && responseStatusCode < 600)
+                {
+                    throw new Models.Errors.SDKException("API error occurred", httpRequest, httpResponse);
                 }
                 else
-                {
-                    throw;
-                }
-            }
-
-            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
-            {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
-                {
-                    var obj = ResponseBodyDeserializer.Deserialize<GetAccessTokenResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new OauthGetTokenResponse()
+                {    
+                    return new OauthGetTokenResponse()
                     {
                         HttpMeta = new Models.Components.HTTPMetadata()
                         {
@@ -135,44 +175,10 @@ namespace Boltpay.SDK
                             Request = httpRequest
                         }
                     };
-                    response.GetAccessTokenResponse = obj;
-                    return response;
                 }
+            }
 
-                throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
-            }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
-            {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
-                {
-                    var obj = ResponseBodyDeserializer.Deserialize<Response4xx>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    switch (obj!.Type.ToString()) {
-                        case "error":
-                              throw obj!.Error!;
-                        case "field-error":
-                              throw obj!.FieldError!;
-                        default:
-                            throw new InvalidOperationException("Unknown error type.");
-                    };
-                }
-
-                throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
-            }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
-            {
-                throw new Models.Errors.SDKException("API error occurred", httpRequest, httpResponse);
-            }
-            else
-            {                
-                return new OauthGetTokenResponse()
-                {
-                    HttpMeta = new Models.Components.HTTPMetadata()
-                    {
-                        Response = httpResponse,
-                        Request = httpRequest
-                    }
-                };
-            }
+            return await getTokenAsync(request);
         }
     }
 }

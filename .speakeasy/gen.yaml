@@ -20,6 +20,7 @@ csharp:
   dotnetVersion: net8.0
   enableSourceLink: false
   flattenGlobalSecurity: true
+  flattenRequests: false
   imports:
     option: openapi
     paths:

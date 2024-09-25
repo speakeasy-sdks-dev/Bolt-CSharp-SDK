@@ -70,71 +70,115 @@ namespace Boltpay.SDK
             {
                 XPublishableKey = xPublishableKey,
                 XMerchantClientId = xMerchantClientId,
-                GuestPaymentInitializeRequest = guestPaymentInitializeRequest,
+                GuestPaymentInitializeRequest = guestPaymentInitializeRequest
             };
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
 
-            var urlString = baseUrl + "/guest/payments";
-
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            HeaderSerializer.PopulateHeaders(ref httpRequest, request);
-
-            var serializedBody = RequestBodySerializer.Serialize(request, "GuestPaymentInitializeRequest", "json", false, false);
-            if (serializedBody != null)
+            async Task<GuestPaymentsInitializeResponse> initializeAsync(GuestPaymentsInitializeSecurity security, GuestPaymentsInitializeRequest request)
             {
-                httpRequest.Content = serializedBody;
-            }
+                string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
 
-            Func<GuestPaymentsInitializeSecurity>? securitySource = null;
-            if (security != null)
-            {
-                httpRequest = new SecurityMetadata(() => security).Apply(httpRequest);
-                securitySource = () => security;
-            }
+                var urlString = baseUrl + "/guest/payments";
 
-            var hookCtx = new HookContext("guestPaymentsInitialize", null, securitySource);
+                var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+                httpRequest.Headers.Add("user-agent", _userAgent);
+                HeaderSerializer.PopulateHeaders(ref httpRequest, request);
 
-            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
-
-            HttpResponseMessage httpResponse;
-            try
-            {
-                httpResponse = await _client.SendAsync(httpRequest);
-                int _statusCode = (int)httpResponse.StatusCode;
-
-                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                var serializedBody = RequestBodySerializer.Serialize(request, "GuestPaymentInitializeRequest", "json", false, false);
+                if (serializedBody != null)
                 {
-                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    httpRequest.Content = serializedBody;
+                }
+
+                Func<GuestPaymentsInitializeSecurity>? securitySource = null;
+                if (security != null)
+                {
+                    httpRequest = new SecurityMetadata(() => security).Apply(httpRequest);
+                    securitySource = () => security;
+                }
+
+                var hookCtx = new HookContext("guestPaymentsInitialize", null, securitySource);
+
+                httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+
+                HttpResponseMessage httpResponse;
+                try
+                {
+                    httpResponse = await _client.SendAsync(httpRequest);
+                    int _statusCode = (int)httpResponse.StatusCode;
+
+                    if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                    {
+                        var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                        if (_httpResponse != null)
+                        {
+                            httpResponse = _httpResponse;
+                        }
+                    }
+                }
+                catch (Exception error)
+                {
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
                     if (_httpResponse != null)
                     {
                         httpResponse = _httpResponse;
                     }
+                    else
+                    {
+                        throw;
+                    }
                 }
-            }
-            catch (Exception error)
-            {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
-                if (_httpResponse != null)
+
+                httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+                var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+                int responseStatusCode = (int)httpResponse.StatusCode;
+                if(responseStatusCode == 200)
                 {
-                    httpResponse = _httpResponse;
+                    if(Utilities.IsContentTypeMatch("application/json", contentType))
+                    {
+                        var obj = ResponseBodyDeserializer.Deserialize<PaymentResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                        var response = new GuestPaymentsInitializeResponse()
+                        {
+                            HttpMeta = new Models.Components.HTTPMetadata()
+                            {
+                                Response = httpResponse,
+                                Request = httpRequest
+                            }
+                        };
+                        response.PaymentResponse = obj;
+                        return response;
+                    }
+
+                    throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
+                }
+                else if(responseStatusCode >= 400 && responseStatusCode < 500)
+                {
+                    if(Utilities.IsContentTypeMatch("application/json", contentType))
+                    {
+                        var obj = ResponseBodyDeserializer.Deserialize<ResponsePaymentError>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                        switch (obj!.Type.ToString()) {
+                            case "error":
+                                  throw obj!.Error!;
+                            case "field-error":
+                                  throw obj!.FieldError!;
+                            case "cart-error":
+                                  throw obj!.CartError!;
+                            case "credit-card-error":
+                                  throw obj!.CreditCardError!;
+                            default:
+                                throw new InvalidOperationException("Unknown error type.");
+                        };
+                    }
+
+                    throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
+                }
+                else if(responseStatusCode >= 500 && responseStatusCode < 600)
+                {
+                    throw new Models.Errors.SDKException("API error occurred", httpRequest, httpResponse);
                 }
                 else
-                {
-                    throw;
-                }
-            }
-
-            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
-            {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
-                {
-                    var obj = ResponseBodyDeserializer.Deserialize<PaymentResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new GuestPaymentsInitializeResponse()
+                {    
+                    return new GuestPaymentsInitializeResponse()
                     {
                         HttpMeta = new Models.Components.HTTPMetadata()
                         {
@@ -142,48 +186,10 @@ namespace Boltpay.SDK
                             Request = httpRequest
                         }
                     };
-                    response.PaymentResponse = obj;
-                    return response;
                 }
+            }
 
-                throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
-            }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
-            {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
-                {
-                    var obj = ResponseBodyDeserializer.Deserialize<ResponsePaymentError>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    switch (obj!.Type.ToString()) {
-                        case "error":
-                              throw obj!.Error!;
-                        case "field-error":
-                              throw obj!.FieldError!;
-                        case "cart-error":
-                              throw obj!.CartError!;
-                        case "credit-card-error":
-                              throw obj!.CreditCardError!;
-                        default:
-                            throw new InvalidOperationException("Unknown error type.");
-                    };
-                }
-
-                throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
-            }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
-            {
-                throw new Models.Errors.SDKException("API error occurred", httpRequest, httpResponse);
-            }
-            else
-            {                
-                return new GuestPaymentsInitializeResponse()
-                {
-                    HttpMeta = new Models.Components.HTTPMetadata()
-                    {
-                        Response = httpResponse,
-                        Request = httpRequest
-                    }
-                };
-            }
+            return await initializeAsync(security, request);
         }
 
         public async Task<GuestPaymentsActionResponse> PerformActionAsync(GuestPaymentsActionSecurity security, string xPublishableKey, string xMerchantClientId, string id, PaymentActionRequest paymentActionRequest)
@@ -193,70 +199,110 @@ namespace Boltpay.SDK
                 XPublishableKey = xPublishableKey,
                 XMerchantClientId = xMerchantClientId,
                 Id = id,
-                PaymentActionRequest = paymentActionRequest,
+                PaymentActionRequest = paymentActionRequest
             };
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/guest/payments/{id}", request);
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            HeaderSerializer.PopulateHeaders(ref httpRequest, request);
-
-            var serializedBody = RequestBodySerializer.Serialize(request, "PaymentActionRequest", "json", false, false);
-            if (serializedBody != null)
+            async Task<GuestPaymentsActionResponse> performActionAsync(GuestPaymentsActionSecurity security, GuestPaymentsActionRequest request)
             {
-                httpRequest.Content = serializedBody;
-            }
+                string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+                var urlString = URLBuilder.Build(baseUrl, "/guest/payments/{id}", request);
 
-            Func<GuestPaymentsActionSecurity>? securitySource = null;
-            if (security != null)
-            {
-                httpRequest = new SecurityMetadata(() => security).Apply(httpRequest);
-                securitySource = () => security;
-            }
+                var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+                httpRequest.Headers.Add("user-agent", _userAgent);
+                HeaderSerializer.PopulateHeaders(ref httpRequest, request);
 
-            var hookCtx = new HookContext("guestPaymentsAction", null, securitySource);
-
-            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
-
-            HttpResponseMessage httpResponse;
-            try
-            {
-                httpResponse = await _client.SendAsync(httpRequest);
-                int _statusCode = (int)httpResponse.StatusCode;
-
-                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                var serializedBody = RequestBodySerializer.Serialize(request, "PaymentActionRequest", "json", false, false);
+                if (serializedBody != null)
                 {
-                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    httpRequest.Content = serializedBody;
+                }
+
+                Func<GuestPaymentsActionSecurity>? securitySource = null;
+                if (security != null)
+                {
+                    httpRequest = new SecurityMetadata(() => security).Apply(httpRequest);
+                    securitySource = () => security;
+                }
+
+                var hookCtx = new HookContext("guestPaymentsAction", null, securitySource);
+
+                httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+
+                HttpResponseMessage httpResponse;
+                try
+                {
+                    httpResponse = await _client.SendAsync(httpRequest);
+                    int _statusCode = (int)httpResponse.StatusCode;
+
+                    if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                    {
+                        var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                        if (_httpResponse != null)
+                        {
+                            httpResponse = _httpResponse;
+                        }
+                    }
+                }
+                catch (Exception error)
+                {
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
                     if (_httpResponse != null)
                     {
                         httpResponse = _httpResponse;
                     }
+                    else
+                    {
+                        throw;
+                    }
                 }
-            }
-            catch (Exception error)
-            {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
-                if (_httpResponse != null)
+
+                httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+                var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+                int responseStatusCode = (int)httpResponse.StatusCode;
+                if(responseStatusCode == 200)
                 {
-                    httpResponse = _httpResponse;
+                    if(Utilities.IsContentTypeMatch("application/json", contentType))
+                    {
+                        var obj = ResponseBodyDeserializer.Deserialize<PaymentResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                        var response = new GuestPaymentsActionResponse()
+                        {
+                            HttpMeta = new Models.Components.HTTPMetadata()
+                            {
+                                Response = httpResponse,
+                                Request = httpRequest
+                            }
+                        };
+                        response.PaymentResponse = obj;
+                        return response;
+                    }
+
+                    throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
+                }
+                else if(responseStatusCode >= 400 && responseStatusCode < 500)
+                {
+                    if(Utilities.IsContentTypeMatch("application/json", contentType))
+                    {
+                        var obj = ResponseBodyDeserializer.Deserialize<Response4xx>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                        switch (obj!.Type.ToString()) {
+                            case "error":
+                                  throw obj!.Error!;
+                            case "field-error":
+                                  throw obj!.FieldError!;
+                            default:
+                                throw new InvalidOperationException("Unknown error type.");
+                        };
+                    }
+
+                    throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
+                }
+                else if(responseStatusCode >= 500 && responseStatusCode < 600)
+                {
+                    throw new Models.Errors.SDKException("API error occurred", httpRequest, httpResponse);
                 }
                 else
-                {
-                    throw;
-                }
-            }
-
-            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
-            {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
-                {
-                    var obj = ResponseBodyDeserializer.Deserialize<PaymentResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new GuestPaymentsActionResponse()
+                {    
+                    return new GuestPaymentsActionResponse()
                     {
                         HttpMeta = new Models.Components.HTTPMetadata()
                         {
@@ -264,44 +310,10 @@ namespace Boltpay.SDK
                             Request = httpRequest
                         }
                     };
-                    response.PaymentResponse = obj;
-                    return response;
                 }
+            }
 
-                throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
-            }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
-            {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
-                {
-                    var obj = ResponseBodyDeserializer.Deserialize<Response4xx>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    switch (obj!.Type.ToString()) {
-                        case "error":
-                              throw obj!.Error!;
-                        case "field-error":
-                              throw obj!.FieldError!;
-                        default:
-                            throw new InvalidOperationException("Unknown error type.");
-                    };
-                }
-
-                throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
-            }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
-            {
-                throw new Models.Errors.SDKException("API error occurred", httpRequest, httpResponse);
-            }
-            else
-            {                
-                return new GuestPaymentsActionResponse()
-                {
-                    HttpMeta = new Models.Components.HTTPMetadata()
-                    {
-                        Response = httpResponse,
-                        Request = httpRequest
-                    }
-                };
-            }
+            return await performActionAsync(security, request);
         }
     }
 }
