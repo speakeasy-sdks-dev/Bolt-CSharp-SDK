@@ -37,10 +37,10 @@ var res = await sdk.Payments.LoggedIn.InitializeAsync(
             Shipments = new List<CartShipment>() {
                 new CartShipment() {
                     Address = AddressReferenceInput.CreateAddressReferenceId(
-                            new AddressReferenceId() {
-                                DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
-                                Id = "D4g3h5tBuVYK9",
-                            }
+                        new AddressReferenceId() {
+                            DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
+                            Id = "D4g3h5tBuVYK9",
+                        }
                     ),
                     Cost = new Amount() {
                         Currency = Boltpay.SDK.Models.Components.Currency.Usd,
@@ -82,11 +82,11 @@ var res = await sdk.Payments.LoggedIn.InitializeAsync(
                 Units = 900,
             },
         },
-        PaymentMethod = PaymentMethodExtended.CreatePaymentMethodAffirm(
-                new PaymentMethodAffirm() {
-                    DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
-                    ReturnUrl = "www.example.com/handle_affirm_success",
-                }
+        PaymentMethod = PaymentMethodExtended.CreatePaymentMethodReference(
+            new PaymentMethodReference() {
+                DotTag = Boltpay.SDK.Models.Components.PaymentMethodReferenceTag.Id,
+                Id = "X5h6j8uLpVGK",
+            }
         ),
     }
 );
