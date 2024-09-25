@@ -50,7 +50,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.GetDetailsAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>"
+    xMerchantClientId: "<id>"
 );
 
 // handle response
@@ -132,7 +132,7 @@ try
 {
     var res = await sdk.Account.GetDetailsAsync(
         xPublishableKey: "<value>",
-        xMerchantClientId: "<value>"
+        xMerchantClientId: "<id>"
     );
 
     // handle response
@@ -206,7 +206,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.GetDetailsAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>"
+    xMerchantClientId: "<id>"
 );
 
 // handle response
@@ -228,7 +228,7 @@ var res = await sdk.Payments.Guest.InitializeAsync(
         ApiKey = "<YOUR_API_KEY_HERE>",
     },
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     guestPaymentInitializeRequest: new GuestPaymentInitializeRequest() {
         Profile = new ProfileCreationData() {
             CreateAccount = true,

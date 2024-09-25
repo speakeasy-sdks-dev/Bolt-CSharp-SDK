@@ -11,7 +11,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.GetDetailsAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>"
+    xMerchantClientId: "<id>"
 );
 
 // handle response

@@ -25,7 +25,7 @@ using System.Collections.Generic;
 var sdk = new BoltSDK();
 
 var res = await sdk.OAuth.GetTokenAsync(
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     tokenRequest: TokenRequest.CreateAuthorizationCodeRequest(
         new AuthorizationCodeRequest() {
             GrantType = Boltpay.SDK.Models.Components.GrantType.AuthorizationCode,

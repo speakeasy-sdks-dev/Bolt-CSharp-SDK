@@ -27,7 +27,7 @@ var res = await sdk.Payments.Guest.InitializeAsync(
         ApiKey = "<YOUR_API_KEY_HERE>",
     },
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     guestPaymentInitializeRequest: new GuestPaymentInitializeRequest() {
         Profile = new ProfileCreationData() {
             CreateAccount = true,
@@ -152,7 +152,7 @@ var res = await sdk.Payments.Guest.PerformActionAsync(
         ApiKey = "<YOUR_API_KEY_HERE>",
     },
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     id: "iKv7t5bgt1gg",
     paymentActionRequest: new PaymentActionRequest() {
         DotTag = Boltpay.SDK.Models.Components.PaymentActionRequestTag.Finalize,

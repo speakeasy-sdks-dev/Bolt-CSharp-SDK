@@ -28,7 +28,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Payments.LoggedIn.InitializeAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     paymentInitializeRequest: new PaymentInitializeRequest() {
         Cart = new Cart() {
             OrderReference = "order_100",
@@ -135,7 +135,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Payments.LoggedIn.PerformActionAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     id: "iKv7t5bgt1gg",
     paymentActionRequest: new PaymentActionRequest() {
         DotTag = Boltpay.SDK.Models.Components.PaymentActionRequestTag.Finalize,

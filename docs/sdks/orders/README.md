@@ -28,7 +28,7 @@ var res = await sdk.Orders.OrdersCreateAsync(
         ApiKey = "<YOUR_API_KEY_HERE>",
     },
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     order: new Order() {
         Profile = new Profile() {
             FirstName = "Alice",
