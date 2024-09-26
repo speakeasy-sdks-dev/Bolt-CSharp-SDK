@@ -32,7 +32,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.GetDetailsAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>"
+    xMerchantClientId: "<id>"
 );
 
 // handle response
@@ -76,7 +76,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.AddAddressAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     addressListing: new AddressListingInput() {
         FirstName = "Alice",
         LastName = "Baker",
@@ -134,7 +134,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.UpdateAddressAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     id: "D4g3h5tBuVYK9",
     addressListing: new AddressListingInput() {
         FirstName = "Alice",
@@ -194,7 +194,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.DeleteAddressAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     id: "D4g3h5tBuVYK9"
 );
 
@@ -240,7 +240,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.AddPaymentMethodAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     paymentMethod: PaymentMethodInput.CreatePaymentMethodAffirm(
         new PaymentMethodAffirm() {
             DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
@@ -292,7 +292,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.DeletePaymentMethodAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     id: "D4g3h5tBuVYK9"
 );
 

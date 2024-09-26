@@ -124,7 +124,8 @@ var res = await sdk.Testing.GetCreditCardAsync(
     security: new TestingCreditCardGetSecurity() {
         ApiKey = "<YOUR_API_KEY_HERE>",
     },
-    req);
+    req
+);
 
 // handle response
 ```
