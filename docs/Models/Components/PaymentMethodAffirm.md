@@ -1,0 +1,9 @@
+# PaymentMethodAffirm
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `DotTag`                                                                    | [PaymentMethodAffirmTag](../../Models/Components/PaymentMethodAffirmTag.md) | :heavy_check_mark:                                                          | N/A                                                                         | affirm                                                                      |
+| `ReturnUrl`                                                                 | *string*                                                                    | :heavy_check_mark:                                                          | Return URL to return to after payment completion in Affirm.                 | www.example.com/handle_affirm_success                                       |
