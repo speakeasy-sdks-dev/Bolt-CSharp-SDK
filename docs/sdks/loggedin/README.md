@@ -108,14 +108,13 @@ var res = await sdk.Payments.LoggedIn.InitializeAsync(
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error           | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.FieldError      | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.CartError       | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.CreditCardError | 4XX                                       | application/json                          |
-| Boltpay.SDK.Models.Errors.SDKException    | 4xx-5xx                                   | */*                                       |
-
+| Boltpay.SDK.Models.Errors.SDKException    | 5XX                                       | \*/\*                                     |
 
 ## PerformAction
 
@@ -161,8 +160,8 @@ var res = await sdk.Payments.LoggedIn.PerformActionAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |

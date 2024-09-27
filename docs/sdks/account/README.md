@@ -51,12 +51,11 @@ var res = await sdk.Account.GetDetailsAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
-
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
 
 ## AddAddress
 
@@ -109,12 +108,11 @@ var res = await sdk.Account.AddAddressAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
-
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
 
 ## UpdateAddress
 
@@ -169,12 +167,11 @@ var res = await sdk.Account.UpdateAddressAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
-
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
 
 ## DeleteAddress
 
@@ -215,12 +212,11 @@ var res = await sdk.Account.DeleteAddressAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
-
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
 
 ## AddPaymentMethod
 
@@ -266,13 +262,12 @@ var res = await sdk.Account.AddPaymentMethodAsync(
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error           | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.FieldError      | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.CreditCardError | 4XX                                       | application/json                          |
-| Boltpay.SDK.Models.Errors.SDKException    | 4xx-5xx                                   | */*                                       |
-
+| Boltpay.SDK.Models.Errors.SDKException    | 5XX                                       | \*/\*                                     |
 
 ## DeletePaymentMethod
 
@@ -313,8 +308,8 @@ var res = await sdk.Account.DeletePaymentMethodAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |

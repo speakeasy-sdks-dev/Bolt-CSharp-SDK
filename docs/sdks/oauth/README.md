@@ -56,8 +56,8 @@ var res = await sdk.OAuth.GetTokenAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |

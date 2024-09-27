@@ -106,13 +106,23 @@ var res = await sdk.Account.GetDetailsAsync(
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
 
-| Error Object                           | Status Code                            | Content Type                           |
+By default, an API error will raise a `Boltpay.SDK.Models.Errors.SDKException` exception, which has the following properties:
+
+| Property      | Type                  | Description           |
+|---------------|-----------------------|-----------------------|
+| `Message`     | *string*              | The error message     |
+| `Request`     | *HttpRequestMessage*  | The HTTP request      |
+| `Response`    | *HttpResponseMessage* | The HTTP response     |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `GetDetailsAsync` method throws the following exceptions:
+
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
 
 ### Example
 
@@ -149,7 +159,7 @@ catch (Exception ex)
         // Handle exception data
         throw;
     }
-    else if (ex is Models.Errors.SDKException)
+    else if (ex is Boltpay.SDK.Models.Errors.SDKException)
     {
         // Handle default exception
         throw;
