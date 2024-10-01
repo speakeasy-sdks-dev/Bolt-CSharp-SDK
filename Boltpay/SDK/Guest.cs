@@ -32,7 +32,7 @@ namespace Boltpay.SDK
         /// Initialize a Bolt guest shopper&apos;s intent to pay for a cart, using the specified payment method. Payments must be finalized before indicating the payment result to the shopper. Some payment methods will finalize automatically after initialization. For these payments, they will transition directly to &quot;finalized&quot; and the response from Initialize Payment will contain a finalized payment.
         /// </remarks>
         /// </summary>
-        Task<GuestPaymentsInitializeResponse> InitializeAsync(GuestPaymentsInitializeSecurity security, string xPublishableKey, string xMerchantClientId, GuestPaymentInitializeRequest guestPaymentInitializeRequest);
+        Task<GuestPaymentsInitializeResponse> InitializeAsync(GuestPaymentsInitializeSecurity security, GuestPaymentInitializeRequest guestPaymentInitializeRequest, string xPublishableKey, string xMerchantClientId);
 
         /// <summary>
         /// Finalize a pending guest payment
@@ -41,7 +41,7 @@ namespace Boltpay.SDK
         /// Finalize a pending payment being made by a Bolt guest shopper. Upon receipt of a finalized payment result, payment success should be communicated to the shopper.
         /// </remarks>
         /// </summary>
-        Task<GuestPaymentsActionResponse> PerformActionAsync(GuestPaymentsActionSecurity security, string xPublishableKey, string xMerchantClientId, string id, PaymentActionRequest paymentActionRequest);
+        Task<GuestPaymentsActionResponse> PerformActionAsync(GuestPaymentsActionSecurity security, PaymentActionRequest paymentActionRequest, string xPublishableKey, string xMerchantClientId, string id);
     }
 
     public class Guest: IGuest
@@ -64,7 +64,7 @@ namespace Boltpay.SDK
             SDKConfiguration = config;
         }
 
-        public async Task<GuestPaymentsInitializeResponse> InitializeAsync(GuestPaymentsInitializeSecurity security, string xPublishableKey, string xMerchantClientId, GuestPaymentInitializeRequest guestPaymentInitializeRequest)
+        public async Task<GuestPaymentsInitializeResponse> InitializeAsync(GuestPaymentsInitializeSecurity security, GuestPaymentInitializeRequest guestPaymentInitializeRequest, string xPublishableKey, string xMerchantClientId)
         {
             var request = new GuestPaymentsInitializeRequest()
             {
@@ -186,7 +186,7 @@ namespace Boltpay.SDK
             }
         }
 
-        public async Task<GuestPaymentsActionResponse> PerformActionAsync(GuestPaymentsActionSecurity security, string xPublishableKey, string xMerchantClientId, string id, PaymentActionRequest paymentActionRequest)
+        public async Task<GuestPaymentsActionResponse> PerformActionAsync(GuestPaymentsActionSecurity security, PaymentActionRequest paymentActionRequest, string xPublishableKey, string xMerchantClientId, string id)
         {
             var request = new GuestPaymentsActionRequest()
             {

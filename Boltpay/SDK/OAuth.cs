@@ -37,7 +37,7 @@ namespace Boltpay.SDK
         /// Retrieve a new or refresh an existing OAuth token.
         /// </remarks>
         /// </summary>
-        Task<OauthGetTokenResponse> GetTokenAsync(string xMerchantClientId, TokenRequest tokenRequest);
+        Task<OauthGetTokenResponse> GetTokenAsync(TokenRequest tokenRequest, string xMerchantClientId);
     }
 
     /// <summary>
@@ -65,7 +65,7 @@ namespace Boltpay.SDK
             SDKConfiguration = config;
         }
 
-        public async Task<OauthGetTokenResponse> GetTokenAsync(string xMerchantClientId, TokenRequest tokenRequest)
+        public async Task<OauthGetTokenResponse> GetTokenAsync(TokenRequest tokenRequest, string xMerchantClientId)
         {
             var request = new OauthGetTokenRequest()
             {

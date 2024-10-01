@@ -35,7 +35,7 @@ namespace Boltpay.SDK
         /// Create an order that was prepared outside the Bolt ecosystem. Some Bolt-powered flows automatically manage order creation - in those flows the order ID will be provided separately and not through this API.
         /// </remarks>
         /// </summary>
-        Task<OrdersCreateResponse> OrdersCreateAsync(OrdersCreateSecurity security, string xPublishableKey, string xMerchantClientId, Order order);
+        Task<OrdersCreateResponse> OrdersCreateAsync(OrdersCreateSecurity security, Order order, string xPublishableKey, string xMerchantClientId);
     }
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Boltpay.SDK
             SDKConfiguration = config;
         }
 
-        public async Task<OrdersCreateResponse> OrdersCreateAsync(OrdersCreateSecurity security, string xPublishableKey, string xMerchantClientId, Order order)
+        public async Task<OrdersCreateResponse> OrdersCreateAsync(OrdersCreateSecurity security, Order order, string xPublishableKey, string xMerchantClientId)
         {
             var request = new OrdersCreateRequest()
             {

@@ -35,7 +35,7 @@ namespace Boltpay.SDK
         /// Create a Bolt shopper account for testing purposes.
         /// </remarks>
         /// </summary>
-        Task<TestingAccountCreateResponse> CreateAccountAsync(TestingAccountCreateSecurity security, string xPublishableKey, AccountTestCreationData accountTestCreationData);
+        Task<TestingAccountCreateResponse> CreateAccountAsync(TestingAccountCreateSecurity security, AccountTestCreationData accountTestCreationData, string xPublishableKey);
 
         /// <summary>
         /// Get a random phone number
@@ -79,7 +79,7 @@ namespace Boltpay.SDK
             SDKConfiguration = config;
         }
 
-        public async Task<TestingAccountCreateResponse> CreateAccountAsync(TestingAccountCreateSecurity security, string xPublishableKey, AccountTestCreationData accountTestCreationData)
+        public async Task<TestingAccountCreateResponse> CreateAccountAsync(TestingAccountCreateSecurity security, AccountTestCreationData accountTestCreationData, string xPublishableKey)
         {
             var request = new TestingAccountCreateRequest()
             {

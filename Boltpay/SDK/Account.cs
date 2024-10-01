@@ -44,7 +44,7 @@ namespace Boltpay.SDK
         /// Add an address to the shopper&apos;s account
         /// </remarks>
         /// </summary>
-        Task<AccountAddressCreateResponse> AddAddressAsync(string xPublishableKey, string xMerchantClientId, AddressListingInput addressListing);
+        Task<AccountAddressCreateResponse> AddAddressAsync(AddressListingInput addressListing, string xPublishableKey, string xMerchantClientId);
 
         /// <summary>
         /// Edit an existing address
@@ -53,7 +53,7 @@ namespace Boltpay.SDK
         /// Edit an existing address on the shopper&apos;s account. This does not edit addresses that are already associated with other resources, such as transactions or shipments.
         /// </remarks>
         /// </summary>
-        Task<AccountAddressEditResponse> UpdateAddressAsync(string xPublishableKey, string xMerchantClientId, string id, AddressListingInput addressListing);
+        Task<AccountAddressEditResponse> UpdateAddressAsync(AddressListingInput addressListing, string xPublishableKey, string xMerchantClientId, string id);
 
         /// <summary>
         /// Delete an existing address
@@ -71,7 +71,7 @@ namespace Boltpay.SDK
         /// Add a payment method to a shopper&apos;s Bolt Account Wallet. For security purposes, this request must come from your backend. &lt;br/&gt; **Note**: Before using this API, the credit card details must be tokenized by Bolt&apos;s credit card tokenization service. Please review our <a href="https://help.bolt.com/products/ignite/api-implementation/#enhance-payments">Bolt Payment Field Component</a> or <a href="https://help.bolt.com/developers/references/bolt-tokenizer">Install the Bolt Tokenizer</a> documentation.
         /// </remarks>
         /// </summary>
-        Task<AccountAddPaymentMethodResponse> AddPaymentMethodAsync(string xPublishableKey, string xMerchantClientId, PaymentMethodInput paymentMethod);
+        Task<AccountAddPaymentMethodResponse> AddPaymentMethodAsync(PaymentMethodInput paymentMethod, string xPublishableKey, string xMerchantClientId);
 
         /// <summary>
         /// Delete an existing payment method
@@ -215,7 +215,7 @@ namespace Boltpay.SDK
             }
         }
 
-        public async Task<AccountAddressCreateResponse> AddAddressAsync(string xPublishableKey, string xMerchantClientId, AddressListingInput addressListing)
+        public async Task<AccountAddressCreateResponse> AddAddressAsync(AddressListingInput addressListing, string xPublishableKey, string xMerchantClientId)
         {
             var request = new AccountAddressCreateRequest()
             {
@@ -331,7 +331,7 @@ namespace Boltpay.SDK
             }
         }
 
-        public async Task<AccountAddressEditResponse> UpdateAddressAsync(string xPublishableKey, string xMerchantClientId, string id, AddressListingInput addressListing)
+        public async Task<AccountAddressEditResponse> UpdateAddressAsync(AddressListingInput addressListing, string xPublishableKey, string xMerchantClientId, string id)
         {
             var request = new AccountAddressEditRequest()
             {
@@ -537,7 +537,7 @@ namespace Boltpay.SDK
             }
         }
 
-        public async Task<AccountAddPaymentMethodResponse> AddPaymentMethodAsync(string xPublishableKey, string xMerchantClientId, PaymentMethodInput paymentMethod)
+        public async Task<AccountAddPaymentMethodResponse> AddPaymentMethodAsync(PaymentMethodInput paymentMethod, string xPublishableKey, string xMerchantClientId)
         {
             var request = new AccountAddPaymentMethodRequest()
             {

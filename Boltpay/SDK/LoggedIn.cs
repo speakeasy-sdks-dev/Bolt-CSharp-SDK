@@ -33,7 +33,7 @@ namespace Boltpay.SDK
         /// 
         /// </remarks>
         /// </summary>
-        Task<PaymentsInitializeResponse> InitializeAsync(string xPublishableKey, string xMerchantClientId, PaymentInitializeRequest paymentInitializeRequest);
+        Task<PaymentsInitializeResponse> InitializeAsync(PaymentInitializeRequest paymentInitializeRequest, string xPublishableKey, string xMerchantClientId);
 
         /// <summary>
         /// Finalize a pending payment
@@ -42,7 +42,7 @@ namespace Boltpay.SDK
         /// Finalize a pending payment being made by a Bolt logged-in shopper. Upon receipt of a finalized payment result, payment success should be communicated to the shopper.
         /// </remarks>
         /// </summary>
-        Task<PaymentsActionResponse> PerformActionAsync(string xPublishableKey, string xMerchantClientId, string id, PaymentActionRequest paymentActionRequest);
+        Task<PaymentsActionResponse> PerformActionAsync(PaymentActionRequest paymentActionRequest, string xPublishableKey, string xMerchantClientId, string id);
     }
 
     public class LoggedIn: ILoggedIn
@@ -65,7 +65,7 @@ namespace Boltpay.SDK
             SDKConfiguration = config;
         }
 
-        public async Task<PaymentsInitializeResponse> InitializeAsync(string xPublishableKey, string xMerchantClientId, PaymentInitializeRequest paymentInitializeRequest)
+        public async Task<PaymentsInitializeResponse> InitializeAsync(PaymentInitializeRequest paymentInitializeRequest, string xPublishableKey, string xMerchantClientId)
         {
             var request = new PaymentsInitializeRequest()
             {
@@ -185,7 +185,7 @@ namespace Boltpay.SDK
             }
         }
 
-        public async Task<PaymentsActionResponse> PerformActionAsync(string xPublishableKey, string xMerchantClientId, string id, PaymentActionRequest paymentActionRequest)
+        public async Task<PaymentsActionResponse> PerformActionAsync(PaymentActionRequest paymentActionRequest, string xPublishableKey, string xMerchantClientId, string id)
         {
             var request = new PaymentsActionRequest()
             {

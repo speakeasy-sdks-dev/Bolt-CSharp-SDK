@@ -31,6 +31,7 @@ csharp:
   includeDebugSymbols: false
   inputModelSuffix: input
   maxMethodParams: 4
+  methodArguments: require-security-and-request
   outputModelSuffix: output
   packageName: Boltpay.SDK
   packageTags: ""
