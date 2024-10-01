@@ -1,0 +1,9 @@
+# PaymentMethodKlarna
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `DotTag`                                                                    | [PaymentMethodKlarnaTag](../../Models/Components/PaymentMethodKlarnaTag.md) | :heavy_check_mark:                                                          | N/A                                                                         | klarna                                                                      |
+| `ReturnUrl`                                                                 | *string*                                                                    | :heavy_check_mark:                                                          | Return URL to return to after payment completion in Klarna.                 | www.example.com/handle_klarna_success                                       |
