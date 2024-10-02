@@ -27,7 +27,7 @@ var res = await sdk.Payments.Guest.InitializeAsync(
         ApiKey = "<YOUR_API_KEY_HERE>",
     },
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     guestPaymentInitializeRequest: new GuestPaymentInitializeRequest() {
         Profile = new ProfileCreationData() {
             CreateAccount = true,
@@ -43,10 +43,10 @@ var res = await sdk.Payments.Guest.InitializeAsync(
             Shipments = new List<CartShipment>() {
                 new CartShipment() {
                     Address = AddressReferenceInput.CreateAddressReferenceId(
-                            new AddressReferenceId() {
-                                DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
-                                Id = "D4g3h5tBuVYK9",
-                            }
+                        new AddressReferenceId() {
+                            DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
+                            Id = "D4g3h5tBuVYK9",
+                        }
                     ),
                     Cost = new Amount() {
                         Currency = Boltpay.SDK.Models.Components.Currency.Usd,
@@ -88,11 +88,21 @@ var res = await sdk.Payments.Guest.InitializeAsync(
                 Units = 900,
             },
         },
-        PaymentMethod = PaymentMethodInput.CreatePaymentMethodAffirm(
-                new PaymentMethodAffirm() {
-                    DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
-                    ReturnUrl = "www.example.com/handle_affirm_success",
-                }
+        PaymentMethod = PaymentMethodInput.CreatePaymentMethodCreditCardInput(
+            new PaymentMethodCreditCardInput() {
+                DotTag = Boltpay.SDK.Models.Components.DotTag.CreditCard,
+                BillingAddress = AddressReferenceInput.CreateAddressReferenceId(
+                    new AddressReferenceId() {
+                        DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
+                        Id = "D4g3h5tBuVYK9",
+                    }
+                ),
+                Network = Boltpay.SDK.Models.Components.CreditCardNetwork.Visa,
+                Bin = "411111",
+                Last4 = "1004",
+                Expiration = "2029-03",
+                Token = "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0",
+            }
         ),
     }
 );
@@ -115,14 +125,13 @@ var res = await sdk.Payments.Guest.InitializeAsync(
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error           | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.FieldError      | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.CartError       | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.CreditCardError | 4XX                                       | application/json                          |
-| Boltpay.SDK.Models.Errors.SDKException    | 4xx-5xx                                   | */*                                       |
-
+| Boltpay.SDK.Models.Errors.SDKException    | 5XX                                       | \*/\*                                     |
 
 ## PerformAction
 
@@ -142,7 +151,7 @@ var res = await sdk.Payments.Guest.PerformActionAsync(
         ApiKey = "<YOUR_API_KEY_HERE>",
     },
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     id: "iKv7t5bgt1gg",
     paymentActionRequest: new PaymentActionRequest() {
         DotTag = Boltpay.SDK.Models.Components.PaymentActionRequestTag.Finalize,
@@ -169,8 +178,8 @@ var res = await sdk.Payments.Guest.PerformActionAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
