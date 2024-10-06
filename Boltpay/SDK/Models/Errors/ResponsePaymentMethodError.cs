@@ -59,6 +59,9 @@ namespace Boltpay.SDK.Models.Errors
     }
 
 
+    /// <summary>
+    /// The payment method is invalid and cannot be added, or some other error has occurred
+    /// </summary>
     [JsonConverter(typeof(ResponsePaymentMethodError.ResponsePaymentMethodErrorConverter))]
     public class ResponsePaymentMethodError {
         public ResponsePaymentMethodError(ResponsePaymentMethodErrorType type) {
