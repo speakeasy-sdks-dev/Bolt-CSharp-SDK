@@ -49,9 +49,9 @@ namespace Boltpay.SDK
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
         private const string _sdkVersion = "0.2.1";
-        private const string _sdkGenVersion = "2.409.8";
+        private const string _sdkGenVersion = "2.434.4";
         private const string _openapiDocVersion = "3.2.1";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.2.1 2.409.8 3.2.1 Boltpay.SDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.2.1 2.434.4 3.2.1 Boltpay.SDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Boltpay.SDK.Models.Components.Security>? _securitySource;
@@ -145,10 +145,8 @@ namespace Boltpay.SDK
                     response.PaymentResponse = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", httpRequest, httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500)
             {
@@ -168,14 +166,12 @@ namespace Boltpay.SDK
                             throw new InvalidOperationException("Unknown error type.");
                     };
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", httpRequest, httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
             }
             else if(responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", httpRequest, httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", httpRequest, httpResponse);
             }
             else
             {                
@@ -271,10 +267,8 @@ namespace Boltpay.SDK
                     response.PaymentResponse = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", httpRequest, httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500)
             {
@@ -290,14 +284,12 @@ namespace Boltpay.SDK
                             throw new InvalidOperationException("Unknown error type.");
                     };
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", httpRequest, httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpRequest, httpResponse);
             }
             else if(responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", httpRequest, httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", httpRequest, httpResponse);
             }
             else
             {                
