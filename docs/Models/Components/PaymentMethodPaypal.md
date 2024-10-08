@@ -1,0 +1,10 @@
+# PaymentMethodPaypal
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `DotTag`                                                                    | [PaymentMethodPaypalTag](../../Models/Components/PaymentMethodPaypalTag.md) | :heavy_check_mark:                                                          | N/A                                                                         | paypal                                                                      |
+| `SuccessUrl`                                                                | *string*                                                                    | :heavy_check_mark:                                                          | Redirect URL for successful PayPal transaction.                             | https://www.example.com/paypal-callback/success                             |
+| `CancelUrl`                                                                 | *string*                                                                    | :heavy_check_mark:                                                          | Redirect URL for canceled PayPal transaction.                               | https://www.example.com/paypal-callback/cancel                              |
