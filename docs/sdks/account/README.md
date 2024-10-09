@@ -32,7 +32,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.GetDetailsAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>"
+    xMerchantClientId: "<id>"
 );
 
 // handle response
@@ -51,12 +51,11 @@ var res = await sdk.Account.GetDetailsAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
-
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
 
 ## AddAddress
 
@@ -76,7 +75,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.AddAddressAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     addressListing: new AddressListingInput() {
         FirstName = "Alice",
         LastName = "Baker",
@@ -109,12 +108,11 @@ var res = await sdk.Account.AddAddressAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
-
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
 
 ## UpdateAddress
 
@@ -134,7 +132,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.UpdateAddressAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     id: "D4g3h5tBuVYK9",
     addressListing: new AddressListingInput() {
         FirstName = "Alice",
@@ -169,12 +167,11 @@ var res = await sdk.Account.UpdateAddressAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
-
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
 
 ## DeleteAddress
 
@@ -194,7 +191,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.DeleteAddressAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     id: "D4g3h5tBuVYK9"
 );
 
@@ -215,12 +212,11 @@ var res = await sdk.Account.DeleteAddressAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
-
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
 
 ## AddPaymentMethod
 
@@ -240,7 +236,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.AddPaymentMethodAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     paymentMethod: PaymentMethodInput.CreatePaymentMethodAffirm(
         new PaymentMethodAffirm() {
             DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
@@ -266,13 +262,12 @@ var res = await sdk.Account.AddPaymentMethodAsync(
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error           | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.FieldError      | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.CreditCardError | 4XX                                       | application/json                          |
-| Boltpay.SDK.Models.Errors.SDKException    | 4xx-5xx                                   | */*                                       |
-
+| Boltpay.SDK.Models.Errors.SDKException    | 5XX                                       | \*/\*                                     |
 
 ## DeletePaymentMethod
 
@@ -292,7 +287,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Account.DeletePaymentMethodAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     id: "D4g3h5tBuVYK9"
 );
 
@@ -313,8 +308,8 @@ var res = await sdk.Account.DeletePaymentMethodAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |

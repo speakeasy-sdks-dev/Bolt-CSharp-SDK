@@ -28,7 +28,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Payments.LoggedIn.InitializeAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     paymentInitializeRequest: new PaymentInitializeRequest() {
         Cart = new Cart() {
             OrderReference = "order_100",
@@ -37,10 +37,10 @@ var res = await sdk.Payments.LoggedIn.InitializeAsync(
             Shipments = new List<CartShipment>() {
                 new CartShipment() {
                     Address = AddressReferenceInput.CreateAddressReferenceId(
-                            new AddressReferenceId() {
-                                DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
-                                Id = "D4g3h5tBuVYK9",
-                            }
+                        new AddressReferenceId() {
+                            DotTag = Boltpay.SDK.Models.Components.AddressReferenceIdTag.Id,
+                            Id = "D4g3h5tBuVYK9",
+                        }
                     ),
                     Cost = new Amount() {
                         Currency = Boltpay.SDK.Models.Components.Currency.Usd,
@@ -82,11 +82,11 @@ var res = await sdk.Payments.LoggedIn.InitializeAsync(
                 Units = 900,
             },
         },
-        PaymentMethod = PaymentMethodExtended.CreatePaymentMethodAffirm(
-                new PaymentMethodAffirm() {
-                    DotTag = Boltpay.SDK.Models.Components.PaymentMethodAffirmTag.Affirm,
-                    ReturnUrl = "www.example.com/handle_affirm_success",
-                }
+        PaymentMethod = PaymentMethodExtended.CreatePaymentMethodReference(
+            new PaymentMethodReference() {
+                DotTag = Boltpay.SDK.Models.Components.PaymentMethodReferenceTag.Id,
+                Id = "X5h6j8uLpVGK",
+            }
         ),
     }
 );
@@ -108,14 +108,13 @@ var res = await sdk.Payments.LoggedIn.InitializeAsync(
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error           | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.FieldError      | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.CartError       | 4XX                                       | application/json                          |
 | Boltpay.SDK.Models.Errors.CreditCardError | 4XX                                       | application/json                          |
-| Boltpay.SDK.Models.Errors.SDKException    | 4xx-5xx                                   | */*                                       |
-
+| Boltpay.SDK.Models.Errors.SDKException    | 5XX                                       | \*/\*                                     |
 
 ## PerformAction
 
@@ -135,7 +134,7 @@ var sdk = new BoltSDK(security: new Security() {
 
 var res = await sdk.Payments.LoggedIn.PerformActionAsync(
     xPublishableKey: "<value>",
-    xMerchantClientId: "<value>",
+    xMerchantClientId: "<id>",
     id: "iKv7t5bgt1gg",
     paymentActionRequest: new PaymentActionRequest() {
         DotTag = Boltpay.SDK.Models.Components.PaymentActionRequestTag.Finalize,
@@ -161,8 +160,8 @@ var res = await sdk.Payments.LoggedIn.PerformActionAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
