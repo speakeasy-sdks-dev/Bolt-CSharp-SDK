@@ -35,3 +35,4 @@ csharp:
   packageName: Boltpay.SDK
   packageTags: ""
   responseFormat: envelope-http
+  sourceDirectory: ""

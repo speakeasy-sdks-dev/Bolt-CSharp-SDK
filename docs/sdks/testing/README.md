@@ -55,12 +55,11 @@ var res = await sdk.Testing.CreateAccountAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
-
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
 
 ## TestingAccountPhoneGet
 
@@ -97,12 +96,11 @@ var res = await sdk.Testing.TestingAccountPhoneGetAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
-
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
 
 ## GetCreditCard
 
@@ -124,7 +122,8 @@ var res = await sdk.Testing.GetCreditCardAsync(
     security: new TestingCreditCardGetSecurity() {
         ApiKey = "<YOUR_API_KEY_HERE>",
     },
-    req);
+    req
+);
 
 // handle response
 ```
@@ -142,8 +141,8 @@ var res = await sdk.Testing.GetCreditCardAsync(
 
 ### Errors
 
-| Error Object                           | Status Code                            | Content Type                           |
+| Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
 | Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 4xx-5xx                                | */*                                    |
+| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
