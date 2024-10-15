@@ -118,11 +118,11 @@ By default, an API error will raise a `Boltpay.SDK.Models.Errors.SDKException` e
 
 When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `GetDetailsAsync` method throws the following exceptions:
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Boltpay.SDK.Models.Errors.Error        | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.FieldError   | 4XX                                    | application/json                       |
-| Boltpay.SDK.Models.Errors.SDKException | 5XX                                    | \*/\*                                  |
+| Error Type                             | Status Code | Content Type     |
+| -------------------------------------- | ----------- | ---------------- |
+| Boltpay.SDK.Models.Errors.Error        | 4XX         | application/json |
+| Boltpay.SDK.Models.Errors.FieldError   | 4XX         | application/json |
+| Boltpay.SDK.Models.Errors.SDKException | 5XX         | \*/\*            |
 
 ### Example
 
@@ -198,10 +198,10 @@ The default server can also be overridden globally by passing a URL to the `serv
 
 This SDK supports the following security schemes globally:
 
-| Name         | Type         | Scheme       |
-| ------------ | ------------ | ------------ |
-| `Oauth`      | oauth2       | OAuth2 token |
-| `ApiKey`     | apiKey       | API key      |
+| Name     | Type   | Scheme       |
+| -------- | ------ | ------------ |
+| `Oauth`  | oauth2 | OAuth2 token |
+| `ApiKey` | apiKey | API key      |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```csharp
