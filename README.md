@@ -171,24 +171,34 @@ catch (Exception ex)
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
+### Server Variables
 
-You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://{environment}.bolt.com/v3` | `environment` (default is `api-sandbox`) |
-
-
-
-#### Variables
-
-Some of the server options above contain variables. If you want to set the values of those variables, the following options are provided for doing so:
- * `environment: ServerEnvironment`
+The default server contains variables. If you want to set the values of those variables, the following options are provided for doing so:
+ * `Environment: ServerEnvironment` (default is `api-sandbox`)
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using Boltpay.SDK;
+using Boltpay.SDK.Models.Requests;
+using Boltpay.SDK.Models.Components;
+
+var sdk = new BoltSDK(
+    serverUrl: "https://{environment}.bolt.com/v3",
+    security: new Security() {
+        Oauth = "<YOUR_OAUTH_HERE>",
+        ApiKey = "<YOUR_API_KEY_HERE>",
+    }
+);
+
+var res = await sdk.Account.GetDetailsAsync(
+    xPublishableKey: "<value>",
+    xMerchantClientId: "<id>"
+);
+
+// handle response
+```
 <!-- End Server Selection [server] -->
 
 <!-- Start Authentication [security] -->
